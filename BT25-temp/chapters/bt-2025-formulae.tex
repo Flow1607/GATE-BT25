@@ -1,0 +1,114 @@
+\begin{enumerate}[label=\thesubsection.\arabic*, ref=\thesubsection.\theenumi]
+
+\item Exponential Series
+\begin{itemize}
+\item Taylor (Maclaurin) Series of $e^x$:
+\begin{align}
+e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!} = 1 + \frac{x}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots \label{eq:exp_maclaurin}
+\end{align}
+The series converges absolutely for all $x \in \mathbb{R}$ by the ratio test:
+\begin{align}
+L = \lim_{n \to \infty} \abs{\frac{x^{n+1}}{(n+1)!} \cdot \frac{n!}{x^n}} = \lim_{n \to \infty} \frac{\abs{x}}{n+1} = 0 < 1
+\end{align}
+\end{itemize}
+
+\item Laplace Transform
+\begin{itemize}
+\item First Derivative Property:
+\begin{align}
+y'\brak{t} \system{L} sY(s) - y(0) \label{eq:laplace_first_deriv}
+\end{align}
+\item Transform of a Constant:
+\begin{align}
+1 \system{L} \frac{1}{s} \label{eq:laplace_const}
+\end{align}
+\item First Frequency Shift / Exponential Inverse:
+\begin{align}
+e^{at} \system{L} \frac{1}{s - a} \label{eq:laplace_exp_inv}
+\end{align}
+\end{itemize}
+
+\item Euler's Method of Forward Differences
+\begin{itemize}
+\item For a first-order differential equation $\frac{dy}{dt} = f\brak{t, y}$ with step size $h$[cite: 6]:
+\begin{align}
+y_{n+1} = y_n + h f\brak{t_n, y_n} \label{eq:euler_recurrence}
+\end{align}
+\end{itemize}
+
+\item Gradient Descent Optimization
+\begin{itemize}
+\item First-Order Parameter Update:
+For a differentiable function $f\brak{x}$, the iterative parameter update with learning rate $\eta > 0$ is given by:
+\begin{align}
+x_{k+1} = x_k - \eta f'\brak{x_k} \label{eq:grad_descent_update}
+\end{align}
+\item Second Derivative Test for Convexity:
+\begin{align}
+f''\brak{x} > 0 \quad \forall x \in \brak{0, \infty} \implies f\brak{x} \text{ is strictly convex} \label{eq:convexity_check}
+\end{align}
+A strictly convex function on an open interval possesses at most one local minimum, which is also its unique global minimum.
+\end{itemize}
+
+\item Newton-Raphson Method
+\begin{itemize}
+\item First-Order Recurrence (Difference Equation):
+For a real-valued differentiable function $f\brak{x}$, the root is iteratively approximated using its first-order Taylor series expansion about the current estimate $x_n$[cite: 31]:
+\begin{align}
+x_{n+1} = x_n - \frac{f\brak{x_n}}{f'\brak{x_n}} \label{eq:newton_raphson}
+\end{align}
+\end{itemize}
+
+\item System of Linear Equations and Rouch\'{e}--Capelli Theorem
+\begin{itemize}
+\item A system of $m$ linear equations in $n$ variables can be represented in matrix form as:
+\begin{align}
+\vec{A}\vec{x} = \vec{b} \label{eq:linear_sys}
+\end{align}
+where $\vec{A} \in \mathbb{R}^{m \times n}$ is the coefficient matrix, $\vec{x} \in \mathbb{R}^{n \times 1}$ is the vector of unknowns, and $\vec{b} \in \mathbb{R}^{m \times 1}$ is the constant vector.
+\item The solvability of the system is governed by the ranks of the coefficient matrix $\vec{A}$ and the augmented matrix $\sbrak{\vec{A} \mid \vec{b}}$:
+\begin{enumerate}
+    \item \textbf{Inconsistent System (No Solution):} A linear system has no solution if and only if:
+    \begin{align}
+    \text{rank}\brak{\vec{A}} < \text{rank}\brak{\sbrak{\vec{A} \mid \vec{b}}} \label{eq:inconsistent_rank}
+    \end{align}
+    Geometrically, this corresponds to distinct parallel lines that do not intersect.
+    \item \textbf{Consistent System (At Least One Solution):} A linear system has at least one solution if and only if:
+    \begin{align}
+    \text{rank}\brak{\vec{A}} = \text{rank}\brak{\sbrak{\vec{A} \mid \vec{b}}} = r \label{eq:consistent_rank}
+    \end{align}
+    \begin{itemize}
+        \item If $r = n$ (where $n$ is the number of variables), there exists a unique solution.
+        \item If $r < n$, there exist infinitely many solutions with $n - r$ free variables (coincident lines).
+    \end{itemize}
+\end{enumerate}
+\end{itemize}
+
+\item Sum of Independent Discrete Random Variables (Two Dice Roll)
+\begin{itemize}
+\item Let $X_1, X_2 \in \{1, 2, 3, 4, 5, 6\}$ be independent discrete uniform random variables representing the outcomes of two fair dice, each having probability mass function (PMF):
+\begin{align}
+p_{X_1}\brak{n} = p_{X_2}\brak{n} = \begin{cases} 
+\frac{1}{6}, & 1 \le n \le 6 \\ 
+0, & \text{otherwise} 
+\end{cases} \label{eq:dice_uniform_pmf}
+\end{align}
+
+\item Let $X = X_1 + X_2$ denote their sum. The PMF of $X$ is given by the discrete convolution of $p_{X_1}\brak{n}$ and $p_{X_2}\brak{n}$:
+\begin{align}
+p_X\brak{n} &= \Pr\brak{X_1 + X_2 = n} = \sum_{k} \Pr\brak{X_1 = n - k \mid X_2 = k} p_{X_2}\brak{k} \\
+&= \sum_{k} p_{X_1}\brak{n - k} p_{X_2}\brak{k} = p_{X_1}\brak{n} * p_{X_2}\brak{n} \label{eq:dice_convolution}
+\end{align}
+
+\item Substituting \eqref{eq:dice_uniform_pmf} into \eqref{eq:dice_convolution} yields the triangular PMF:
+\begin{align}
+p_X\brak{n} = \begin{cases} 
+0, & n < 2 \\ 
+\frac{n - 1}{36}, & 2 \le n \le 7 \\ 
+\frac{13 - n}{36}, & 7 < n \le 12 \\ 
+0, & n > 12 
+\end{cases} \label{eq:triangular_pmf}
+\end{align}
+\end{itemize}
+
+\end{enumerate}
