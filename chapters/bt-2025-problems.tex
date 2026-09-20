@@ -41,6 +41,94 @@ The following C code verifies the series sum numerically:
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq3.c}@*)
 \end{lstlisting}
 
+\item A circle with center at $\brak{x, y} = \brak{0.5, 0}$ and radius $r_1 = 0.5$ intersects with another circle with center at $\brak{x, y} = \brak{1, 1}$ and radius $r_2 = 1$ at two points. One of the points of intersection $\brak{x, y}$ is:
+\hfill (GATE~BT~2025)
+\begin{enumerate}
+    \item $\brak{0, 0}$
+    \item $\brak{0.2, 0.4}$
+    \item $\brak{0.5, 0.5}$
+    \item $\brak{1, 2}$
+\end{enumerate}
+
+\solution
+The matrix parameters for the two circles are formulated from their center vectors $\vec{c}_i$ and radii $r_i$:
+\begin{align}
+\text{Circle 1: } \vec{c}_1 = \myvec{0.5 \\ 0}, \; r_1 = 0.5 &\implies \vec{V}_1 = \vec{I} = \myvec{1 & 0 \\ 0 & 1}, \; \vec{u}_1 = -\vec{c}_1 = \myvec{-0.5 \\ 0} \\
+f_1 &= \norm{\vec{c}_1}^2 - r_1^2 = 0.5^2 - 0.5^2 = 0 \\
+\text{Circle 2: } \vec{c}_2 = \myvec{1 \\ 1}, \; r_2 = 1 &\implies \vec{V}_2 = \vec{I} = \myvec{1 & 0 \\ 0 & 1}, \; \vec{u}_2 = -\vec{c}_2 = \myvec{-1 \\ -1} \\
+f_2 &= \norm{\vec{c}_2}^2 - r_2^2 = \brak{1^2 + 1^2} - 1^2 = 1
+\end{align}
+
+Using the pencil of conics from \eqref{eq:pencil_conics}, the condition for a degenerate conic from \eqref{eq:pencil_det_zero} gives:
+\begin{align}
+\det \myvec{\vec{V}_1 + \mu \vec{V}_2 & \vec{u}_1 + \mu \vec{u}_2 \\ \brak{\vec{u}_1 + \mu \vec{u}_2}^\top & f_1 + \mu f_2} = 0
+\end{align}
+Substituting the parameter matrices:
+\begin{align}
+\begin{vmatrix}
+1 + \mu & 0 & -0.5 - \mu \\
+0 & 1 + \mu & -\mu \\
+-0.5 - \mu & -\mu & \mu
+\end{vmatrix} = 0
+\end{align}
+Expanding the determinant:
+\begin{align}
+\brak{1 + \mu}\sbrak{\brak{1 + \mu}\mu - \mu^2} - \brak{-0.5 - \mu}\sbrak{0 - \brak{1 + \mu}\brak{-0.5 - \mu}} &= 0 \\
+\brak{1 + \mu}\mu - \brak{1 + \mu}\brak{\mu + 0.5}^2 &= 0 \\
+\brak{1 + \mu}\brak{-\mu^2 - \frac{1}{4}} &= 0
+\end{align}
+Since $\mu^2 + \frac{1}{4} = 0$ yields imaginary roots, the only real root is:
+\begin{align}
+\mu = -1
+\end{align}
+
+Substituting $\mu = -1$ into \eqref{eq:pencil_conics} eliminates the second-degree terms $\brak{\vec{V}_1 - \vec{V}_2 = \vec{0}}$, yielding the common chord (radical axis):
+\begin{align}
+2\brak{\vec{u}_1 - \vec{u}_2}^\top \vec{x} + \brak{f_1 - f_2} &= 0 \\
+2\brak{\myvec{-0.5 \\ 0} - \myvec{-1 \\ -1}}^\top \vec{x} + \brak{0 - 1} &= 0 \\
+2\myvec{0.5 & 1}\vec{x} - 1 = 0 \implies \myvec{1 & 2}\vec{x} &= 1
+\end{align}
+Thus, the equation of the line passing through the intersection points is $x + 2y = 1$.
+
+The normal vector of this line is $\vec{n} = \myvec{1 \\ 2}$. A direction vector $\vec{m}$ orthogonal to $\vec{n}$ ($\vec{m}^\top \vec{n} = 0$) and a point $\vec{h}$ on the line are:
+\begin{align}
+\vec{m} = \myvec{2 \\ -1}, \quad \vec{h} = \myvec{1 \\ 0}
+\end{align}
+Expressing the line in parametric form $\vec{x} = \vec{h} + \kappa \vec{m}$ and substituting into Circle 1 using \eqref{eq:conic_kappa_roots}:
+\begin{align}
+\vec{m}^\top \vec{V}_1 \vec{m} &= \myvec{2 & -1}\myvec{1 & 0 \\ 0 & 1}\myvec{2 \\ -1} = 5 \\
+\vec{V}_1 \vec{h} + \vec{u}_1 &= \myvec{1 \\ 0} + \myvec{-0.5 \\ 0} = \myvec{0.5 \\ 0} \\
+\vec{m}^\top \brak{\vec{V}_1 \vec{h} + \vec{u}_1} &= \myvec{2 & -1}\myvec{0.5 \\ 0} = 1 \\
+g\brak{\vec{h}} &= \vec{h}^\top \vec{V}_1 \vec{h} + 2\vec{u}_1^\top \vec{h} + f_1 = 1 - 1 + 0 = 0
+\end{align}
+Evaluating the parameter roots $\kappa$:
+\begin{align}
+\kappa = \frac{-1 \pm \sqrt{1^2 - 0}}{5} = \frac{-1 \pm 1}{5} \implies \kappa_1 = 0, \quad \kappa_2 = -\frac{2}{5}
+\end{align}
+
+The points of intersection are:
+\begin{align}
+\vec{x}_1 &= \vec{h} + 0\vec{m} = \myvec{1 \\ 0} \\
+\vec{x}_2 &= \vec{h} - \frac{2}{5}\vec{m} = \myvec{1 \\ 0} - \frac{2}{5}\myvec{2 \\ -1} = \myvec{0.2 \\ 0.4}
+\end{align}
+Hence, one of the points of intersection is $\brak{0.2, 0.4}$, and option (B) is correct.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\linewidth]{figs/circleintersect.pdf}
+    \caption{Intersection of the two circles and the radical axis}
+    \label{fig:bt25_q9}
+\end{figure}
+
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq9/circleProblem1.py}@*)
+\end{lstlisting}
+
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{figs/circleintersect.pdf}@*)
+\end{lstlisting}
+
 \item Let $y\brak{t}$ be a bacterial population whose growth is given by:
 \begin{align}
 \frac{dy}{dt} = \lambda\brak{y + 2}

@@ -12,6 +12,38 @@ L = \lim_{n \to \infty} \abs{\frac{x^{n+1}}{(n+1)!} \cdot \frac{n!}{x^n}} = \lim
 \end{align}
 \end{itemize}
 
+\item Intersection of Conics and Common Chord
+\begin{itemize}
+\item \textbf{Line-Conic Intersection:} The points of intersection of a line $L: \vec{x} = \vec{h} + \kappa \vec{m}$ ($\kappa \in \mathbb{R}$) with a conic section $\vec{x}^\top \vec{V} \vec{x} + 2\vec{u}^\top \vec{x} + f = 0$ are given by:
+\begin{align}
+\vec{x}_i = \vec{h} + \kappa_i \vec{m} \label{eq:conic_line_intersect}
+\end{align}
+where the parameter values $\kappa_i$ are:
+\begin{align}
+\kappa_i = \frac{-\vec{m}^\top \brak{\vec{V}\vec{h} + \vec{u}} \pm \sqrt{\sbrak{\vec{m}^\top \brak{\vec{V}\vec{h} + \vec{u}}}^2 - g\brak{\vec{h}}\brak{\vec{m}^\top \vec{V} \vec{m}}}}{\vec{m}^\top \vec{V} \vec{m}} \label{eq:conic_kappa_roots}
+\end{align}
+with $g\brak{\vec{h}} = \vec{h}^\top \vec{V} \vec{h} + 2\vec{u}^\top \vec{h} + f$.
+
+\item \textbf{Matrix Formulation of Intersection Points:} The intersection coordinates can be written in matrix form as:
+\begin{align}
+\vec{X} = \myvec{\vec{h} & \vec{m}} \myvec{1 & 1 \\ \kappa_1 & \kappa_2} \label{eq:conic_sol_matrix}
+\end{align}
+
+\item \textbf{Degenerate Conic Condition:} A quadratic form $\vec{x}^\top \vec{V} \vec{x} + 2\vec{u}^\top \vec{x} + f = 0$ represents a pair of straight lines if and only if the augmented matrix is singular:
+\begin{align}
+\det \myvec{\vec{V} & \vec{u} \\ \vec{u}^\top & f} = 0 \label{eq:conic_singularity}
+\end{align}
+
+\item \textbf{Pencil of Conics and Common Chord:} The intersection of two conics with parameters $\brak{\vec{V}_1, \vec{u}_1, f_1}$ and $\brak{\vec{V}_2, \vec{u}_2, f_2}$ is given by the pencil:
+\begin{align}
+\vec{x}^\top \brak{\vec{V}_1 + \mu \vec{V}_2}\vec{x} + 2\brak{\vec{u}_1 + \mu \vec{u}_2}^\top \vec{x} + \brak{f_1 + \mu f_2} = 0 \label{eq:pencil_conics}
+\end{align}
+The value of $\mu$ corresponding to the degenerate conic (the radical axis / common chord line) is found from:
+\begin{align}
+\det \myvec{\vec{V}_1 + \mu \vec{V}_2 & \vec{u}_1 + \mu \vec{u}_2 \\ \brak{\vec{u}_1 + \mu \vec{u}_2}^\top & f_1 + \mu f_2} = 0 \label{eq:pencil_det_zero}
+\end{align}
+\end{itemize}
+
 \item Laplace Transform
 \begin{itemize}
 \item First Derivative Property:
@@ -30,7 +62,7 @@ e^{at} \system{L} \frac{1}{s - a} \label{eq:laplace_exp_inv}
 
 \item Euler's Method of Forward Differences
 \begin{itemize}
-\item For a first-order differential equation $\frac{dy}{dt} = f\brak{t, y}$ with step size $h$[cite: 6]:
+\item For a first-order differential equation $\frac{dy}{dt} = f\brak{t, y}$ with step size $h$:
 \begin{align}
 y_{n+1} = y_n + h f\brak{t_n, y_n} \label{eq:euler_recurrence}
 \end{align}
@@ -53,7 +85,7 @@ A strictly convex function on an open interval possesses at most one local minim
 \item Newton-Raphson Method
 \begin{itemize}
 \item First-Order Recurrence (Difference Equation):
-For a real-valued differentiable function $f\brak{x}$, the root is iteratively approximated using its first-order Taylor series expansion about the current estimate $x_n$[cite: 31]:
+For a real-valued differentiable function $f\brak{x}$, the root is iteratively approximated using its first-order Taylor series expansion about the current estimate $x_n$:
 \begin{align}
 x_{n+1} = x_n - \frac{f\brak{x_n}}{f'\brak{x_n}} \label{eq:newton_raphson}
 \end{align}

@@ -1,13 +1,13 @@
 # Fdb version 4
-["makeindex main.idx"] 1789924474.52715 "main.idx" "main.ind" "main" 1789927200.91523 0
-  "main.idx" 1789927200.60807 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main.idx"] 1789932677.53447 "main.idx" "main.ind" "main" 1789932810.60259 0
+  "main.idx" 1789932810.2354 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1789927200.00393 "/home/jaideep-omen16/BT25-temp/main.tex" "main.pdf" "main" 1789927200.91534 0
+["pdflatex"] 1789932809.65633 "/home/jaideep-omen16/BT25-temp/main.tex" "main.pdf" "main" 1789932810.60271 0
   "/etc/texmf/web2c/texmf.cnf" 1787774014.6173 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/jaideep-omen16/BT25-temp/main.tex" 1789927158.11428 8472 342c6ebc6e0b8217423c9940d569f389 ""
+  "/home/jaideep-omen16/BT25-temp/main.tex" 1789932443.37977 8472 342c6ebc6e0b8217423c9940d569f389 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -319,8 +319,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1769369718 41603 27f93b3067076450172040dcd57ca8b3 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1787774741 5541477 3118940318599480888143717dd32d64 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1787774788 3639846 5877f181defadd666594563f11ba397c ""
-  "chapters/bt-2025-formulae.tex" 1789927005.26472 4933 cd4205c564736483c5e60e7c424dc13e ""
-  "chapters/bt-2025-problems.tex" 1789927199.83113 12867 8eace0702ede6964750b361c33194c53 ""
+  "chapters/bt-2025-formulae.tex" 1789932809.48939 6959 1c8fdce4bb48827ddf58c401530ec155 ""
+  "chapters/bt-2025-problems.tex" 1789932780.63409 17120 b081f4b1704ce41ef74f7c0c9ed3afda ""
   "codes/btq13/bac.c" 1789901252.45701 321 19295516a153810158434bd052cd56e4 ""
   "codes/btq14/min.c" 1789910237.20132 207 c8bca4261f73aa41b1952acbb35e5758 ""
   "codes/btq3.c" 1789899976.77534 375 61f8aff4ace436aa6c0a14ed84aa9234 ""
@@ -328,16 +328,17 @@
   "codes/btq35/dice.py" 1789926687.78184 965 14c17cc1f630f0bc1b6ce1710358bcbf ""
   "figs/bac.png" 1789901255.67306 12918 cc909778de5a96e69ceba0581cc195cf ""
   "figs/bt34_plot.pdf" 1789916980.75915 16140 ea3ab4c81b79f502f1f910b0cd3056c9 ""
+  "figs/circleintersect.pdf" 1789930929.61277 15944 bfeff7cb2f58393c71ea5ba35292fd74 ""
   "figs/min.png" 1789909765.63779 20059 4174aa842a50a4a21c82c40f3854100c ""
   "figs/pmf.pdf" 1789926917.97226 14801 9c395bd184699a448a18e853fa57091e ""
   "figs/raph.pdf" 1789913597.50183 7811 0d0b13b49e8b559a52c5287bcf213f7b ""
   "gvv-book.sty" 1789837126.45206 2364 972c828b0fdb5c1b2ef6ab44859ce8d3 ""
   "gvv.sty" 1789837126.45206 4374 e0265f3cc8fb087d2434efb730c546e4 ""
-  "main.aux" 1789927200.84907 3628 98e0de9ec1bb743eab2f32d58a1f2dbb "pdflatex"
-  "main.ind" 1789924474.61369 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.out" 1789927200.85007 303 087e6c7f7974ed87a48b849a53d037b8 "pdflatex"
-  "main.tex" 1789927158.11428 8472 342c6ebc6e0b8217423c9940d569f389 ""
-  "main.toc" 1789927200.85007 216 9d32e7043ad41fb87d17cfb9bf085cda "pdflatex"
+  "main.aux" 1789932810.5394 4352 9580df58a9606ccad8f3ef38a0359c74 "pdflatex"
+  "main.ind" 1789932677.63104 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
+  "main.out" 1789932810.5394 303 087e6c7f7974ed87a48b849a53d037b8 "pdflatex"
+  "main.tex" 1789932443.37977 8472 342c6ebc6e0b8217423c9940d569f389 ""
+  "main.toc" 1789932810.54101 216 c7040648dac99f69846a7197295a9a9b "pdflatex"
   (generated)
   "main.aux"
   "main.idx"
