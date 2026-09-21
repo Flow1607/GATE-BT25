@@ -1,3 +1,5 @@
+// The implementation and plotting scripts are adapted from: 
+// {https://github.com/Chamarthikrishnamadhur/ID1063/tree/master/07-09-26/BACTERIA}
 #include<stdio.h>
 #include<math.h>
 double euler(double y){

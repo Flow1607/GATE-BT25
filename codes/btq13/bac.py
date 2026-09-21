@@ -1,3 +1,7 @@
+#The implementation and plotting scripts are adapted from: 
+#{https://github.com/Chamarthikrishnamadhur/ID1063/tree/master/07-09-26/BACTERIA}
+
+
 import math
 import matplotlib.pyplot as plt
 import numpy as np

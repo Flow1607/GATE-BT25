@@ -1,3 +1,5 @@
+# The implementation and plotting scripts are adapted from: \\
+# {\hypersetup{urlcolor=blue}\url{https://github.com/gadepall/ncert-probability/tree/master/codes/sum}}
 import numpy as np
 import matplotlib.pyplot as plt
 #If using termux

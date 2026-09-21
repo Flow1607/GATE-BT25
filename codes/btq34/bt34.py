@@ -1,3 +1,5 @@
+# The Python code is adapted from: \\
+# {https://github.com/gadepall/matgeo}
 #Must be run inside matgeo/codes/CoordGeo/ along with funcs.py from line/funcs.py and params.py in CoordGeo/
 #Dated 10-09-2026
 #By Jaideep 

@@ -1,3 +1,7 @@
+// The implementation and plotting scripts are adapted from: 
+// {https://github.com/Chamarthikrishnamadhur/ID1063/tree/master/07-09-26/Minimize}
+
+
 #include <stdio.h>
 double des(double x){
 	return (x-0.3*(1-(4/(x*x))));
