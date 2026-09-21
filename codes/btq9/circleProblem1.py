@@ -1,25 +1,29 @@
+#The code has been adapted from {https://github.com/gadepall/matgeo/tree/main/codes/CoordGeo}
+#Must be run inside matgeo/codes/CoordGeo/ 
 import sys
 sys.path.insert(0, '/sdcard/github/matgeo/codes/CoordGeo')
 import numpy as np
 import matplotlib.pyplot as plt
 
-from line.funcs import *
-from conics.funcs import circ_gen
+from line.funcs import * #takes import form line/funcs.py
+from conics.funcs import circ_gen #takes imports from conics/funcs.py
 
 import subprocess
-import shlex
+import shlex #for running and opening in termux
 
 O1 = np.array([0.5, 0]).reshape(-1, 1)
-r1 = 0.5
+r1 = 0.5 
 
 O2 = np.array([1, 1]).reshape(-1, 1)
 r2 = 1
 
+#taking vector arrays
 X1 = np.array([0.2, 0.4]).reshape(-1, 1)
-X2 = np.array([1, 0]).reshape(-1, 1)
+X2 = np.array([1, 0]).reshape(-1, 1) 
 
+#implementing required circles 
 x_circ1 = circ_gen(O1, r1)
-x_circ2 = circ_gen(O2, r2)
+x_circ2 = circ_gen(O2, r2) 
 
 P1 = X1 + 0.5 * (X1 - X2)
 P2 = X2 + 0.5 * (X2 - X1)
@@ -27,6 +31,7 @@ x_rad = line_gen(P1, P2)
 
 x_centers = line_gen(O1, O2)
 
+#Plotting: 
 plt.figure(figsize=(8, 8))
 
 plt.plot(x_circ1[0,:], x_circ1[1,:], color='blue', label='$Circle\\ 1$')
@@ -53,5 +58,6 @@ plt.grid(True, linestyle=':')
 plt.axis('equal')
 
 plt.savefig('figs/conics/circleintersect.pdf')
-subprocess.run(shlex.split("termux-open figs/conics/circle_intersect.pdf"))
+#for opening in termux automatically: 
+#subprocess.run(shlex.split("termux-open figs/conics/circle_intersect.pdf")) 
 

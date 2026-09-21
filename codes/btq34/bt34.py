@@ -9,8 +9,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # 1. Coefficient matrix analysis
-A = np.array([[2.0, 3.0], [4.0, 6.0]])
-r_A = np.linalg.matrix_rank(A)
+A = np.array([[2.0, 3.0], [4.0, 6.0]]) #defining coeff matrix
+r_A = np.linalg.matrix_rank(A) #chceking rank of coeff matrix 
 
 print("--- Coefficient Matrix Analysis ---")
 print("Matrix A:")
@@ -24,12 +24,12 @@ print("\nRow Echelon Form of A (R2 -> R2 - 2*R1):")
 print(A_echelon)
 print(f"Rank(A) = {r_A}")
 
-# 2. Input parameter k and construct augmented matrix with np.block
+#  Input parameter k and construct augmented matrix with np.block
 print("\n--- Augmented Matrix Analysis ---")
-k = float(input("Enter value for k: "))
+k = float(input("Enter value for k: ")) #taking required value of k 
 
 b = np.array([[6.0], [3.0 * k]])
-aug = np.block([A, b])
+aug = np.block([A, b]) #forming the augemented matrix
 
 print("\nAugmented Matrix [A | b]:")
 print(aug)
@@ -41,7 +41,7 @@ aug_echelon[1] = aug_echelon[1] - 2 * aug_echelon[0]
 print("\nRow Echelon Form of [A | b]:")
 print(aug_echelon)
 
-r_aug = np.linalg.matrix_rank(aug)
+r_aug = np.linalg.matrix_rank(aug) #checking rank of augmented matrix
 print(f"\nRank(A) = {r_A}")
 print(f"Rank([A | b]) = {r_aug}")
 
@@ -55,7 +55,7 @@ else:
     print("Row 2 is entirely zeros (Infinitely Many Solutions).")
 
 
-# 3. Labeling points implementation from funcs.py
+# Labeling points implementation from funcs.py
 def label_pts(G_v, vert_labels):
     for i, txt in enumerate(vert_labels):
         plt.annotate(
@@ -67,7 +67,7 @@ def label_pts(G_v, vert_labels):
         )
 
 
-# 4. Plot both lines and annotate key coordinate points
+# Plot both lines and annotate key coordinate points
 x = np.linspace(-5, 5, 400)
 y1 = (6.0 - 2.0 * x) / 3.0
 y2 = (3.0 * k - 4.0 * x) / 6.0

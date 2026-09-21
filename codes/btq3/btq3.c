@@ -12,7 +12,7 @@ int main() {
     }
 
     printf("Calculated Sum : %.6f\n", sum);
-    printf("Theoretical e-1: %.6f\n", M_E - 1.0);
+    printf("Theoretical e-1: %.6f\n", M_E - 1.0); //verifying with actual value
 
     return 0;
 }

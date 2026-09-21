@@ -1,4 +1,4 @@
-import cvxpy as cp
+import cvxpy as cp #using cvxpy to find the soln
 import numpy as np
 import matplotlib.pyplot as plt
 x1=np.linspace(1,4,200)
@@ -8,6 +8,6 @@ x=cp.Variable()
 q=cp.Minimize(x+(4*cp.inv_pos(x)))
 con=[x>=0]
 pb=cp.Problem(q,con)
-sol=pb.solve()
+sol=pb.solve() 
 print(sol)
 plt.savefig("/sdcard/fig.png")

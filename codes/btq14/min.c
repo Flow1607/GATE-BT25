@@ -4,13 +4,13 @@
 
 #include <stdio.h>
 double des(double x){
-	return (x-0.3*(1-(4/(x*x))));
+	return (x-0.3*(1-(4/(x*x)))); //apt function for gradient descent 
 }
 double func(double x){return x+4/x;} 
 int main(){
 	double x=5;
 	for (int i=0;i<200;i++){
-		x=des(x);
+		x=des(x); //iterative gradient descent to change the guesses
 	}
 	printf(":%lf\n",func(x));
 }

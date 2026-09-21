@@ -5,7 +5,7 @@
 # import
 import math
 import shlex
-import shutil
+import shutil #required import to run in both termux and ubuntu
 import subprocess
 import matplotlib.pyplot as plt
 import numpy as np
@@ -39,7 +39,7 @@ print("The solution is", sol)
 for i in range(5):
     y = func(x)
     plt.plot(x, y, "o")
-    if i == 0:
+    if i == 0: #labelling initial guess
         plt.annotate(
             f"({x:.4f}, {y:.4f})",
             (x, y),
@@ -47,7 +47,7 @@ for i in range(5):
             xytext=(-10, 10),
             ha="right",
         )
-    elif i == 4:
+    elif i == 4: #labelling final guess
         plt.annotate(
             f"({x:.4f}, {y:.4f})",
             (x, y),
