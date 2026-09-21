@@ -247,12 +247,35 @@ f\brak{2} = 2 + \frac{4}{2} = 4
 \end{align}
 Hence, option (D) is correct.
 
-\item \noindent{Numerical Simulation (Gradient Descent):} \\
+\noindent{Numerical Simulation (Gradient Descent):} \\
 Applying the first-order update relation from \eqref{eq:grad_descent_update} with learning rate $\eta = 0.3$:
 \begin{align}
 x_{k+1} = x_k - 0.3\brak{1 - \frac{4}{x_k^2}}
 \end{align}
 Starting from the initial guess $x_0 = 5$, the sequence converges to $x^* = 2$, yielding $f\brak{x^*} = 4$.
+
+\item Alternative Method (Completing the Square):
+For $x > 0$, the function $f\brak{x}$ can be expressed in terms of square roots and rewritten as a perfect square:
+\begin{align}
+f\brak{x} &= x + \frac{4}{x} \\
+&= \brak{\sqrt{x}}^2 - 2\brak{\sqrt{x}}\brak{\frac{2}{\sqrt{x}}} + \brak{\frac{2}{\sqrt{x}}}^2 + 2\brak{\sqrt{x}}\brak{\frac{2}{\sqrt{x}}} \\
+&= \brak{\sqrt{x} - \frac{2}{\sqrt{x}}}^2 + 4
+\end{align}
+
+Since the square of any real number is non-negative:
+\begin{align}
+\brak{\sqrt{x} - \frac{2}{\sqrt{x}}}^2 \ge 0 \quad \forall x > 0
+\end{align}
+with equality holding if and only if:
+\begin{align}
+\sqrt{x} - \frac{2}{\sqrt{x}} = 0 \implies \sqrt{x} = \frac{2}{\sqrt{x}} \implies x = 2
+\end{align}
+
+Therefore:
+\begin{align}
+f\brak{x} \ge 4 \quad \forall x > 0
+\end{align}
+The minimum value is $4$, attained at $x = 2$, which confirms option (D).
 
 The C code implementing iterative gradient descent is:
 
@@ -309,7 +332,7 @@ x_4 &= x_3 - 1 + 2e^{-x_3} \approx 0.693147 \approx \ln 2
 
 The exact mathematical solution is $e^x = 2 \implies x = \ln 2 \approx 0.693147$. Thus, the approximated value of the root after one iteration is ${0.74}$.
 
-The C Code implementation for iterative gradient descent is as follows: 
+The C Code implementating Newton-Raphson recurrence is as follows: 
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq33/raph.c}@*)
 \end{lstlisting}

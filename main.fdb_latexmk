@@ -1,11 +1,11 @@
 # Fdb version 4
-["makeindex main.idx"] 1789932677.53447 "main.idx" "main.ind" "main" 1789966846.24205 0
-  "main.idx" 1789966845.8887 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main.idx"] 1789932677.53447 "main.idx" "main.ind" "main" 1789968059.58482 0
+  "main.idx" 1789968059.2629 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1789966845.14329 "/home/jaideep-omen16/GATE-BT25/main.tex" "main.pdf" "main" 1789966846.24219 0
+["pdflatex"] 1789968058.59137 "/home/jaideep-omen16/GATE-BT25/main.tex" "main.pdf" "main" 1789968059.58497 0
   "/etc/texmf/web2c/texmf.cnf" 1787774014.6173 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/jaideep-omen16/GATE-BT25/main.tex" 1789964677.96451 8472 342c6ebc6e0b8217423c9940d569f389 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -313,21 +313,21 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1769369718 41603 27f93b3067076450172040dcd57ca8b3 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1787774741 5541477 3118940318599480888143717dd32d64 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1787774788 3639846 5877f181defadd666594563f11ba397c ""
-  "chapters/bt-2025-formulae.tex" 1789965904.73752 6960 53d8748439a18f2d47b6aea13caad96b ""
-  "chapters/bt-2025-problems.tex" 1789966844.95099 16105 77ae4be3b5299b22316b16bc675de6e0 ""
+  "chapters/bt-2025-formulae.tex" 1789967203.6203 7323 bdfc774eb350f8a4aabd5ab9ea241a60 ""
+  "chapters/bt-2025-problems.tex" 1789967437.32045 16951 4a7db826c021e7bd56fa38ff65831bcd ""
   "figs/bac.png" 1789901255.67306 12918 cc909778de5a96e69ceba0581cc195cf ""
   "figs/bt34_plot.pdf" 1789916980.75915 16140 ea3ab4c81b79f502f1f910b0cd3056c9 ""
   "figs/circleintersect.pdf" 1789930929.61277 15944 bfeff7cb2f58393c71ea5ba35292fd74 ""
   "figs/min.png" 1789909765.63779 20059 4174aa842a50a4a21c82c40f3854100c ""
   "figs/pmf.pdf" 1789926917.97226 14801 9c395bd184699a448a18e853fa57091e ""
-  "figs/raph.pdf" 1789913597.50183 7811 0d0b13b49e8b559a52c5287bcf213f7b ""
+  "figs/raph.pdf" 1789968028.38366 10120 c199d3dcf7c3d14de8f7722a32c97f1d ""
   "gvv-book.sty" 1789837126.45206 2364 972c828b0fdb5c1b2ef6ab44859ce8d3 ""
   "gvv.sty" 1789837126.45206 4374 e0265f3cc8fb087d2434efb730c546e4 ""
-  "main.aux" 1789966846.17855 3818 43f0815ed9ab4866b6bdb74f5f47c9c8 "pdflatex"
+  "main.aux" 1789968059.52557 3896 e149e9914bbb8d3919623e301a686e30 "pdflatex"
   "main.ind" 1789932677.63104 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.out" 1789966846.17855 303 087e6c7f7974ed87a48b849a53d037b8 "pdflatex"
+  "main.out" 1789968059.52557 303 087e6c7f7974ed87a48b849a53d037b8 "pdflatex"
   "main.tex" 1789964677.96451 8472 342c6ebc6e0b8217423c9940d569f389 ""
-  "main.toc" 1789966846.17964 216 c7040648dac99f69846a7197295a9a9b "pdflatex"
+  "main.toc" 1789968059.52643 216 c7040648dac99f69846a7197295a9a9b "pdflatex"
   (generated)
   "main.aux"
   "main.idx"

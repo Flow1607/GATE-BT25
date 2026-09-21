@@ -82,6 +82,15 @@ f''\brak{x} > 0 \quad \forall x \in \brak{0, \infty} \implies f\brak{x} \text{ i
 A strictly convex function on an open interval possesses at most one local minimum, which is also its unique global minimum.
 \end{itemize}
 
+\item Minimization via Completing the Square
+\begin{itemize}
+\item For any $x > 0$ and constant $a > 0$:
+\begin{align}
+x + \frac{a^2}{x} = \brak{\sqrt{x} - \frac{a}{\sqrt{x}}}^2 + 2a \ge 2a \label{eq:completing_square_min}
+\end{align}
+The equality holds if and only if $\sqrt{x} = \frac{a}{\sqrt{x}} \implies x = a$, giving the minimum value $2a$.
+\end{itemize}
+
 \item Newton-Raphson Method
 \begin{itemize}
 \item First-Order Recurrence (Difference Equation):
