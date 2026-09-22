@@ -14,7 +14,7 @@ L = \lim_{n \to \infty} \abs{\frac{x^{n+1}}{(n+1)!} \cdot \frac{n!}{x^n}} = \lim
 
 \item Intersection of Conics and Common Chord
 \begin{itemize}
-\item \textbf{Line-Conic Intersection:} The points of intersection of a line $L: \vec{x} = \vec{h} + \kappa \vec{m}$ ($\kappa \in \mathbb{R}$) with a conic section $\vec{x}^\top \vec{V} \vec{x} + 2\vec{u}^\top \vec{x} + f = 0$ are given by:
+\item {Line-Conic Intersection:} The points of intersection of a line $L: \vec{x} = \vec{h} + \kappa \vec{m}$ ($\kappa \in \mathbb{R}$) with a conic section $\vec{x}^\top \vec{V} \vec{x} + 2\vec{u}^\top \vec{x} + f = 0$ are given by:
 \begin{align}
 \vec{x}_i = \vec{h} + \kappa_i \vec{m} \label{eq:conic_line_intersect}
 \end{align}
@@ -24,17 +24,17 @@ where the parameter values $\kappa_i$ are:
 \end{align}
 with $g\brak{\vec{h}} = \vec{h}^\top \vec{V} \vec{h} + 2\vec{u}^\top \vec{h} + f$.
 
-\item \textbf{Matrix Formulation of Intersection Points:} The intersection coordinates can be written in matrix form as:
+\item {Matrix Formulation of Intersection Points:} The intersection coordinates can be written in matrix form as:
 \begin{align}
 \vec{X} = \myvec{\vec{h} & \vec{m}} \myvec{1 & 1 \\ \kappa_1 & \kappa_2} \label{eq:conic_sol_matrix}
 \end{align}
 
-\item \textbf{Degenerate Conic Condition:} A quadratic form $\vec{x}^\top \vec{V} \vec{x} + 2\vec{u}^\top \vec{x} + f = 0$ represents a pair of straight lines if and only if the augmented matrix is singular:
+\item {Degenerate Conic Condition:} A quadratic form $\vec{x}^\top \vec{V} \vec{x} + 2\vec{u}^\top \vec{x} + f = 0$ represents a pair of straight lines if and only if the augmented matrix is singular:
 \begin{align}
 \det \myvec{\vec{V} & \vec{u} \\ \vec{u}^\top & f} = 0 \label{eq:conic_singularity}
 \end{align}
 
-\item \textbf{Pencil of Conics and Common Chord:} The intersection of two conics with parameters $\brak{\vec{V}_1, \vec{u}_1, f_1}$ and $\brak{\vec{V}_2, \vec{u}_2, f_2}$ is given by the pencil:
+\item {Pencil of Conics and Common Chord:} The intersection of two conics with parameters $\brak{\vec{V}_1, \vec{u}_1, f_1}$ and $\brak{\vec{V}_2, \vec{u}_2, f_2}$ is given by the pencil:
 \begin{align}
 \vec{x}^\top \brak{\vec{V}_1 + \mu \vec{V}_2}\vec{x} + 2\brak{\vec{u}_1 + \mu \vec{u}_2}^\top \vec{x} + \brak{f_1 + \mu f_2} = 0 \label{eq:pencil_conics}
 \end{align}
@@ -109,12 +109,12 @@ x_{n+1} = x_n - \frac{f\brak{x_n}}{f'\brak{x_n}} \label{eq:newton_raphson}
 where $\vec{A} \in \mathbb{R}^{m \times n}$ is the coefficient matrix, $\vec{x} \in \mathbb{R}^{n \times 1}$ is the vector of unknowns, and $\vec{b} \in \mathbb{R}^{m \times 1}$ is the constant vector.
 \item The solvability of the system is governed by the ranks of the coefficient matrix $\vec{A}$ and the augmented matrix $\sbrak{\vec{A} \mid \vec{b}}$:
 \begin{enumerate}
-    \item \textbf{Inconsistent System (No Solution):} A linear system has no solution if and only if:
+    \item {Inconsistent System (No Solution):} A linear system has no solution if and only if:
     \begin{align}
     \text{rank}\brak{\vec{A}} < \text{rank}\brak{\sbrak{\vec{A} \mid \vec{b}}} \label{eq:inconsistent_rank}
     \end{align}
     Geometrically, this corresponds to distinct parallel lines that do not intersect.
-    \item \textbf{Consistent System (At Least One Solution):} A linear system has at least one solution if and only if:
+    \item {Consistent System (At Least One Solution):} A linear system has at least one solution if and only if:
     \begin{align}
     \text{rank}\brak{\vec{A}} = \text{rank}\brak{\sbrak{\vec{A} \mid \vec{b}}} = r \label{eq:consistent_rank}
     \end{align}
@@ -151,5 +151,134 @@ p_X\brak{n} = \begin{cases}
 \end{cases} \label{eq:triangular_pmf}
 \end{align}
 \end{itemize}
+
+\item Unit Step Response of an $RC$ Circuit and $s$-Domain Analysis
+\begin{itemize}
+\item {Time-Domain Circuit Equation:}
+Consider a series $RC$ circuit excited by a step input $v_i\brak{t} = V_{dc} u\brak{t}$ where $V_{dc}$ is a constant DC voltage source, and $u\brak{t}$ is step input function defined as: 
+\begin{align}
+u\brak{t} = \begin{cases}
+1, & t \ge 0 \\
+0, & t < 0
+\end{cases} 
+\end{align}
+Starting at $t = 0$. The current through the capacitor is:
+\begin{align}
+i\brak{t} = \frac{dq}{dt} = C \frac{dV_{out}}{dt}
+\end{align}
+Applying Kirchhoff's Voltage Law (KVL) around the loop:
+\begin{align}
+R i\brak{t} + V_{out}\brak{t} = V_{dc} \implies RC \frac{dV_{out}}{dt} + V_{out}\brak{t} = V_{dc} \label{eq:rc_circuit_ode}
+\end{align}
+
+\item {$s$-Domain Representation:}
+Transforming the circuit to the Laplace domain, the step source becomes $V_{in}\brak{s} = \frac{V_{dc}}{s}$, the resistor impedance is $R$, and the capacitor impedance is $\frac{1}{sC}$. The equivalent impedance is:
+\begin{align}
+R_{eq}\brak{s} = R + \frac{1}{sC} = \frac{RsC + 1}{sC}
+\end{align}
+The loop current in the $s$-domain is:
+\begin{align}
+I\brak{s} = \frac{V_{in}\brak{s}}{R_{eq}\brak{s}} = \frac{\frac{V_{dc}}{s}}{\frac{RsC + 1}{sC}} = \frac{V_{dc} C}{RsC + 1}
+\end{align}
+The output voltage across the capacitor is obtained as:
+\begin{align}
+V_{out}\brak{s} &= I\brak{s} \brak{\frac{1}{sC}} = \frac{V_{dc}}{s\brak{RCs + 1}} \\
+&= \frac{V_{dc}}{RC} \sbrak{\frac{1}{s\brak{s + \frac{1}{RC}}}} = V_{dc} \sbrak{\frac{1}{s} - \frac{1}{s + \frac{1}{RC}}} \label{eq:rc_s_domain_vout}
+\end{align}
+Taking the inverse Laplace transform yields:
+\begin{align}
+V_{out}\brak{t} = V_{dc}\brak{1 - e^{-\frac{t}{RC}}} u\brak{t} \label{eq:rc_time_response}
+\end{align}
+\end{itemize}
+
+\item Standard First-Order Differential Equation Comparison
+\begin{itemize}
+\item A general first-order dynamic system with time constant $\tau$ subjected to a unit step input is described by:
+\begin{align}
+\tau \frac{dy}{dt} + y\brak{t} = y_{ss} \label{eq:first_order_ode_std}
+\end{align}
+where $\tau$ is the time constant and $y_{ss}$ is the steady-state response.
+
+\item Comparing \eqref{eq:first_order_ode_std} with the $RC$ circuit in \eqref{eq:rc_circuit_ode}:
+\begin{align}
+y\brak{t} \longleftrightarrow V_{out}\brak{t}, \quad \tau \longleftrightarrow RC, \quad y_{ss} \longleftrightarrow V_{dc}
+\end{align}
+Transforming \eqref{eq:first_order_ode_std} into the $s$-domain with zero initial conditions $y\brak{0} = 0$:
+\begin{align}
+\tau s Y\brak{s} + Y\brak{s} = \frac{y_{ss}}{s} \implies Y\brak{s} = \frac{y_{ss}}{s\brak{\tau s + 1}} = y_{ss} \sbrak{\frac{1}{s} - \frac{1}{s + \frac{1}{\tau}}}
+\end{align}
+Taking the inverse Laplace transform directly gives:
+\begin{align}
+y\brak{t} = y_{ss}\brak{1 - e^{-\frac{t}{\tau}}} u\brak{t} \label{eq:first_order_step_sol}
+\end{align}
+\end{itemize}
+
+\item Transfer Function of a First-Order Process
+\begin{itemize}
+\item The transfer function of a linear time-invariant system is defined as the ratio of the Laplace transform of the output $Y\brak{s}$ to the Laplace transform of the input $F\brak{s}$, evaluated under the assumption that all initial conditions are zero.
+\begin{align}
+H\brak{s} = \frac{Y\brak{s}}{F\brak{s}}
+\end{align}
+\end{itemize}
+
+\item Identity Condition for Linear Combinations
+\begin{itemize}
+\item For any independent variables or functions $x$ and $y$, if the relation
+\begin{align}
+ax + by = 0 \label{eq:linear_identity}
+\end{align}
+holds identically for all $x$ and $y$, then the coefficients must vanish simultaneously:
+\begin{align}
+a = 0 \quad \text{and} \quad b = 0 \label{eq:linear_coeffs_zero}
+\end{align}
+\item Similarly, if an expression $C_1 f_1\brak{t} + C_2 f_2\brak{t} = 0$ holds for arbitrary constants $C_1$ and $C_2$, each coefficient must vanish independently:
+\begin{align}
+f_1\brak{t} = 0 \quad \text{and} \quad f_2\brak{t} = 0 \label{eq:arbitrary_coeffs_zero}
+\end{align}
+For distinct exponential functions $e^{r_1 t}$ and $e^{r_2 t}$ ($r_1 \ne r_2$), this implies linear independence across all $t$.
+\end{itemize}
+
+\item Continuity and Differentiability in Functions
+\begin{itemize}
+\item Continuity at a Point:
+A real-valued function $f\brak{x}$ is continuous at $x = x_0$ if and only if the left-hand limit, the right-hand limit, and the value of the function coincide:
+\begin{align}
+\lim_{x \to x_0^-} f\brak{x} = \lim_{x \to x_0^+} f\brak{x} = f\brak{x_0} \label{eq:continuity_cond}
+\end{align}
+
+\item Differentiability and Slope Matching:
+A function $f\brak{x}$ is differentiable at $x = x_0$ if the left-hand derivative equals the right-hand derivative:
+\begin{align}
+f'\brak{x_0^-} = \lim_{h \to 0^-} \frac{f\brak{x_0 + h} - f\brak{x_0}}{h} = \lim_{h \to 0^+} \frac{f\brak{x_0 + h} - f\brak{x_0}}{h} = f'\brak{x_0^+} \label{eq:deriv_equality}
+\end{align}
+For piecewise functions defined by differentiable curves on each side of the boundary $x_0$, this requires matching boundary slopes:
+\begin{align}
+f'\brak{x_0^-} = f'\brak{x_0^+} \label{eq:slope_matching}
+\end{align}
+
+\item Differentiability Implies Continuity:
+If $f\brak{x}$ is differentiable at $x = x_0$, it must necessarily be continuous at $x = x_0$:
+\begin{align}
+\lim_{x \to x_0} \sbrak{f\brak{x} - f\brak{x_0}} = \lim_{x \to x_0} \sbrak{\frac{f\brak{x} - f\brak{x_0}}{x - x_0} \brak{x - x_0}} = f'\brak{x_0} \cdot 0 = 0 \label{eq:diff_implies_cont}
+\end{align}
+Hence, continuity at $x = x_0$ is a necessary prerequisite for differentiability.
+\end{itemize}
+
+\item Piecewise Boundary Conditions at $x = a$:
+Consider a function $f\brak{x}$ defined by differentiable branches $f_1\brak{x}$ and $f_2\brak{x}$ across a boundary point $x = a$:
+\begin{align}
+f\brak{x} = \begin{cases}
+f_1\brak{x}, & x \le a \\
+f_2\brak{x}, & x > a
+\end{cases} \label{eq:piecewise_branches}
+\end{align}
+For $f\brak{x}$ to be continuous at $x = a$, the one-sided limits must equal the boundary value:
+\begin{align}
+\lim_{x \to a^-} f_1\brak{x} = \lim_{x \to a^+} f_2\brak{x} \implies f_1\brak{a} = f_2\brak{a} \label{eq:piecewise_cont_cond}
+\end{align}
+For $f\brak{x}$ to be differentiable at $x = a$, the one-sided derivatives at the boundary must coincide:
+\begin{align}
+f_1'\brak{a} = f_2'\brak{a} \label{eq:piecewise_diff_cond}
+\end{align}
 
 \end{enumerate}

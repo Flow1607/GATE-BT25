@@ -10,4 +10,5 @@ con=[x>=0]
 pb=cp.Problem(q,con)
 sol=pb.solve() 
 print(sol)
+plt.grid(True)
 plt.savefig("/sdcard/fig.png")

@@ -442,6 +442,234 @@ The Python simulation script verifying the PMF across 10,000 trials is:
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{figs/pmf.pdf}@*)
 \end{lstlisting}
 
+\item A thermometer measuring body temperature follows a first-order response with a time constant of $40$ seconds. The instrument will reach $95\%$ of its steady-state output at \underline{\hspace{1.5cm}} seconds (round off to the nearest integer).
+\hfill (GATE~BT~2025)
+\begin{enumerate}
+    \item $60$
+    \item $80$
+    \item $120$
+    \item $160$
+\end{enumerate}
 
+\solution
+The dynamic thermal response of the thermometer is modeled by the standard first-order differential equation given in \eqref{eq:first_order_ode_std}:
+\begin{align}
+\tau \frac{dy}{dt} + y\brak{t} = y_{ss}
+\end{align}
+which is analogous to the series $RC$ low-pass circuit in \eqref{eq:rc_circuit_ode}, where the measured temperature $y\brak{t}$ maps to the capacitor output voltage $V_{out}\brak{t}$, the steady-state reading $y_{ss}$ corresponds to $V_{dc}$, and the thermal time constant $\tau = 40\text{ s}$ corresponds to the circuit time constant $RC$.
+
+Converting the system to the $s$-domain equivalent circuit from \eqref{eq:rc_s_domain_vout}:
+\begin{align}
+Y\brak{s} = \frac{y_{ss}}{s\brak{\tau s + 1}} = y_{ss}\sbrak{\frac{1}{s} - \frac{1}{s + \frac{1}{\tau}}}
+\end{align}
+Taking the inverse Laplace transform directly yields the transient response from \eqref{eq:first_order_step_sol}:
+\begin{align}
+y\brak{t} = y_{ss}\brak{1 - e^{-\frac{t}{\tau}}}
+\end{align}
+
+The instrument reaches $95\%$ of its steady-state reading when $y\brak{t_{95}} = 0.95 y_{ss}$:
+\begin{align}
+y_{ss}\brak{1 - e^{-\frac{t_{95}}{\tau}}} &= 0.95 y_{ss} \\
+1 - e^{-\frac{t_{95}}{\tau}} &= 0.95 \\
+e^{-\frac{t_{95}}{\tau}} &= 0.05 = \frac{1}{20}
+\end{align}
+
+Taking the natural logarithm on both sides:
+\begin{align}
+-\frac{t_{95}}{\tau} &= \ln\brak{0.05} = -\ln\brak{20} \\
+t_{95} &= \tau \ln\brak{20}
+\end{align}
+Substituting the given time constant $\tau = 40\text{ s}$:
+\begin{align}
+t_{95} &= 40 \ln\brak{20} \\
+&\approx 40 \times 2.99573 \approx 119.83\text{ s}
+\end{align}
+Rounding off to the nearest integer gives $120$ seconds. Hence, option (C) is correct.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\linewidth]{figs/rc-step-response.pdf}
+    \caption{Step response of the first-order system with $\tau = 40\text{ s}$}
+    \label{fig:bt25_q42}
+\end{figure}
+
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq42/plot.py}@*)
+\end{lstlisting}
+
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{figs/rc-step-response.pdf}@*)
+\end{lstlisting}
+
+\item The output $y\brak{t}$ of a first-order process is governed by the following differential equation
+\begin{align}
+\tau_p \frac{dy}{dt} + y = K_p f\brak{t}
+\end{align}
+where $\tau_p$ is a non-zero time constant, $K_p$ is the gain and $f\brak{t}$ is the input with $f\brak{0} = 0$.
+
+Assume $y\brak{0} = 0$. The transfer function for this process is (consider $s$ as the independent variable in the Laplace domain)
+\hfill (GATE BT 2025)
+\begin{enumerate}
+    \item $\frac{K_p}{\tau_p s + 1}$
+    \item $\frac{\tau_p}{K_p s + 1}$
+    \item $\frac{\tau_p}{K_p\brak{s + 1}}$
+    \item $\frac{K_p}{\tau_p\brak{s + 1}}$
+\end{enumerate}
+
+\solution
+The given first-order differential equation governing the process is:
+\begin{align}
+\tau_p \frac{dy\brak{t}}{dt} + y\brak{t} = K_p f\brak{t}
+\end{align}
+
+Taking the unilateral Laplace transform on both sides using \eqref{eq:laplace_first_deriv}:
+\begin{align}
+\tau_p \sbrak{s Y\brak{s} - y\brak{0}} + Y\brak{s} = K_p F\brak{s}
+\end{align}
+
+Applying the given initial condition $y\brak{0} = 0$:
+\begin{align}
+\tau_p s Y\brak{s} + Y\brak{s} &= K_p F\brak{s} \\
+Y\brak{s} \brak{\tau_p s + 1} &= K_p F\brak{s}
+\end{align}
+
+The transfer function is the ratio of the output $Y\brak{s}$ to the input $F\brak{s}$:
+\begin{align}
+\frac{Y\brak{s}}{F\brak{s}} = \frac{K_p}{\tau_p s + 1}
+\end{align}
+
+Hence, option (A) is correct.
+
+\item Let $m$ and $n$ be fixed real numbers. If the function $y\brak{t} = C_1 e^t + C_2 e^{-t}$ is a solution of
+\begin{align}
+\frac{d^2 y}{dt^2} + m \frac{dy}{dt} + ny = 0
+\end{align}
+for any constants $C_1$ and $C_2$, then $m + n$ is equal to
+\hfill (GATE~BT~2025)
+\begin{enumerate}
+    \item -2
+    \item -1
+    \item 0
+    \item 1
+\end{enumerate}
+
+\solution
+The given function is:
+\begin{align}
+y\brak{t} = C_1 e^t + C_2 e^{-t}
+\end{align}
+
+Computing the first and second derivatives with respect to $t$:
+\begin{align}
+\frac{dy}{dt} &= C_1 e^t - C_2 e^{-t} \\
+\frac{d^2 y}{dt^2} &= C_1 e^t + C_2 e^{-t}
+\end{align}
+
+Substituting $y$, $\frac{dy}{dt}$, and $\frac{d^2 y}{dt^2}$ into the differential equation:
+\begin{align}
+\frac{d^2 y}{dt^2} + m \frac{dy}{dt} + ny &= 0 \\
+\brak{C_1 e^t + C_2 e^{-t}} + m\brak{C_1 e^t - C_2 e^{-t}} + n\brak{C_1 e^t + C_2 e^{-t}} &= 0
+\end{align}
+
+Grouping the terms containing $C_1$ and $C_2$:
+\begin{align}
+C_1 e^t \brak{1 + m + n} + C_2 e^{-t} \brak{1 - m + n} = 0
+\end{align}
+
+Using \eqref{eq:linear_identity} and \eqref{eq:linear_coeffs_zero}, since this equation must hold for any constants $C_1$ and $C_2$:
+\begin{align}
+1 + m + n &= 0 \label{eq:q45_eq1} \\
+1 - m + n &= 0 \label{eq:q45_eq2}
+\end{align}
+
+Adding \eqref{eq:q45_eq1} and \eqref{eq:q45_eq2}:
+\begin{align}
+2 + 2n = 0 \implies n = -1
+\end{align}
+
+Subtracting \eqref{eq:q45_eq2} from \eqref{eq:q45_eq1}:
+\begin{align}
+2m = 0 \implies m = 0
+\end{align}
+
+Evaluating $m + n$:
+\begin{align}
+m + n = 0 + \brak{-1} = -1
+\end{align}
+
+Hence, option (B) is correct.
+
+\item Consider the piecewise function
+\begin{align}
+f\brak{x} = \begin{cases}
+\sin\brak{2x}, & x > 0 \\
+a + bx, & x \le 0
+\end{cases}
+\end{align}
+where $a$ and $b$ are real constants. If $f\brak{x}$ is differentiable at $x = 0$, then the value of $a + b$ is
+\hfill (GATE~BT~2025)
+\begin{enumerate}
+    \item 0
+    \item 1
+    \item 2
+    \item -2
+\end{enumerate}
+
+\solution
+Since $f\brak{x}$ is differentiable at $x = 0$, from \eqref{eq:diff_implies_cont} it must also be continuous at $x = 0$. Applying the continuity condition from \eqref{eq:continuity_cond}:
+\begin{align}
+\lim_{x \to 0^+} f\brak{x} = \lim_{x \to 0^-} f\brak{x} = f\brak{0}
+\end{align}
+
+Evaluating the one-sided limits:
+\begin{align}
+\lim_{x \to 0^+} f\brak{x} &= \lim_{x \to 0^+} \sin\brak{2x} = \sin\brak{0} = 0 \\
+\lim_{x \to 0^-} f\brak{x} &= \lim_{x \to 0^-} \brak{a + bx} = a + b\brak{0} = a
+\end{align}
+Equating the limits yields:
+\begin{align}
+a = 0
+\end{align}
+
+Applying the differentiability condition and matching one-sided derivatives at $x = 0$ using \eqref{eq:slope_matching}:
+\begin{align}
+f'\brak{0^+} = f'\brak{0^-}
+\end{align}
+
+For $x > 0$:
+\begin{align}
+f'\brak{x} = \frac{d}{dx}\brak{\sin\brak{2x}} = 2\cos\brak{2x} \implies f'\brak{0^+} = 2\cos\brak{0} = 2
+\end{align}
+
+For $x < 0$:
+\begin{align}
+f'\brak{x} = \frac{d}{dx}\brak{a + bx} = b \implies f'\brak{0^-} = b
+\end{align}
+
+Equating the two slopes:
+\begin{align}
+b = 2
+\end{align}
+
+Evaluating $a + b$:
+\begin{align}
+a + b = 0 + 2 = 2
+\end{align}
+Hence, option (C) is correct.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\linewidth]{figs/piecewise-tangent-plot.pdf}
+    \caption{Differentiable piecewise function and its tangent line $y = 2x$ at $x = 0$}
+    \label{fig:bt25_q46}
+\end{figure}
+
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq46/bt46.py}@*)
+\end{lstlisting}
+
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{figs/piecewise-tangent-plot.pdf}@*)
+\end{lstlisting}
 
 \end{enumerate}
