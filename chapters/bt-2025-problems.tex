@@ -51,12 +51,30 @@ The following C code verifies the series sum numerically:
 \end{enumerate}
 
 \solution
-The matrix parameters for the two circles are formulated from their center vectors $\vec{c}_i$ and radii $r_i$:
+Let $\vec{x} = \myvec{x \\ y}$. The general second-degree equation of a conic in vector form is:
 \begin{align}
-\text{Circle 1: } \vec{c}_1 = \myvec{0.5 \\ 0}, \; r_1 = 0.5 &\implies \vec{V}_1 = \vec{I} = \myvec{1 & 0 \\ 0 & 1}, \; \vec{u}_1 = -\vec{c}_1 = \myvec{-0.5 \\ 0} \\
-f_1 &= \norm{\vec{c}_1}^2 - r_1^2 = 0.5^2 - 0.5^2 = 0 \\
-\text{Circle 2: } \vec{c}_2 = \myvec{1 \\ 1}, \; r_2 = 1 &\implies \vec{V}_2 = \vec{I} = \myvec{1 & 0 \\ 0 & 1}, \; \vec{u}_2 = -\vec{c}_2 = \myvec{-1 \\ -1} \\
-f_2 &= \norm{\vec{c}_2}^2 - r_2^2 = \brak{1^2 + 1^2} - 1^2 = 1
+\vec{x}^\top \vec{V} \vec{x} + 2\vec{u}^\top \vec{x} + f = 0 \label{eq:conic_gen_form}
+\end{align}
+For a circle with center vector $\vec{c}$ and radius $r$, the geometric locus satisfies:
+\begin{align}
+\norm{\vec{x} - \vec{c}}^2 = r^2
+\end{align}
+Expanding the norm in vector product form:
+\begin{align}
+\brak{\vec{x} - \vec{c}}^\top \brak{\vec{x} - \vec{c}} &= r^2 \\
+\vec{x}^\top \vec{x} - 2\vec{c}^\top \vec{x} + \vec{c}^\top \vec{c} - r^2 &= 0
+\end{align}
+Comparing with \eqref{eq:conic_gen_form}, the conic matrix parameters are:
+\begin{align}
+\vec{V} = \vec{I} = \myvec{1 & 0 \\ 0 & 1}, \quad \vec{u} = -\vec{c}, \quad f = \norm{\vec{c}}^2 - r^2 = \vec{c}^\top \vec{c} - r^2
+\end{align}
+
+For the two given circles:
+\begin{align}
+\text{Circle 1: } \vec{c}_1 = \myvec{0.5 \\ 0}, \; r_1 = 0.5 &\implies \vec{x}^\top \vec{x} - 2\myvec{0.5 & 0}\vec{x} + \brak{0.5^2 - 0.5^2} = 0 \\
+\vec{V}_1 = \myvec{1 & 0 \\ 0 & 1}, \quad \vec{u}_1 &= -\vec{c}_1 = \myvec{-0.5 \\ 0}, \quad f_1 = \norm{\vec{c}_1}^2 - r_1^2 = 0 \\
+\text{Circle 2: } \vec{c}_2 = \myvec{1 \\ 1}, \; r_2 = 1 &\implies \vec{x}^\top \vec{x} - 2\myvec{1 & 1}\vec{x} + \brak{1^2 + 1^2 - 1^2} = 0 \\
+\vec{V}_2 = \myvec{1 & 0 \\ 0 & 1}, \quad \vec{u}_2 &= -\vec{c}_2 = \myvec{-1 \\ -1}, \quad f_2 = \norm{\vec{c}_2}^2 - r_2^2 = 1
 \end{align}
 
 Using the pencil of conics from \eqref{eq:pencil_conics}, the condition for a degenerate conic from \eqref{eq:pencil_det_zero} gives:
@@ -270,7 +288,7 @@ f\brak{x} &= x + \frac{4}{x} \\
 
 Since the square of any real number is non-negative:
 \begin{align}
-\brak{\sqrt{x} - \frac{2}{\sqrt{x}}}^2 \ge 0 \quad \forall x > 0
+\brak{\sqrt{x} - \frac{2}{\sqrt{x}}}^2 \ge 0
 \end{align}
 with equality holding if and only if:
 \begin{align}
@@ -279,7 +297,7 @@ with equality holding if and only if:
 
 Therefore:
 \begin{align}
-f\brak{x} \ge 4 \quad \forall x > 0
+f\brak{x} \ge 4
 \end{align}
 The minimum value is $4$, attained at $x = 2$, which confirms option (D).
 
@@ -509,7 +527,7 @@ where $\tau_p$ is a non-zero time constant, $K_p$ is the gain and $f\brak{t}$ is
 
 Assume $y\brak{0} = 0$. The transfer function for this process is (consider $s$ as the independent variable in the Laplace domain)
 \hfill (GATE BT 2025)
-\begin{enumerate}[itemsep=0pt]
+\begin{enumerate}[itemsep=1ex]
     \begin{multicols}{2}
         \item $\frac{K_p}{\tau_p s + 1}$
         \item $\frac{\tau_p}{K_p s + 1}$
@@ -617,7 +635,7 @@ where $a$ and $b$ are real constants. If $f\brak{x}$ is differentiable at $x = 0
         \item 0
         \item 1
         \item 2
-        \item -2
+        \item 3
     \end{multicols}
 \end{enumerate}
 
@@ -805,8 +823,8 @@ Performing partial fraction decomposition with $w = z^{-1}$:
 \end{align}
 where
 \begin{align}
-C_1 &= \left. \frac{\frac{1}{2} w}{1 - \frac{1}{2} w} \right|_{w = 1} = \frac{1/2}{1/2} = 1 \\
-C_2 &= \left. \frac{\frac{1}{2} w}{1 - w} \right|_{w = 2} = \frac{1}{1 - 2} = -1
+C_1 &=  \frac{\frac{1}{2} w}{1 - \frac{1}{2} w} _{w = 1} = \frac{1/2}{1/2} = 1 \\
+C_2 &=  \frac{\frac{1}{2} w}{1 - w} _{w = 2} = \frac{1}{1 - 2} = -1
 \end{align}
 
 Substituting back into $A\brak{z}$:
