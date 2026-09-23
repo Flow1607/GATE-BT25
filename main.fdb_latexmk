@@ -1,13 +1,13 @@
 # Fdb version 4
-["makeindex main.idx"] 1790098001.09192 "main.idx" "main.ind" "main" 1790099947.59377 0
-  "main.idx" 1790099947.21137 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main.idx"] 1790101098.6746 "main.idx" "main.ind" "main" 1790136424.53522 0
+  "main.idx" 1790136424.13272 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1790099946.63867 "/home/jaideep-omen16/GATE-BT25/main.tex" "main.pdf" "main" 1790099947.59388 0
+["pdflatex"] 1790136423.40078 "/home/jaideep-omen16/GATE-BT25/main.tex" "main.pdf" "main" 1790136424.53544 0
   "/etc/texmf/web2c/texmf.cnf" 1787774014.6173 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/jaideep-omen16/GATE-BT25/main.tex" 1789964677.96451 8472 342c6ebc6e0b8217423c9940d569f389 ""
+  "/home/jaideep-omen16/GATE-BT25/main.tex" 1790100601.85926 8486 2ffc5d704b036f87ca79ddced23cc738 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -315,22 +315,22 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1787774741 5541477 3118940318599480888143717dd32d64 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1787774788 3639846 5877f181defadd666594563f11ba397c ""
   "chapters/bt-2025-formulae.tex" 1790099208.30638 13540 adad081553412c5583ce162177b370f0 ""
-  "chapters/bt-2025-problems.tex" 1790099946.46936 25203 1a43f675c4c396709485c97bd4778168 ""
+  "chapters/bt-2025-problems.tex" 1790136423.18619 25277 bcade9b9279408205a4d7840de9e5cf2 ""
   "figs/bac.png" 1789901255.67306 12918 cc909778de5a96e69ceba0581cc195cf ""
   "figs/bt34_plot.pdf" 1789916980.75915 16140 ea3ab4c81b79f502f1f910b0cd3056c9 ""
   "figs/circleintersect.pdf" 1789930929.61277 15944 bfeff7cb2f58393c71ea5ba35292fd74 ""
-  "figs/min.png" 1789909765.63779 20059 4174aa842a50a4a21c82c40f3854100c ""
+  "figs/min.png" 1790136340.9292 21254 0242ed249da6cd58c850101f416e3bef ""
   "figs/piecewise-tangent-plot.pdf" 1790097419.14752 16717 8ed86855cb813816d9026482f4b02e29 ""
   "figs/pmf.pdf" 1789926917.97226 14801 9c395bd184699a448a18e853fa57091e ""
   "figs/raph.pdf" 1789968028.38366 10120 c199d3dcf7c3d14de8f7722a32c97f1d ""
   "figs/rc-step-response.pdf" 1790065261.20074 21774 886896fa233a5e51592d5451cade7e51 ""
   "gvv-book.sty" 1789837126.45206 2364 972c828b0fdb5c1b2ef6ab44859ce8d3 ""
   "gvv.sty" 1789837126.45206 4374 e0265f3cc8fb087d2434efb730c546e4 ""
-  "main.aux" 1790099947.53104 5819 ca3111ea1578ce3109cb2fcfc3034fd2 "pdflatex"
-  "main.ind" 1790098001.16734 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.out" 1790099947.53137 303 087e6c7f7974ed87a48b849a53d037b8 "pdflatex"
-  "main.tex" 1789964677.96451 8472 342c6ebc6e0b8217423c9940d569f389 ""
-  "main.toc" 1790099947.53137 216 51c3202abedadc6a5ce23621628d2b5e "pdflatex"
+  "main.aux" 1790136424.46946 5819 ca3111ea1578ce3109cb2fcfc3034fd2 "pdflatex"
+  "main.ind" 1790101098.77281 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
+  "main.out" 1790136424.46973 303 087e6c7f7974ed87a48b849a53d037b8 "pdflatex"
+  "main.tex" 1790100601.85926 8486 2ffc5d704b036f87ca79ddced23cc738 ""
+  "main.toc" 1790136424.47088 216 51c3202abedadc6a5ce23621628d2b5e "pdflatex"
   (generated)
   "main.aux"
   "main.idx"
