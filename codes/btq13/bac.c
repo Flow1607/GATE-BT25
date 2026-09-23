@@ -7,12 +7,12 @@ double euler(double y){
 }
 int main(){
 	double y=1;
-	double h=0.01;
+	double h=0.01; //initial input for dat files
 	double x=0;
 	FILE *fp1=fopen("y.dat","w"); //creating dat files for plotting in python
 	FILE *fp2=fopen("x.dat","w");
 	for (int i=0;i<200;i++){	
-	fprintf(fp1,"%lf\n",euler(y));
+	fprintf(fp1,"%lf\n",euler(y)); //writing on the dat files 
 	y=euler(y);
 	fprintf(fp2,"%lf\n",x);
 	x+=h;

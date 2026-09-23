@@ -11,6 +11,7 @@ from conics.funcs import circ_gen #takes imports from conics/funcs.py
 import subprocess
 import shlex #for running and opening in termux
 
+# defining origin vectors
 O1 = np.array([0.5, 0]).reshape(-1, 1)
 r1 = 0.5 
 
@@ -44,7 +45,7 @@ plt.scatter(coords[0,:], coords[1,:], color='red', zorder=5)
 
 vert_labels = ['o_1(0.5, 0)', 'o_2(1, 1)', 'x_1(0.2, 0.4)', 'x_2(1, 0)']
 for i, txt in enumerate(vert_labels):
-    plt.annotate(f'${txt}$', 
+    plt.annotate(f'${txt}$',      #annotates req coordinates
                  (coords[0,i], coords[1,i]), 
                  textcoords="offset points", 
                  xytext=(0,10), 

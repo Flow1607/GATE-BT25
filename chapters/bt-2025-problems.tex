@@ -71,7 +71,7 @@ Substituting the parameter matrices:
 \end{align}
 Expanding the determinant:
 \begin{align}
-\brak{\ + \mu}\sbrak{\brak{1 + \mu}\mu - \mu^2} - \brak{-0.5 - \mu}\sbrak{0 - \brak{1 + \mu}\brak{-0.5 - \mu}} &= 0 \\
+\brak{1 + \mu}\sbrak{\brak{1 + \mu}\mu - \mu^2} - \brak{-0.5 - \mu}\sbrak{0 - \brak{1 + \mu}\brak{-0.5 - \mu}} &= 0 \\
 \brak{1 + \mu}\mu - \brak{1 + \mu}\brak{\mu + 0.5}^2 &= 0 \\
 \brak{1 + \mu}\brak{-\mu^2 - \frac{1}{4}} &= 0
 \end{align}
@@ -186,7 +186,7 @@ e^{\lambda} &= 2 \implies \lambda = \ln 2
 \end{align}
 Hence, option (A) is correct.
 
-\noindent{Numerical Simulation (Euler's Method):} \\
+\noindent{Numerical Simulation (Euler's Method):} 
 Applying the recurrence relation from \eqref{eq:euler_recurrence} with step size $h = 0.01$ and $\lambda = \ln 2$:
 \begin{align}
 y_{n+1} = y_n + 0.01\sbrak{\ln\brak{2}\brak{y_n + 2}}, \quad y_0 = 1
@@ -253,7 +253,7 @@ f\brak{2} = 2 + \frac{4}{2} = 4
 \end{align}
 Hence, option (D) is correct.
 
-\noindent{Numerical Simulation (Gradient Descent):} \\
+\noindent{Numerical Simulation (Gradient Descent):} 
 Applying the first-order update relation from \eqref{eq:grad_descent_update} with learning rate $\eta = 0.3$:
 \begin{align}
 x_{k+1} = x_k - 0.3\brak{1 - \frac{4}{x_k^2}}
@@ -338,7 +338,7 @@ x_4 &= x_3 - 1 + 2e^{-x_3} \approx 0.693147 \approx \ln 2
 
 The exact mathematical solution is $e^x = 2 \implies x = \ln 2 \approx 0.693147$. Thus, the approximated value of the root after one iteration is ${0.74}$.
 
-The C Code implementating Newton-Raphson recurrence is as follows: 
+The C Code implementing Newton-Raphson recurrence is as follows: 
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq33/raph.c}@*)
 \end{lstlisting}
@@ -393,8 +393,7 @@ This requires the second row of the augmented matrix to be entirely zeros:
 \end{align}
 For $k = 4$, $\text{rank}\brak{\vec{A}} = \text{rank}\brak{\augvec{2}{1}{\vec{A} & \vec{b}}} = 1 < 2$ (number of variables $n = 2$), yielding infinitely many solutions along the coincident line $2x + 3y = 6$. 
 
-Hence, the integer value of $k$ is ${4}$. \\
-
+Hence, the integer value of $k$ is ${4}$. 
 
 The Python Code showing the implementation for a given value of k and comparing solutions is as follows:
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
@@ -408,16 +407,8 @@ The Python Code showing the implementation for a given value of k and comparing 
     \label{fig:bt25_q34}
 \end{figure}
 
-\item Two fair six-sided dice are rolled simultaneously. The probability that the sum of the numbers appearing on the top faces is $7$ is:
+\item Two fair six-sided dice, with sides numbered 1 to 6, are thrown once. The probability of getting 7 as the sum of the numbers on the top side of the dice is \underline{\hspace{1.5cm}}.
 \hfill (GATE~BT~2025)
-\begin{enumerate}[itemsep=1ex]
-    \begin{multicols}{2}
-        \item $\frac{1}{6}$
-        \item $\frac{5}{36}$
-        \item $\frac{7}{36}$
-        \item $\frac{1}{12}$
-    \end{multicols}
-\end{enumerate}
 
 \solution
 Let $X_1$ and $X_2$ represent the scores on the two dice, and let $X = X_1 + X_2$ denote their sum. 
