@@ -421,7 +421,6 @@ The Python Code showing the implementation for a given value of k and comparing 
 
 \solution
 Let $X_1$ and $X_2$ represent the scores on the two dice, and let $X = X_1 + X_2$ denote their sum. 
-
 From the triangular distribution derived in \eqref{eq:triangular_pmf}, the probability mass function for $2 \le n \le 7$ is given by:
 \begin{align}
 p_X\brak{n} = \frac{n - 1}{36}
@@ -686,6 +685,209 @@ Hence, option (C) is correct.
 
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{figs/piecewise-tangent-plot.pdf}@*)
+\end{lstlisting}
+
+\item In a fermentation process, each mole of glucose is converted to biomass $\brak{\text{CH}_{1.8}\text{O}_{0.5}\text{N}_{0.2}}$, with a biomass yield coefficient of $0.4\text{ C-mol/C-mol}$, according to the unbalanced equation given below.
+\begin{align}
+\text{C}_6\text{H}_{12}\text{O}_6 + \text{NH}_3 + \text{O}_2 \rightarrow \text{CH}_{1.8}\text{O}_{0.5}\text{N}_{0.2} + \text{CO}_2 + \text{H}_2\text{O}
+\end{align}
+The moles of oxygen consumption per mole of glucose consumed during fermentation is \underline{\hspace{2cm}}. 
+\hfill (GATE~BT~2025)
+
+\solution
+Let the balanced stoichiometric reaction be represented as:
+\begin{align}
+x_1 \text{C}_6\text{H}_{12}\text{O}_6 + x_2 \text{NH}_3 + x_3 \text{O}_2 \rightarrow x_4 \text{CH}_{1.8}\text{O}_{0.5}\text{N}_{0.2} + x_5 \text{CO}_2 + x_6 \text{H}_2\text{O}
+\end{align}
+where $x_1, x_2, x_3, x_4, x_5, x_6$ are the respective stoichiometric coefficients.
+
+Formulating the elemental conservation balances for $\text{C}$, $\text{N}$, $\text{H}$, and $\text{O}$ using exact rational fractions:
+\begin{align}
+\text{Carbon (C):} \quad & 6x_1 = x_4 + x_5 \\
+\text{Nitrogen (N):} \quad & x_2 = \frac{1}{5}x_4 \\
+\text{Hydrogen (H):} \quad & 12x_1 + 3x_2 = \frac{9}{5}x_4 + 2x_6 \\
+\text{Oxygen (O):} \quad & 6x_1 + 2x_3 = \frac{1}{2}x_4 + 2x_5 + x_6
+\end{align}
+
+Writing the elemental balances in matrix form $\vec{A}_{\text{LHS}}\vec{x}_{\text{reactants}} = \vec{A}_{\text{RHS}}\vec{x}_{\text{products}}$:
+\begin{align}
+\myvec{
+6 & 0 & 0 \\
+0 & 1 & 0 \\
+12 & 3 & 0 \\
+6 & 0 & 2
+}
+\myvec{x_1 \\ x_2 \\ x_3}
+=
+\myvec{
+1 & 1 & 0 \\
+\frac{1}{5} & 0 & 0 \\
+\frac{9}{5} & 0 & 2 \\
+\frac{1}{2} & 2 & 1
+}
+\myvec{x_4 \\ x_5 \\ x_6}
+\end{align}
+
+Constructing the stoichiometric matrix $\vec{A} = \sbrak{\vec{A}_{\text{LHS}} \quad -\vec{A}_{\text{RHS}}}$:
+\begin{align}
+\myvec{
+6 & 0 & 0 & -1 & -1 & 0 \\
+0 & 1 & 0 & -\frac{1}{5} & 0 & 0 \\
+12 & 3 & 0 & -\frac{9}{5} & 0 & -2 \\
+6 & 0 & 2 & -\frac{1}{2} & -2 & -1
+}
+\myvec{x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \\ x_6}
+=
+\myvec{0 \\ 0 \\ 0 \\ 0}
+\end{align}
+
+The biomass yield coefficient is $0.4\text{ C-mol/C-mol} = \frac{2}{5}\text{ C-mol/C-mol}$, which provides the relation:
+\begin{align}
+x_4 - \frac{2}{5}\brak{6x_1} = 0 \implies x_4 = \frac{12}{5}x_1
+\end{align}
+
+Solving the system symbolically in terms of $x_4$:
+\begin{align}
+x_1 &= \frac{5}{12}x_4 \\
+x_2 &= \frac{1}{5}x_4 \\
+x_3 &= \frac{29}{20}x_4 \\
+x_5 &= \frac{3}{2}x_4 \\
+x_6 &= \frac{19}{10}x_4
+\end{align}
+
+Evaluating with the sample numerical basis $x_4 = 5.0$:
+\begin{align}
+x_1 &= \frac{25}{12} \approx 2.0833 \\
+x_2 &= 1.0000 \\
+x_3 &= 7.2500 \\
+x_4 &= 5.0000 \\
+x_5 &= 7.5000 \\
+x_6 &= 9.5000
+\end{align}
+
+The moles of oxygen consumed per mole of glucose consumed during fermentation is given by:
+\begin{align}
+\frac{x_3}{x_1} = \frac{\frac{29}{20}x_4}{\frac{5}{12}x_4} = \frac{29}{20} \times \frac{12}{5} = \frac{87}{25} = 3.48
+\end{align}
+or using the numerical evaluation:
+\begin{align}
+\frac{x_3}{x_1} = \frac{7.2500}{2.0833} = 3.48
+\end{align}
+
+Rounding off to two decimal places, the answer is 3.48.
+
+The implementation in SymPy to find solutions is as follows:
+
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq58/58.py}@*)
+\end{lstlisting}
+
+\item Let $a_0 = 0$ and define $a_n = \frac{1}{2}\brak{1 + a_{n-1}}$ for all positive integers $n \ge 1$.
+The least value of $n$ for which $\abs{1 - a_n} < \frac{1}{2^{10}}$ is \underline{\hspace{2cm}}. 
+\hfill (GATE~BT~2025)
+
+\solution
+The given recurrence relation is:
+\begin{align}
+a_n = \frac{1}{2}\brak{1 + a_{n-1}}, \quad n \ge 1, \quad a_0 = 0
+\end{align}
+
+Extending the difference equation across all $n \in \mathbb{Z}$ by causal multiplication with $u\sbrak{n}$ from \eqref{eq:discrete_unit_step}:
+\begin{align}
+a_n u\sbrak{n} - \frac{1}{2} a_{n-1} u\sbrak{n-1} = \frac{1}{2} u\sbrak{n-1}
+\end{align}
+
+Let $A\brak{z} = \mathcal{Z}\sbrak{a_n u\sbrak{n}}$. Applying the time-shift property \eqref{eq:z_shift_property} and the delayed step transform \eqref{eq:z_delayed_step}:
+\begin{align}
+A\brak{z} - \frac{1}{2} z^{-1} A\brak{z} &= \frac{1}{2} \mathcal{Z}\sbrak{u\sbrak{n-1}} \\
+A\brak{z}\brak{1 - \frac{1}{2} z^{-1}} &= \frac{\frac{1}{2} z^{-1}}{1 - z^{-1}}
+\end{align}
+
+Solving algebraically for $A\brak{z}$:
+\begin{align}
+A\brak{z} = \frac{\frac{1}{2} z^{-1}}{\brak{1 - z^{-1}}\brak{1 - \frac{1}{2} z^{-1}}}, \quad \abs{z} > 1
+\end{align}
+
+Performing partial fraction decomposition with $w = z^{-1}$:
+\begin{align}
+\frac{\frac{1}{2} w}{\brak{1 - w}\brak{1 - \frac{1}{2} w}} = \frac{C_1}{1 - w} + \frac{C_2}{1 - \frac{1}{2} w}
+\end{align}
+where
+\begin{align}
+C_1 &= \left. \frac{\frac{1}{2} w}{1 - \frac{1}{2} w} \right|_{w = 1} = \frac{1/2}{1/2} = 1 \\
+C_2 &= \left. \frac{\frac{1}{2} w}{1 - w} \right|_{w = 2} = \frac{1}{1 - 2} = -1
+\end{align}
+
+Substituting back into $A\brak{z}$:
+\begin{align}
+A\brak{z} = \frac{1}{1 - z^{-1}} - \frac{1}{1 - \frac{1}{2} z^{-1}}
+\end{align}
+
+Applying the inverse Z-transform using \eqref{eq:z_step_transform} and \eqref{eq:z_inv_exponential}:
+\begin{align}
+a_n = \sbrak{1 - \brak{\frac{1}{2}}^n} u\sbrak{n} = 1 - 2^{-n}, \quad n \ge 0
+\end{align}
+
+Applying the stopping threshold condition $\abs{1 - a_n} < \frac{1}{2^{10}}$:
+\begin{align}
+\abs{1 - \brak{1 - 2^{-n}}} &< \frac{1}{2^{10}} \\
+2^{-n} &< 2^{-10} \\
+2^n &> 2^{10} \implies n > 10
+\end{align}
+
+Since $n$ must be an integer, the minimal integer satisfying the strict inequality is:
+\begin{align}
+n = 11
+\end{align}
+
+The implementation in C to simulate the recurrence and verify the threshold is as follows:
+
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq59/ztransform.c}@*)
+\end{lstlisting}
+
+\item Let $A = \myvec{1 & 0 & 1 \\ 0 & k & 0 \\ 3 & 0 & -1}$. If the eigenvalues of $A$ are $-2$, $1$, and $2$, then the value of $k$ is \underline{\hspace{2cm}}.
+\hfill (GATE~BT~2025)
+
+\solution
+The given matrix is:
+\begin{align}
+\vec{A} = \myvec{
+1 & 0 & 1 \\
+0 & k & 0 \\
+3 & 0 & -1
+}
+\end{align}
+
+The eigenvalues of $\vec{A}$ are given as:
+\begin{align}
+\lambda_1 = -2, \quad \lambda_2 = 1, \quad \lambda_3 = 2
+\end{align}
+
+From \eqref{eq:sum_eigenvalues_trace}, the sum of the eigenvalues of a square matrix is equal to its trace:
+\begin{align}
+\sum_{i=1}^3 \lambda_i = \operatorname{tr}\brak{\vec{A}}
+\end{align}
+
+Computing the trace of $\vec{A}$:
+\begin{align}
+\operatorname{tr}\brak{\vec{A}} = 1 + k + \brak{-1} = k
+\end{align}
+
+Computing the sum of the eigenvalues:
+\begin{align}
+\sum_{i=1}^3 \lambda_i = \brak{-2} + 1 + 2 = 1
+\end{align}
+
+Equating the two expressions:
+\begin{align}
+k = 1
+\end{align}
+
+The solution can be verified from the following Python script:
+
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq63/eigen.py}@*)
 \end{lstlisting}
 
 \end{enumerate}

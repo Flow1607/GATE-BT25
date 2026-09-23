@@ -281,4 +281,99 @@ For $f\brak{x}$ to be differentiable at $x = a$, the one-sided derivatives at th
 f_1'\brak{a} = f_2'\brak{a} \label{eq:piecewise_diff_cond}
 \end{align}
 
+\item Representation of Linear Balance Systems as Matrix Equations
+\begin{itemize}
+\item A general system of $m$ linear equations in $n$ variables $x_1, x_2, \dots, x_n$:
+\begin{align}
+a_{i1} x_1 + a_{i2} x_2 + \dots + a_{in} x_n = b_i, \quad i = 1, 2, \dots, m
+\end{align}
+can be expressed in matrix-vector form:
+\begin{align}
+\vec{A}\vec{x} = \vec{b} \label{eq:matrix_system_linear}
+\end{align}
+where $\vec{A} \in \mathbb{R}^{m \times n}$ is the coefficient matrix, $\vec{x} \in \mathbb{R}^n$ is the state vector, and $\vec{b} \in \mathbb{R}^m$ is the constant vector:
+\begin{align}
+\vec{A} = \myvec{
+a_{11} & a_{12} & \dots & a_{1n} \\
+a_{21} & a_{22} & \dots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \dots & a_{mn}
+}, \quad
+\vec{x} = \myvec{x_1 \\ x_2 \\ \vdots \\ x_n}, \quad
+\vec{b} = \myvec{b_1 \\ b_2 \\ \vdots \\ b_m}
+\end{align}
+
+\item In multi-component conservation and stoichiometric balances, the conservation of elemental species across reactant and product streams is represented by:
+\begin{align}
+\vec{A}_{\text{reactants}} \vec{x}_{\text{reactants}} = \vec{A}_{\text{products}} \vec{x}_{\text{products}}
+\end{align}
+Combining both sides into a single stoichiometric matrix yields the homogeneous system:
+\begin{align}
+\sbrak{\vec{A}_{\text{reactants}} \quad -\vec{A}_{\text{products}}} \vec{x} = \vec{0} \label{eq:stoich_matrix_homo}
+\end{align}
+When boundary parameters or specific yields fix certain degrees of freedom (such as basis mole values and yield coefficients), the homogeneous system reduces to a deterministic non-homogeneous matrix equation $\vec{A}\vec{x} = \vec{b}$ that can be solved directly via row operations or symbolic matrix inversion.
+\end{itemize}
+\item Solution of First-Order Recurrence Relations via Z-Transform
+\begin{itemize}
+\item The bilateral Z-transform of a discrete-time sequence $x\sbrak{n}$ is defined as:
+\begin{align}
+X\brak{z} = \mathcal{Z}\sbrak{x\sbrak{n}} = \sum_{n=-\infty}^{\infty} x\sbrak{n} z^{-n} \label{eq:z_transform_def}
+\end{align}
+over the Region of Convergence (ROC) where the series converges absolutely.
+
+\item Discrete Unit Step Sequence:
+The discrete unit step function $u\sbrak{n}$ is defined as:
+\begin{align}
+u\sbrak{n} = \begin{cases}
+1, & n \ge 0 \\
+0, & n < 0
+\end{cases} \label{eq:discrete_unit_step}
+\end{align}
+Its forward Z-transform is given by:
+\begin{align}
+\mathcal{Z}\sbrak{u\sbrak{n}} = \sum_{n=0}^{\infty} z^{-n} = \frac{1}{1 - z^{-1}}, \quad \abs{z} > 1 \label{eq:z_step_transform}
+\end{align}
+
+\item Time-Shift Property:
+Shifting a sequence by an integer delay $k$ corresponds to multiplication by $z^{-k}$ in the Z-domain:
+\begin{align}
+\mathcal{Z}\sbrak{x\sbrak{n - k}} = z^{-k} X\brak{z} \label{eq:z_shift_property}
+\end{align}
+Consequently, delaying the discrete unit step by one sample yields:
+\begin{align}
+\mathcal{Z}\sbrak{u\sbrak{n - 1}} = \frac{z^{-1}}{1 - z^{-1}}, \quad \abs{z} > 1 \label{eq:z_delayed_step}
+\end{align}
+
+\item Standard Inverse Transform Pair:
+For any scalar constant $\alpha$:
+\begin{align}
+\mathcal{Z}^{-1}\sbrak{\frac{1}{1 - \alpha z^{-1}}} = \alpha^n u\sbrak{n}, \quad \abs{z} > \abs{\alpha} \label{eq:z_inv_exponential}
+\end{align}
+\end{itemize}
+
+\item Relation Between Eigenvalues and Trace of a Matrix
+\begin{itemize}
+\item Let $\vec{A} \in \mathbb{R}^{n \times n}$ be a square matrix with eigenvalues $\lambda_1, \lambda_2, \dots, \lambda_n$. The characteristic polynomial of $\vec{A}$ is defined by:
+\begin{align}
+P\brak{\lambda} = \mydet{\lambda \vec{I} - \vec{A}} \label{eq:char_poly_det}
+\end{align}
+
+\item Factoring the polynomial in terms of its $n$ characteristic roots:
+\begin{align}
+P\brak{\lambda} = \prod_{i=1}^n \brak{\lambda - \lambda_i} = \lambda^n - \brak{\sum_{i=1}^n \lambda_i} \lambda^{n-1} + \dots + \brak{-1}^n \prod_{i=1}^n \lambda_i \label{eq:char_poly_factored}
+\end{align}
+
+\item Evaluating the determinant $\mydet{\lambda \vec{I} - \vec{A}}$ using cofactor expansion, the only term that contributes to $\lambda^n$ and $\lambda^{n-1}$ is the product of the principal diagonal entries:
+\begin{align}
+\prod_{i=1}^n \brak{\lambda - a_{ii}} = \lambda^n - \brak{\sum_{i=1}^n a_{ii}} \lambda^{n-1} + \dots \label{eq:diagonal_expansion}
+\end{align}
+where $a_{ii}$ denotes the diagonal elements of $\vec{A}$.
+
+\item Equating the coefficient of $\lambda^{n-1}$ from \eqref{eq:char_poly_factored} and \eqref{eq:diagonal_expansion}:
+\begin{align}
+\sum_{i=1}^n \lambda_i = \sum_{i=1}^n a_{ii} = \operatorname{tr}\brak{\vec{A}} \label{eq:sum_eigenvalues_trace}
+\end{align}
+Hence, the sum of all eigenvalues of a square matrix is always equal to its trace.
+\end{itemize}
+
 \end{enumerate}
