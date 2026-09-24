@@ -33,7 +33,7 @@ X = sp.symbols("X")
 wq = sp.Eq(sp.exp(X), 2)
 sol = sp.solve(wq, X)
 plt.axvline(x=sol)
-print("The solution is", sol)
+print("The solution is", sol) #priniting soln
 
 # plot all 5 iterations on the same graph and label only first and last
 for i in range(5):

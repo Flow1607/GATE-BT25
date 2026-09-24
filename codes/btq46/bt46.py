@@ -1,3 +1,5 @@
+#By Jaideep
+# 22/09/26
 import os
 import numpy as np
 import matplotlib.pyplot as plt
@@ -48,5 +50,5 @@ plt.savefig(pdf_path, bbox_inches="tight")
 plt.close()
 
 # Open in Termux
-os.system(f"termux-open {pdf_path}")
+#os.system(f"termux-open {pdf_path}")
 

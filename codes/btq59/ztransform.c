@@ -1,3 +1,7 @@
+// By Jaideep
+//  23/09/26
+
+
 #include <stdio.h>
 #include <stdbool.h>
 #define MAX_N 15
