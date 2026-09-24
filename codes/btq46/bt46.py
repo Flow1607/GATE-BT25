@@ -1,3 +1,5 @@
+#By Jaideep
+# 22/09/26
 import os
 import numpy as np
 import matplotlib.pyplot as plt
@@ -40,7 +42,7 @@ plt.xlabel("$x$")
 plt.ylabel("$f(x)$")
 plt.xlim(-2, 3)
 plt.ylim(-2.5, 2.5)
-plt.grid(True, linestyle=":", alpha=0.6)
+plt.grid(True, linestyle=":", alpha=0.6) #grid plot
 plt.legend(loc="upper left")
 
 pdf_path = "piecewise_tangent_plot.pdf"
@@ -48,5 +50,5 @@ plt.savefig(pdf_path, bbox_inches="tight")
 plt.close()
 
 # Open in Termux
-os.system(f"termux-open {pdf_path}")
+#os.system(f"termux-open {pdf_path}")
 

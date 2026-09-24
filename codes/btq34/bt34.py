@@ -8,9 +8,9 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 
-# 1. Coefficient matrix analysis
+# Coefficient matrix analysis
 A = np.array([[2.0, 3.0], [4.0, 6.0]]) #defining coeff matrix
-r_A = np.linalg.matrix_rank(A) #chceking rank of coeff matrix 
+r_A = np.linalg.matrix_rank(A) #checking rank of coeff matrix 
 
 print("--- Coefficient Matrix Analysis ---")
 print("Matrix A:")

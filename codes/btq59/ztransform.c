@@ -1,3 +1,7 @@
+// By Jaideep
+//  23/09/26
+
+
 #include <stdio.h>
 #include <stdbool.h>
 #define MAX_N 15
@@ -31,8 +35,9 @@ int main(void) {
             least_n = n;
         }
 
+        //Printing respective values for values
         printf("%-4d  %20.10f  %20.10f  %14.10f  %-18s\n",
-               n, a_rec, a_closed, err, satisfied ? "TRUE" : "False");
+               n, a_rec, a_closed, err, satisfied ? "TRUE" : "False"); 
     }
 
     printf("----------------------------------------------------------------------------------\n");

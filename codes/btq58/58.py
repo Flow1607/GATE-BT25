@@ -1,8 +1,12 @@
+#By Jaideep
+# 23/09/26
+
+
 import numpy as np
 import sympy as sp
 
 # Define LHS and RHS coefficient matrices using exact fractions
-A_LHS = sp.Matrix(
+A_LHS = sp.Matrix( #LHS matrix
     [
         [6, 0, 0],  # C
         [0, 1, 0],  # N
@@ -11,7 +15,7 @@ A_LHS = sp.Matrix(
     ]
 )
 
-A_RHS = sp.Matrix(
+A_RHS = sp.Matrix( #RHS matrix
     [
         [1, 1, 0],  # C
         [sp.Rational(1, 5), 0, 0],  # N (0.2)
@@ -31,9 +35,10 @@ rref_A, pivot_cols = A.rref()
 rank = len(pivot_cols)
 dof = A.shape[1] - rank
 
+#checking rank and producing row reduced matrix
 print(f"\nRank of A = {rank}")
 print(f"Degrees of freedom (Nullity) = {dof}")
-print("\nRow Reduced Echelon Form (RREF):")
+print("\nRow Reduced Echelon Form (RREF):") 
 sp.pprint(rref_A)
 
 #Nullspace basis vectors (spanning the complete solution space)
@@ -53,7 +58,7 @@ eqs = [
     x4- (sp.Rational(2,5)* (6 * x1)),
 ]
 
-sol_terms = sp.solve(eqs, (x1,x2, x3, x5, x6))
+sol_terms = sp.solve(eqs, (x1,x2, x3, x5, x6)) #directly solves eqns listed as above
 
 print("\n--- Parametric Solution in terms of (x1, x4) ---")
 for var, expr in sol_terms.items():
@@ -61,7 +66,7 @@ for var, expr in sol_terms.items():
 
 # Example Numerical Evaluation on a basis of 1 mole of glucose (x1 = 1)
 print("\n--- Sample Numerical Values (Basis: x1 = 1 mole glucose, x4 = 2) ---")
-subs_dict = {x4: 5.0}
+subs_dict = {x4: 5.0} #iniializing x4 = 5.0
 x_vals = {
     "x1": float(sol_terms[x1].subs(subs_dict)),
     "x2": float(sol_terms[x2].subs(subs_dict)),
@@ -72,5 +77,5 @@ x_vals = {
 }
 
 for k, val in x_vals.items():
-    print(f"{k} = {val:.4f}")
+    print(f"{k} = {val:.4f}") #printing final ans
 

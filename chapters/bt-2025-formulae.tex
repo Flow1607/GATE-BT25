@@ -412,39 +412,39 @@ When boundary parameters or specific yields fix certain degrees of freedom (such
 \end{itemize}
 \item Solution of First-Order Recurrence Relations via Z-Transform
 \begin{itemize}
-\item The bilateral Z-transform of a discrete-time sequence $x\sbrak{n}$ is defined as:
+\item The bilateral Z-transform of a discrete-time sequence $x\brak{n}$ is defined as:
 \begin{align}
-X\brak{z} = \mathcal{Z}\sbrak{x\sbrak{n}} = \sum_{n=-\infty}^{\infty} x\sbrak{n} z^{-n} \label{eq:z_transform_def}
+X\brak{z} = \mathcal{Z}\brak{x\brak{n}} = \sum_{n=-\infty}^{\infty} x\brak{n} z^{-n} \label{eq:z_transform_def}
 \end{align}
 over the Region of Convergence (ROC) where the series converges absolutely.
 
 \item Discrete Unit Step Sequence:
-The discrete unit step function $u\sbrak{n}$ is defined as:
+The discrete unit step function $u\brak{n}$ is defined as:
 \begin{align}
-u\sbrak{n} = \begin{cases}
+u\brak{n} = \begin{cases}
 1, & n \ge 0 \\
 0, & n < 0
 \end{cases} \label{eq:discrete_unit_step}
 \end{align}
 Its forward Z-transform is given by:
 \begin{align}
-\mathcal{Z}\sbrak{u\sbrak{n}} = \sum_{n=0}^{\infty} z^{-n} = \frac{1}{1 - z^{-1}}, \quad \abs{z} > 1 \label{eq:z_step_transform}
+\mathcal{Z}\brak{u\brak{n}} = \sum_{n=0}^{\infty} z^{-n} = \frac{1}{1 - z^{-1}}, \quad \abs{z} > 1 \label{eq:z_step_transform}
 \end{align}
 
 \item Time-Shift Property:
 Shifting a sequence by an integer delay $k$ corresponds to multiplication by $z^{-k}$ in the Z-domain:
 \begin{align}
-\mathcal{Z}\sbrak{x\sbrak{n - k}} = z^{-k} X\brak{z} \label{eq:z_shift_property}
+\mathcal{Z}\brak{x\brak{n - k}} = z^{-k} X\brak{z} \label{eq:z_shift_property}
 \end{align}
 Consequently, delaying the discrete unit step by one sample yields:
 \begin{align}
-\mathcal{Z}\sbrak{u\sbrak{n - 1}} = \frac{z^{-1}}{1 - z^{-1}}, \quad \abs{z} > 1 \label{eq:z_delayed_step}
+\mathcal{Z}\brak{u\brak{n - 1}} = \frac{z^{-1}}{1 - z^{-1}}, \quad \abs{z} > 1 \label{eq:z_delayed_step}
 \end{align}
 
 \item Standard Inverse Transform Pair:
 For any scalar constant $\alpha$:
 \begin{align}
-\mathcal{Z}^{-1}\sbrak{\frac{1}{1 - \alpha z^{-1}}} = \alpha^n u\sbrak{n}, \quad \abs{z} > \abs{\alpha} \label{eq:z_inv_exponential}
+\mathcal{Z}^{-1}\brak{\frac{1}{1 - \alpha z^{-1}}} = \alpha^n u\brak{n}, \quad \abs{z} > \abs{\alpha} \label{eq:z_inv_exponential}
 \end{align}
 \end{itemize}
 

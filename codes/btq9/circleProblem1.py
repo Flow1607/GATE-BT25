@@ -30,7 +30,7 @@ P1 = X1 + 0.5 * (X1 - X2)
 P2 = X2 + 0.5 * (X2 - X1)
 x_rad = line_gen(P1, P2)
 
-x_centers = line_gen(O1, O2)
+x_centers = line_gen(O1, O2) #to get the line of intersection of origins
 
 #Plotting: 
 plt.figure(figsize=(8, 8))

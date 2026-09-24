@@ -11,7 +11,7 @@ int main() {
         sum += term;
     }
 
-    printf("Calculated Sum : %.6f\n", sum);
+    printf("Calculated Sum : %.6f\n", sum); //Checking sum of terms from code itself
     printf("Theoretical e-1: %.6f\n", M_E - 1.0); //verifying with actual value
 
     return 0;
