@@ -39,26 +39,6 @@ The following C code verifies the series sum numerically.
 \end{enumerate}
 
 \solution
-\iffalse
-    From \eqref{eq:EE26BTECH11202-app-conic_quad_form},
-Let $\vec{x} = \myvec{x \\ y}$. The general second-degree equation of a conic in vector form is:
-\begin{align}
-\vec{x}^\top \vec{V} \vec{x} + 2\vec{u}^\top \vec{x} + f = 0 \label{eq:EE26BTECH11213-conic_gen_form}
-\end{align}
-For a circle with center vector $\vec{c}$ and radius $r$, the geometric locus satisfies:
-\begin{align}
-\norm{\vec{x} - \vec{c}}^2 = r^2
-\end{align}
-Expanding the norm in vector product form:
-\begin{align}
-\brak{\vec{x} - \vec{c}}^\top \brak{\vec{x} - \vec{c}} &= r^2 \\
-\vec{x}^\top \vec{x} - 2\vec{c}^\top \vec{x} + \vec{c}^\top \vec{c} - r^2 &= 0
-\end{align}
-Comparing with \eqref{eq:EE26BTECH11213-conic_gen_form}, the conic matrix parameters are:
-\begin{align}
-\vec{V} = \vec{I} = \myvec{1 & 0 \\ 0 & 1}, \quad \vec{u} = -\vec{c}, \quad f = \norm{\vec{c}}^2 - r^2 = \vec{c}^\top \vec{c} - r^2
-\end{align}
-\fi
 From \eqref{eq:EE26BTECH11213-2-quad-form}, the circle parameters are
 \begin{align}
 \label{eq:EE26BTECH11213-circ-1}, 
@@ -268,99 +248,77 @@ The minimum value is $4$, attained at $x = 2$, which confirms option (D).
 \end{figure}
 \item Consider a nonlinear algebraic equation, $e^x - 2 = 0$. Using the Newton-Raphson method, with the initial guess of $x_0 = 1$, the approximated value of the root of the equation after one iteration is \underline{\hspace{1.5cm}} (round off to two decimal places).
 \hfill (BT~2025)
-
+\\
 \solution
-The given objective function and its first derivative are:
+Substituting
 \begin{align}
 f\brak{x} &= e^x - 2 \\
 f'\brak{x} &= e^x
 \end{align}
-
-Substituting $f\brak{x}$ and $f'\brak{x}$ into the Newton-Raphson recurrence relation from \eqref{eq:EE26BTECH11213-newton_raphson}:
+into \eqref{eq:EE26BTECH11213-newton_raphson},
 \begin{align}
 x_{n+1} &= x_n - \frac{e^{x_n} - 2}{e^{x_n}} \\
 &= x_n - \brak{1 - \frac{2}{e^{x_n}}} \\
 &= x_n - 1 + 2e^{-x_n}
 \end{align}
-
-Given the initial guess $x_0 = 1$, the first iteration ($n = 0$) gives:
+Given the initial guess $x_0 = 1$, the first iteration ($n = 0$) gives
 \begin{align}
-x_1 &= x_0 - 1 + 2e^{-x_0} \\
+	x_1 &\approx x_0 - 1 + 2e^{-x_0} \\
 &= 1 - 1 + 2e^{-1} \\
-&= \frac{2}{e} \approx \frac{2}{2.71828} \approx 0.73576 \approx 0.74
+&= \frac{2}{e} 
 \end{align}
-
-\noindent{Subsequent Iterations (Convergence to $\ln 2$):}
+From the following code, 
 \begin{align}
-x_2 &= x_1 - 1 + 2e^{-x_1} \approx 0.694042 \\
-x_3 &= x_2 - 1 + 2e^{-x_2} \approx 0.693148 \\
-x_4 &= x_3 - 1 + 2e^{-x_3} \approx 0.693147 \approx \ln 2
+x_4  = 0.693147 \approx \ln 2
 \end{align}
-
-The exact mathematical solution is $e^x = 2 \implies x = \ln 2 \approx 0.693147$. Thus, the approximated value of the root after one iteration is ${0.74}$.
-
-The C Code implementing Newton-Raphson recurrence is as follows: 
+which is the exact solution.
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq33/raph.c}@*)
 \end{lstlisting}
-
+The following code generates
+    \figref{fig:EE26BTECH11213-bt25_q33}.
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq33/raph.py}@*)
+\end{lstlisting}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.70\linewidth]{figs/raph.pdf}
     \caption{Convergence of the Newton-Raphson method to $x = \ln 2$}
     \label{fig:EE26BTECH11213-bt25_q33}
 \end{figure}
-
-\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq33/raph.py}@*)
-\end{lstlisting}
-
 \item The value of $k$, for which the linear equations $2x + 3y = 6$ and $4x + 6y = 3k$ have at least one solution, is \underline{\hspace{1.5cm}} (answer in integer).
 \hfill (BT~2025)
-
+\\
 \solution
-The given system of linear equations is:
-\begin{align}
-2x + 3y &= 6 \\
-4x + 6y &= 3k
-\end{align}
-Expressing in matrix form $\vec{A}\vec{x} = \vec{b}$:
+Expressing in matrix form $\vec{A}\vec{x} = \vec{b}$,
 \begin{align}
 \myvec{2 & 3 \\ 4 & 6} \myvec{x \\ y} = \myvec{6 \\ 3k}
+\label{eq:EE26BTECH11213-system}
 \end{align}
-The augmented matrix is formulated as:
+The augmented matrix is 
 \begin{align}
-\augvec{2}{1}{\vec{A} & \vec{b}} = \augvec{2}{1}{2 & 3 & 6 \\ 4 & 6 & 3k}
+\augvec{1}{1}{\vec{A} & \vec{b}} = \augvec{2}{1}{2 & 3 & 6 \\ 4 & 6 & 3k}
 \end{align}
-
-Applying Gaussian elimination using the elementary row operation $R_2 \to R_2 - 2R_1$:
+Applying Gaussian elimination using elementary row operations,
 \begin{align}
 \augvec{2}{1}{2 & 3 & 6 \\ 4 & 6 & 3k} \xrightarrow{R_2 \to R_2 - 2R_1} \augvec{2}{1}{2 & 3 & 6 \\ 0 & 0 & 3k - 12}
 \end{align}
-The coefficient matrix $\vec{A}$ reduces to:
+$\because \rank\brak{\vec{A}}=1$, from the above, 
+\eqref{eq:EE26BTECH11213-system}
+is consistent if 
 \begin{align}
-\vec{A} \xrightarrow{R_2 \to R_2 - 2R_1} \myvec{2 & 3 \\ 0 & 0}
-\end{align}
-Since there is only one non-zero row in echelon form, $\text{rank}\brak{\vec{A}} = 1$.
-
-From the Rouch\'{e}--Capelli theorem in \eqref{eq:EE26BTECH11213-consistent_rank}, for the system to have at least one solution, it must be consistent:
-\begin{align}
-\text{rank}\brak{\augvec{2}{1}{\vec{A} & \vec{b}}} = \text{rank}\brak{\vec{A}} = 1
-\end{align}
-This requires the second row of the augmented matrix to be entirely zeros:
-\begin{align}
+\text{rank}\brak{\augvec{1}{1}{\vec{A} & \vec{b}}} = \text{rank}\brak{\vec{A}} = 1
+\\
+\implies 
 3k - 12 &= 0 \\
-3k &= 12 \implies k = 4
+\text{or, }k = 4
 \end{align}
-For $k = 4$, $\text{rank}\brak{\vec{A}} = \text{rank}\brak{\augvec{2}{1}{\vec{A} & \vec{b}}} = 1 < 2$ (number of variables $n = 2$), yielding infinitely many solutions along the coincident line $2x + 3y = 6$. 
-
-Hence, the integer value of $k$ is ${4}$. 
-
-The Python Code showing the implementation for a given value of k and comparing solutions is as follows:
+The following code verifies the result by 
+generating
+    \figref{fig:EE26BTECH11213-bt25_q34}.
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq34/bt34.py}@*)
 \end{lstlisting}
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.70\linewidth]{figs/bt34_plot.pdf}
