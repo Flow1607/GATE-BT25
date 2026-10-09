@@ -608,6 +608,11 @@ INPUT EE26BTECH11202/figs/spring_deriv.tex
 INPUT ./chapters/bt-2025-formulae.tex
 INPUT ./chapters/bt-2025-formulae.tex
 INPUT chapters/bt-2025-formulae.tex
+INPUT ./figs/pmf.pdf
+INPUT ./figs/pmf.pdf
+INPUT ./figs/pmf.pdf
+INPUT ./figs/pmf.pdf
+INPUT ./figs/pmf.pdf
 INPUT ./chapters/bt-2025-problems.tex
 INPUT ./chapters/bt-2025-problems.tex
 INPUT chapters/bt-2025-problems.tex
@@ -656,11 +661,6 @@ INPUT ./figs/bt34_plot.pdf
 INPUT ./figs/bt34_plot.pdf
 INPUT ./figs/bt34_plot.pdf
 INPUT ./figs/bt34_plot.pdf
-INPUT ./figs/pmf.pdf
-INPUT ./figs/pmf.pdf
-INPUT ./figs/pmf.pdf
-INPUT ./figs/pmf.pdf
-INPUT ./figs/pmf.pdf
 INPUT ./figs/rc-step-response.pdf
 INPUT ./figs/rc-step-response.pdf
 INPUT ./figs/rc-step-response.pdf

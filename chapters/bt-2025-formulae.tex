@@ -128,16 +128,29 @@ p_X\brak{n} &= \Pr\brak{X_1 + X_2 = n} = \sum_{k} \Pr\brak{X_1 = n - k \mid X_2 
 &= \sum_{k} p_{X_1}\brak{n - k} p_{X_2}\brak{k} = p_{X_1}\brak{n} * p_{X_2}\brak{n} \label{eq:EE26BTECH11213-dice_convolution}
 \end{align}
 
-\item Substituting \eqref{eq:EE26BTECH11213-dice_uniform_pmf} into \eqref{eq:EE26BTECH11213-dice_convolution} yields the triangular PMF:
+\item Substituting \eqref{eq:EE26BTECH11213-dice_uniform_pmf} into \eqref{eq:EE26BTECH11213-dice_convolution} yields the triangular PMF
 \begin{align}
 p_X\brak{n} = \begin{cases} 
 0, & n < 2 \\ 
 \frac{n - 1}{36}, & 2 \le n \le 7 \\ 
 \frac{13 - n}{36}, & 7 < n \le 12 \\ 
 0, & n > 12 
-\end{cases} \label{eq:EE26BTECH11213-triangular_pmf}
+\end{cases} 
+\label{eq:EE26BTECH11213-triangular_pmf}
 \end{align}
 \end{itemize}
+The following code verifies
+\eqref{eq:EE26BTECH11213-triangular_pmf}
+    in \figref{fig:EE26BTECH11213-bt25_q35}.
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq35/dice.py}@*)
+\end{lstlisting}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\linewidth]{figs/pmf.pdf}
+    \caption{PMF of the sum of two fair dice: Simulation vs Analysis}
+    \label{fig:EE26BTECH11213-bt25_q35}
+\end{figure}
 
 \item Unit Step Response of an $RC$ Circuit and $s$-Domain Analysis
 \begin{itemize}

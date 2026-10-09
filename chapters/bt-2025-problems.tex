@@ -184,7 +184,6 @@ for $x > 0$ is:
     \end{multicols}
 \end{enumerate}
 \solution
-\iffalse
 To locate the critical points of $f\brak{x}$, we set the first derivative to zero:
 \begin{align}
 f'\brak{x} &= \diff{}{x}\brak{x + \frac{4}{x}} = 1 - \frac{4}{x^2} = 0 \\
@@ -194,7 +193,6 @@ Since $x > 0$, the only admissible critical point is:
 \begin{align}
 x = 2
 \end{align}
-\fi
 From \eqref{eq:EE26BTECH11213-convexity_check}
 \begin{align}
 	f''\brak{x} = \frac{d^2}{dx^2}\brak{x + \frac{4}{x}} = \frac{8}{x^3} > 0, \quad x \in \brak{0,\infty}
@@ -212,30 +210,6 @@ Applying the first-order update relation from \eqref{eq:EE26BTECH11213-grad_desc
 x_{k+1} = x_k - 0.3\brak{1 - \frac{4}{x_k^2}}
 \end{align}
 Starting from the initial guess $x_0 = 5$, the sequence converges to $x^* = 2$, yielding $f\brak{x^*} = 4$.  The following code accomplishes this.
-\iffalse
-\item Alternative Method (Completing the Square):
-For $x > 0$, the function $f\brak{x}$ can be expressed in terms of square roots and rewritten as a perfect square:
-\begin{align}
-f\brak{x} &= x + \frac{4}{x} \\
-&= \brak{\sqrt{x}}^2 - 2\brak{\sqrt{x}}\brak{\frac{2}{\sqrt{x}}} + \brak{\frac{2}{\sqrt{x}}}^2 + 2\brak{\sqrt{x}}\brak{\frac{2}{\sqrt{x}}} \\
-&= \brak{\sqrt{x} - \frac{2}{\sqrt{x}}}^2 + 4
-\end{align}
-
-Since the square of any real number is non-negative:
-\begin{align}
-\brak{\sqrt{x} - \frac{2}{\sqrt{x}}}^2 \ge 0
-\end{align}
-with equality holding if and only if:
-\begin{align}
-\sqrt{x} - \frac{2}{\sqrt{x}} = 0 \implies \sqrt{x} = \frac{2}{\sqrt{x}} \implies x = 2
-\end{align}
-
-Therefore:
-\begin{align}
-f\brak{x} \ge 4
-\end{align}
-The minimum value is $4$, attained at $x = 2$, which confirms option (D).
-\fi
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq14/min.c}@*)
 \end{lstlisting}
@@ -328,37 +302,15 @@ generating
 
 \item Two fair six-sided dice, with sides numbered 1 to 6, are thrown once. The probability of getting 7 as the sum of the numbers on the top side of the dice is \underline{\hspace{1.5cm}}.
 \hfill (BT~2025)
-
+\\
 \solution
 Let $X_1$ and $X_2$ represent the scores on the two dice, and let $X = X_1 + X_2$ denote their sum. 
-From the triangular distribution derived in \eqref{eq:EE26BTECH11213-triangular_pmf}, the probability mass function for $2 \le n \le 7$ is given by:
+From the triangular distribution derived in \eqref{eq:EE26BTECH11213-triangular_pmf}, 
 \begin{align}
-p_X\brak{n} = \frac{n - 1}{36}
+	p_X\brak{n} = \frac{n - 1}{36},\quad 2 \le n \le 7
+\\
+	\implies \pr{X=7} =  \frac{1}{6}
 \end{align}
-
-Evaluating the PMF at $n = 7$:
-\begin{align}
-\pr{X=7} = \frac{7 - 1}{36} = \frac{6}{36} = \frac{1}{6}
-\end{align}
-Hence, option (A) is correct.
-
-The Python simulation script verifying the PMF across 10,000 trials is:
-
-\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq35/dice.py}@*)
-\end{lstlisting}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.70\linewidth]{figs/pmf.pdf}
-    \caption{PMF of the sum of two fair dice: Simulation vs Analysis}
-    \label{fig:EE26BTECH11213-bt25_q35}
-\end{figure}
-
-\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{figs/pmf.pdf}@*)
-\end{lstlisting}
-
 \item A thermometer measuring body temperature follows a first-order response with a time constant of $40$ seconds. The instrument will reach $95\%$ of its steady-state output at \underline{\hspace{1.5cm}} seconds (round off to the nearest integer).
 \hfill (BT~2025)
 \begin{enumerate}[itemsep=0pt]
