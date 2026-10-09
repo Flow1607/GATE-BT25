@@ -132,14 +132,14 @@ verifies this in
     \label{fig:EE26BTECH11213-bt25_q9}
 \end{figure}
 %
-\item Let $y\brak{t}$ be a bacterial population whose growth is given by:
+\item Let $y\brak{t}$ be a bacterial population whose growth is given by
 \begin{align}
 \frac{dy}{dt} = \lambda\brak{y + 2}
 \end{align}
-where $\lambda$ is the growth rate constant. If $y\brak{0} = 1$ and $y\brak{1} = 4$, then the value of $\lambda$ is:
+where $\lambda$ is the growth rate constant. If $y\brak{0} = 1$ and $y\brak{1} = 4$, then the value of $\lambda$ is
 \hfill (BT~2025)
 \begin{enumerate}[itemsep=0pt]
-    \begin{multicols}{2}
+    \begin{multicols}{4}
         \item $\ln 2$
         \item $\ln 3$
         \item $\ln 4$
@@ -148,94 +148,63 @@ where $\lambda$ is the growth rate constant. If $y\brak{0} = 1$ and $y\brak{1} =
 \end{enumerate}
 
 \solution
-Rearranging the differential equation into standard linear form:
+Rearranging the differential equation into standard linear form
 \begin{align}
-\frac{dy}{dt} - \lambda y = 2\lambda
+\frac{dy}{dt} - \lambda y = 2\lambda u(t)
 \end{align}
 
-Taking the unilateral Laplace transform on both sides using \eqref{eq:EE26BTECH11213-laplace_first_deriv} and \eqref{eq:EE26BTECH11213-laplace_const}:
+Taking the unilateral Laplace transform on both sides using \eqref{eq:EE26BTECH11202-Laplace_1} and \eqref{eq:EE26BTECH11202-Laplace_4.1}:
 \begin{align}
 s Y(s) - y\brak{0} - \lambda Y(s) &= \frac{2\lambda}{s}
 \end{align}
-
-
-Substituting the initial condition $y\brak{0} = 1$:
+Substituting the initial condition $y\brak{0} = 1$,
 \begin{align}
 \brak{s - \lambda}Y(s) - 1 &= \frac{2\lambda}{s} \\
-\brak{s - \lambda}Y(s) &= 1 + \frac{2\lambda}{s} = \frac{s + 2\lambda}{s} \\
-Y(s) &= \frac{s + 2\lambda}{s\brak{s - \lambda}}
+\implies Y(s) &= \frac{s + 2\lambda}{s\brak{s - \lambda}}
+\\
+ &= -\frac{2}{s} + \frac{3}{s - \lambda} 
 \end{align}
-
-Decomposing into partial fractions:
+Applying the inverse Laplace transform using \eqref{eq:EE26BTECH11202-Laplace_4.1} and \eqref{eq:EE26BTECH11202-Laplace_3},
 \begin{align}
-\frac{s + 2\lambda}{s\brak{s - \lambda}} = \frac{A}{s} + \frac{B}{s - \lambda} \implies s + 2\lambda = A\brak{s - \lambda} + B s
-\end{align}
-
-\item Evaluating the coefficients:
-\begin{align}
-\text{At } s = 0: \quad 2\lambda &= A\brak{-\lambda} \implies A = -2 \\
-\text{At } s = \lambda: \quad 3\lambda &= B\brak{\lambda} \implies B = 3
-\end{align}
-
-Substituting $A$ and $B$ back into $Y(s)$ and applying the inverse Laplace transform using \eqref{eq:EE26BTECH11213-laplace_const} and \eqref{eq:EE26BTECH11213-laplace_exp_inv}:
-\begin{align}
-Y(s) &= -\frac{2}{s} + \frac{3}{s - \lambda} \\
 y\brak{t} &= 3e^{\lambda t} - 2
+\\
+\implies y\brak{1} = 4 &= 3e^{\lambda} - 2 \\
+\text{or, }\lambda &= \ln 2
 \end{align}
-
-Applying the boundary condition $y\brak{1} = 4$:
-\begin{align}
-4 &= 3e^{\lambda\brak{1}} - 2 \\
-6 &= 3e^{\lambda} \\
-e^{\lambda} &= 2 \implies \lambda = \ln 2
-\end{align}
-Hence, option (A) is correct.
-
-\noindent{Numerical Simulation (Euler's Method):} 
-Applying the recurrence relation from \eqref{eq:EE26BTECH11213-euler_recurrence} with step size $h = 0.01$ and $\lambda = \ln 2$:
+From \eqref{eq:EE26BTECH11202-ED_1}, with step size $h = 0.01$ and $\lambda = \ln 2$, the following difference equation is obtained.
 \begin{align}
 y_{n+1} = y_n + 0.01\sbrak{\ln\brak{2}\brak{y_n + 2}}, \quad y_0 = 1
 \end{align}
-
-The C code implementation is as follows:
-
+The following  codes are used to generate
+    \figref{fig:EE26BTECH11213-bt25_q13}.
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq13/bac.py}@*)
+\end{lstlisting}
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq13/bac.c}@*)
 \end{lstlisting}
-
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.70\linewidth]{figs/bac.png}
     \caption{Euler's Forward Difference Simulation of Bacterial Growth}
     \label{fig:EE26BTECH11213-bt25_q13}
 \end{figure}
-
-\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq13/bac.py}@*)
-\end{lstlisting}
-
-
-\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{figs/bac.png}@*)
-\end{lstlisting}
-
-\item The minimum value of the function:
+\item The minimum value of the function
 \begin{align}
 f\brak{x} = x + \frac{4}{x}
 \end{align}
 for $x > 0$ is:
 \hfill (BT~2025)
 \begin{enumerate}[itemsep=0pt]
-    \begin{multicols}{2}
+    \begin{multicols}{4}
         \item $1$
         \item $2$
         \item $3$
         \item $4$
     \end{multicols}
 \end{enumerate}
-
 \solution
+\iffalse
 To locate the critical points of $f\brak{x}$, we set the first derivative to zero:
 \begin{align}
 f'\brak{x} &= \diff{}{x}\brak{x + \frac{4}{x}} = 1 - \frac{4}{x^2} = 0 \\
@@ -245,26 +214,25 @@ Since $x > 0$, the only admissible critical point is:
 \begin{align}
 x = 2
 \end{align}
-
-Checking the second derivative using \eqref{eq:EE26BTECH11213-convexity_check}:
+\fi
+From \eqref{eq:EE26BTECH11213-convexity_check}
 \begin{align}
-f''\brak{x} = \frac{d^2}{dx^2}\brak{x + \frac{4}{x}} = \frac{8}{x^3}
+	f''\brak{x} = \frac{d^2}{dx^2}\brak{x + \frac{4}{x}} = \frac{8}{x^3} > 0, \quad x \in \brak{0,\infty}
 \end{align}
-For all $x \in \brak{0, \infty}$, $f''\brak{x} > 0$. Thus, $f\brak{x}$ is strictly convex, and $x = 2$ corresponds to a unique global minimum.
-
-Evaluating the function at $x = 2$:
-\begin{align}
-f\brak{2} = 2 + \frac{4}{2} = 4
-\end{align}
-Hence, option (D) is correct.
-
-\noindent{Numerical Simulation (Gradient Descent):} 
+Thus, $f\brak{x}$ is strictly convex in the above interval.  
+This is verified by the following code in 
+    \figref{fig:EE26BTECH11213-bt25_q14}.
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq14/min.py}@*)
+\end{lstlisting}
+%, and $x = 2$ corresponds to a unique global minimum.
+%\noindent{Numerical Simulation (Gradient Descent):} 
 Applying the first-order update relation from \eqref{eq:EE26BTECH11213-grad_descent_update} with learning rate $\eta = 0.3$:
 \begin{align}
 x_{k+1} = x_k - 0.3\brak{1 - \frac{4}{x_k^2}}
 \end{align}
-Starting from the initial guess $x_0 = 5$, the sequence converges to $x^* = 2$, yielding $f\brak{x^*} = 4$.
-
+Starting from the initial guess $x_0 = 5$, the sequence converges to $x^* = 2$, yielding $f\brak{x^*} = 4$.  The following code accomplishes this.
+\iffalse
 \item Alternative Method (Completing the Square):
 For $x > 0$, the function $f\brak{x}$ can be expressed in terms of square roots and rewritten as a perfect square:
 \begin{align}
@@ -287,29 +255,17 @@ Therefore:
 f\brak{x} \ge 4
 \end{align}
 The minimum value is $4$, attained at $x = 2$, which confirms option (D).
-
-The C code implementing iterative gradient descent is:
-
+\fi
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq14/min.c}@*)
 \end{lstlisting}
-
-
+%
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.70\linewidth]{figs/min.png}
     \caption{Plot of $f\brak{x} = x + \frac{4}{x}$ indicating the minimum at $\brak{2, 4}$}
     \label{fig:EE26BTECH11213-bt25_q14}
 \end{figure}
-
-\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq14/min.py}@*)
-\end{lstlisting}
-
-\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{figs/min.png}@*)
-\end{lstlisting}
-
 \item Consider a nonlinear algebraic equation, $e^x - 2 = 0$. Using the Newton-Raphson method, with the initial guess of $x_0 = 1$, the approximated value of the root of the equation after one iteration is \underline{\hspace{1.5cm}} (round off to two decimal places).
 \hfill (BT~2025)
 
@@ -529,7 +485,7 @@ The given first-order differential equation governing the process is:
 \tau_p \frac{dy\brak{t}}{dt} + y\brak{t} = K_p f\brak{t}
 \end{align}
 
-Taking the unilateral Laplace transform on both sides using \eqref{eq:EE26BTECH11213-laplace_first_deriv}:
+Taking the unilateral Laplace transform on both sides using \eqref{eq:EE26BTECH11202-Laplace_1}:
 \begin{align}
 \tau_p \sbrak{s Y\brak{s} - y\brak{0}} + Y\brak{s} = K_p F\brak{s}
 \end{align}

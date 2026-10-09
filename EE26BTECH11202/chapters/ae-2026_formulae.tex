@@ -43,7 +43,8 @@ Rearranging, we get:
 g\brak{t} \system{L} G(s) = \int_{0}^{\infty} e^{-st} g\brak{t} \, dt
 \end{align}
 \item \begin{align}
-g^{\prime}\brak{t} \system{L}s G\brak{s}-g\brak{0} \label{eq:EE26BTECH11202-Laplace_1}
+g^{\prime}\brak{t} \system{L}s G\brak{s}-g\brak{0} 
+\label{eq:EE26BTECH11202-Laplace_1}
 \end{align}
 \solution 
 \iffalse
@@ -88,7 +89,8 @@ yielding
 \end{align}
 \item 
 \begin{align}
-	u(t) \system{L} \frac{1}{s} \label{eq:EE26BTECH11202-Laplace_4.1}
+	u(t) \system{L} \frac{1}{s} 
+	\label{eq:EE26BTECH11202-Laplace_4.1}
 \end{align}
 \solution
 \begin{align}
@@ -150,7 +152,7 @@ yielding
 	y(t)=\beta \cos(\alpha t) + \frac{\gamma}{\alpha}\sin(\alpha t) \label{eq:EE26BTECH11202-Laplace_7}
 \end{align}
 from \eqref{eq:EE26BTECH11202-Laplace_5}.
-\item Euler's Method of Forward Differences.  Numerically solve 
+\item (Euler's Method of Forward Differences.)  Numerically solve 
 \begin{align}
 	\frac{dy}{dx}=f\brak{x,y}, y\brak{x_0}=y_0
 \end{align}
@@ -160,38 +162,9 @@ from \eqref{eq:EE26BTECH11202-Laplace_5}.
 \end{align}
 which can be expressed using the notation
 \begin{align}
-	y^{\prime}_0=\frac{y_{1}-y_0}{h} \label{eq:EE26BTECH11202-ED_1}
+	y^{\prime}_0=\frac{y_{1}-y_0}{h} 
+	\label{eq:EE26BTECH11202-ED_1}
 \end{align}
-\iffalse
-\begin{itemize}
-	\item First Forward Difference - Consider a differential equation:
-The slope of the tangent $m$ at $\brak{x_0, y_0}$ is given by:
-\begin{align}
-m=f\brak{x_0,y_0}
-\end{align}
-The slope of the tangent line gives the direction in which we need to move in order to trace the curve(considering we move in small steps). Hence, we can numerically compute the approximate value of a function at a given $x$ knowing the initial conditions. 
-\begin{figure}[H]
-\begin{center}
-\input{EE26BTECH11202/figs/Euler_deriv.tex}
-    \caption{Zoomed-in graph}
-    \label{fig:1}
-
-\end{center}
-\end{figure}
-Consider the above diagram, the equation of line is:
-\begin{align}
-	y_1-y_0=m\brak{x_1-x_0}
-\end{align}
-\begin{align}
-y_1=y_0+mh
-\end{align}
-Here, $h$ is the step size(or small increment in $x$). Generalising the above result, we get the derivative $y^{\prime}_n$:
-\begin{align}
-	y^{\prime}_n=\frac{y_{n+1}-y_n}{h} \label{eq:EE26BTECH11202-ED_1}
-\end{align}
-\end{itemize}
-\fi
-%\item Second Forward Difference - Differentiating the equation \eqref{eq:EE26BTECH11202-ED_1}, we obtain:
 Similarly,
 \begin{align}
 	y_n^{\prime \prime}=\frac{y_{n+1}^{\prime}-y_n^{\prime}}{h}

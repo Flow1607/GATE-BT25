@@ -71,7 +71,7 @@ The value of $\mu$ corresponding to the degenerate conic (the radical axis / com
 \end{align}
 
 \item Laplace Transform
-\begin{itemize}
+%\begin{itemize}
 \item Bilateral Definition:
 For an arbitrary continuous-time signal $g\brak{t}$, the bilateral Laplace transform is defined as:
 \begin{align}
@@ -84,7 +84,7 @@ For causal signals and differential equations with initial conditions at $t = 0$
 G\brak{s} = \mathcal{L}\cbrak{g\brak{t}} = \int_{0}^{\infty} g\brak{t} e^{-st} \, dt \label{eq:EE26BTECH11213-laplace_def}
 \end{align}
 
-\item Derivation of Derivative Properties:
+	\iffalse
 Applying integration by parts to $\mathcal{L}\cbrak{y'\brak{t}}$ with $u = e^{-st}$ and $dv = y'\brak{t} \, dt \implies du = -s e^{-st} \, dt, \; v = y\brak{t}$:
 \begin{align}
 \mathcal{L}\cbrak{y'\brak{t}} &= \int_{0}^{\infty} y'\brak{t} e^{-st} \, dt \\
@@ -94,7 +94,8 @@ Applying integration by parts to $\mathcal{L}\cbrak{y'\brak{t}}$ with $u = e^{-s
 \end{align}
 Thus, the first derivative transform is:
 \begin{align}
-y'\brak{t} \system{L} sY\brak{s} - y\brak{0} \label{eq:EE26BTECH11213-laplace_first_deriv}
+y'\brak{t} \system{L} sY\brak{s} - y\brak{0} 
+\label{eq:EE26BTECH11213-laplace_first_deriv}
 \end{align}
 
 Applying the first derivative property recursively to the second derivative $y''\brak{t} = \frac{d}{dt}\brak{y'\brak{t}}$:
@@ -110,27 +111,6 @@ y'\brak{t} &\system{L} s Y\brak{s} \\
 y''\brak{t} &\system{L} s^2 Y\brak{s}
 \end{align}
 
-\item Transform of the Unit Step Function:
-The Laplace transform of an unconstrained constant $f\brak{t} = 1$ over $\brak{-\infty, \infty}$ is undefined because the integral diverges as $t \to -\infty$. For causal systems, a constant input starting at $t = 0$ is defined through the unit step function $u\brak{t}$:
-\begin{align}
-u\brak{t} = \begin{cases}
-1, & t \ge 0 \\
-0, & t < 0
-\end{cases}
-\end{align}
-Evaluating the unilateral Laplace transform of $u\brak{t}$:
-\begin{align}
-\mathcal{L}\cbrak{u\brak{t}} = \int_{0}^{\infty} 1 \cdot e^{-st} \, dt = \sbrak{-\frac{e^{-st}}{s}}_0^\infty = \frac{1}{s}, \quad \text{Re}\brak{s} > 0 \label{eq:EE26BTECH11213-laplace_const}
-\end{align}
-Hence:
-\begin{align}
-u\brak{t} \system{L} \frac{1}{s}
-\end{align}
-
-\item Transform of $e^{at}$:
-\begin{align}
-e^{at} u\brak{t} &\system{L} \frac{1}{s - a}, \quad \text{Re}\brak{s} > a \label{eq:EE26BTECH11213-laplace_exp_inv} \\
-\end{align}
 \end{itemize}
 
 \item Euler's Method of Forward Differences
@@ -141,20 +121,19 @@ y_{n+1} = y_n + h f\brak{t_n, y_n} \label{eq:EE26BTECH11213-euler_recurrence}
 \end{align}
 \end{itemize}
 
-\item Gradient Descent Optimization
-\begin{itemize}
-\item First-Order Parameter Update:
-For a differentiable function $f\brak{x}$, the iterative parameter update with learning rate $\eta > 0$ is given by:
-\begin{align}
-x_{k+1} = x_k - \eta f'\brak{x_k} \label{eq:EE26BTECH11213-grad_descent_update}
-\end{align}
-\item Second Derivative Test for Convexity:
+\fi
+\item 
+For a differentiable function $f\brak{x}$,
 \begin{align}
 f''\brak{x} > 0 \quad \forall x \in \brak{0, \infty} \implies f\brak{x} \text{ is strictly convex} \label{eq:EE26BTECH11213-convexity_check}
 \end{align}
-A strictly convex function on an open interval possesses at most one local minimum, which is also its unique global minimum.
-\end{itemize}
-
+\item (Gradient Descent Optimization) For the convex optimization problem
+\begin{align}
+	\min_x f(x),
+	\\
+x_{k+1} = x_k - \eta f'\brak{x_k} \label{eq:EE26BTECH11213-grad_descent_update}
+\end{align}
+is the iterative parameter update with learning rate $\eta > 0$. 
 \item Minimization via Completing the Square
 \begin{itemize}
 \item For any $x > 0$ and constant $a > 0$, expanding the squared difference gives:
