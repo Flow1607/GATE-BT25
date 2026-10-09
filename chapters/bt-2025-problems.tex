@@ -61,80 +61,77 @@ Comparing with \eqref{eq:EE26BTECH11213-conic_gen_form}, the conic matrix parame
 \fi
 From \eqref{eq:EE26BTECH11213-2-quad-form}, the circle parameters are
 \begin{align}
+\label{eq:EE26BTECH11213-circ-1}, 
  \vec{c}_1 = \myvec{0.5 \\ 0},  r_1 = 0.5, 
  \quad \vec{u}_1 = -\vec{c}_1 = \myvec{-0.5 \\ 0}, \quad f_1 = \norm{\vec{c}_1}^2 - r_1^2 = 0 \\
  \vec{c}_2 = \myvec{1 \\ 1}, \; r_2 = 1, \; 
  \quad \vec{u}_2 = -\vec{c}_2 = \myvec{-1 \\ -1}, \quad f_2 = \norm{\vec{c}_2}^2 - r_2^2 = 1
 \end{align}
-
-Using the pencil of conics from \eqref{eq:EE26BTECH11213-pencil_conics}, the condition for a degenerate conic from \eqref{eq:EE26BTECH11213-pencil_det_zero} gives:
-\begin{align}
-\mydet{\vec{V}_1 + \mu \vec{V}_2 & \vec{u}_1 + \mu \vec{u}_2 \\ \brak{\vec{u}_1 + \mu \vec{u}_2}^\top & f_1 + \mu f_2} = 0
-\end{align}
-Substituting the parameter matrices:
+Substituting the above in 
+%Using the pencil of conics from \eqref{eq:EE26BTECH11213-pencil_conics}, the condition for a degenerate conic from 
+\eqref{eq:EE26BTECH11213-pencil_det_zero}, 
 \begin{align}
 \mydet{1 + \mu & 0 & -0.5 - \mu \\
 0 & 1 + \mu & -\mu \\
--0.5 - \mu & -\mu & \mu} = 0
-\end{align}
-Expanding the determinant:
-\begin{align}
-\brak{1 + \mu}\sbrak{\brak{1 + \mu}\mu - \mu^2} - \brak{-0.5 - \mu}\sbrak{0 - \brak{1 + \mu}\brak{-0.5 - \mu}} &= 0 \\
-\brak{1 + \mu}\mu - \brak{1 + \mu}\brak{\mu + 0.5}^2 &= 0 \\
-\brak{1 + \mu}\brak{-\mu^2 - \frac{1}{4}} &= 0
-\end{align}
-Since $\mu^2 + \frac{1}{4} = 0$ yields imaginary roots, the only real root is:
-\begin{align}
+-0.5 - \mu & -\mu & \mu} &= 0
+\\
+\implies \brak{1 + \mu}\brak{-\mu^2 - \frac{1}{4}} &= 0
+\\
+\text{or, }
 \mu = -1
 \end{align}
-
-Substituting $\mu = -1$ into \eqref{eq:EE26BTECH11213-pencil_conics} eliminates the second-degree terms $\brak{\vec{V}_1 - \vec{V}_2 = \vec{0}}$, yielding the common chord (radical axis):
+ignoring imaginary roots.
+Substituting $\mu = -1$ in \eqref{eq:EE26BTECH11213-pencil_conics},
 \begin{align}
 2\brak{\vec{u}_1 - \vec{u}_2}^\top \vec{x} + \brak{f_1 - f_2} &= 0 \\
-2\brak{\myvec{-0.5 \\ 0} - \myvec{-1 \\ -1}}^\top \vec{x} + \brak{0 - 1} &= 0 \\
-2\myvec{0.5 & 1}\vec{x} - 1 = 0 \implies \myvec{1 & 2}\vec{x} &= 1
+ \implies \myvec{1 & 2}\vec{x} &= 1
 \end{align}
-Thus, the equation of the line passing through the intersection points is $x + 2y = 1$.
-
-The normal vector of this line is $\vec{n} = \myvec{1 \\ 2}$. A direction vector $\vec{m}$ orthogonal to $\vec{n}$ ($\vec{m}^\top \vec{n} = 0$) and a point $\vec{h}$ on the line are:
+From 
+\eqref{eq:EE26BTECH11213-line-normal}
+and
+\eqref{eq:EE26BTECH11213-line-param},
 \begin{align}
-\vec{m} = \myvec{2 \\ -1}, \quad \vec{h} = \myvec{1 \\ 0}
+\vec{n} = \myvec{1 \\ 2},
+\vec{m} = \myvec{2 \\ -1}, \vec{h} = \myvec{1 \\ 0}
 \end{align}
-Expressing the line in parametric form $\vec{x} = \vec{h} + \kappa \vec{m}$ and substituting into Circle 1 using \eqref{eq:EE26BTECH11213-conic_kappa_roots}:
+Substituting
+the above 
+along with the first circle paramters from
+\eqref{eq:EE26BTECH11213-circ-1} 
+in 
+\eqref{eq:EE26BTECH11213-conic_kappa_roots},
 \begin{align}
-\vec{m}^\top \vec{V}_1 \vec{m} &= \myvec{2 & -1}\myvec{1 & 0 \\ 0 & 1}\myvec{2 \\ -1} = 5 \\
-\vec{V}_1 \vec{h} + \vec{u}_1 &= \myvec{1 \\ 0} + \myvec{-0.5 \\ 0} = \myvec{0.5 \\ 0} \\
-\vec{m}^\top \brak{\vec{V}_1 \vec{h} + \vec{u}_1} &= \myvec{2 & -1}\myvec{0.5 \\ 0} = 1 \\
-g\brak{\vec{h}} &= \vec{h}^\top \vec{V}_1 \vec{h} + 2\vec{u}_1^\top \vec{h} + f_1 = 1 - 1 + 0 = 0
+\vec{m}^\top \vec{V}_1 \vec{m} = \myvec{2 & -1}\myvec{1 & 0 \\ 0 & 1}\myvec{2 \\ -1} = 5 \\
+\vec{V}_1 \vec{h} + \vec{u}_1 = \myvec{1 \\ 0} + \myvec{-0.5 \\ 0} = \myvec{0.5 \\ 0} \\
+\vec{m}^\top \brak{\vec{V}_1 \vec{h} + \vec{u}_1} = \myvec{2 & -1}\myvec{0.5 \\ 0} = 1 \\
+g\brak{\vec{h}} = \vec{h}^\top \vec{V}_1 \vec{h} + 2\vec{u}_1^\top \vec{h} + f_1 = 1 - 1 + 0 = 0
 \end{align}
-Evaluating the parameter roots $\kappa$:
+yielding
 \begin{align}
-\kappa = \frac{-1 \pm \sqrt{1^2 - 0}}{5} = \frac{-1 \pm 1}{5} \implies \kappa_1 = 0, \quad \kappa_2 = -\frac{2}{5}
+\kappa = \frac{-1 \pm \sqrt{1^2 - 0}}{5} 
+\implies
+\kappa_1 = 0,
+\kappa_2 = -\frac{2}{5}
 \end{align}
-
-The points of intersection are:
+$\therefore$ the points of intersection are
 \begin{align}
 \vec{x}_1 &= \vec{h} + 0\vec{m} = \myvec{1 \\ 0} \\
-\vec{x}_2 &= \vec{h} - \frac{2}{5}\vec{m} = \myvec{1 \\ 0} - \frac{2}{5}\myvec{2 \\ -1} = \myvec{0.2 \\ 0.4}
+\vec{x}_2 &= \vec{h} - \frac{2}{5}\vec{m} =  \myvec{0.2 \\ 0.4}
 \end{align}
-Hence, one of the points of intersection is $\brak{0.2, 0.4}$, and option (B) is correct.
-
-
+Hence, one of the points of intersection is $\brak{0.2, 0.4}$
+The following code 
+verifies this in 
+\figref{fig:EE26BTECH11213-bt25_q9}.
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq9/circleProblem1.py}@*)
+\end{lstlisting}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.70\linewidth]{figs/circleintersect.pdf}
     \caption{Intersection of the two circles and the radical axis}
     \label{fig:EE26BTECH11213-bt25_q9}
 \end{figure}
-
-\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq9/circleProblem1.py}@*)
-\end{lstlisting}
-
-\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{figs/circleintersect.pdf}@*)
-\end{lstlisting}
-
+%
 \item Let $y\brak{t}$ be a bacterial population whose growth is given by:
 \begin{align}
 \frac{dy}{dt} = \lambda\brak{y + 2}
