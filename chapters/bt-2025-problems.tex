@@ -3,46 +3,34 @@
 \item The sum of the following infinite series is:
 \begin{align}
 \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \frac{1}{5!} + \cdots
+\label{eq:EE26BTECH11213-1}
 \end{align}
-\hfill (GATE~BT~2025)
+\hfill (BT~2025)
 \begin{enumerate}[itemsep=0pt]
-    \begin{multicols}{2}
+    \begin{multicols}{4}
     \item $\pi$
     \item $1+e$
     \item $e-1$
     \item $e$
     \end{multicols}
 \end{enumerate}
-
 \solution
-From the Maclaurin series expansion of $e^x$ given in \eqref{eq:exp_maclaurin}:
+\eqref{eq:EE26BTECH11213-1}
+can be expressed as
 \begin{align}
-e^x = 1 + \frac{x}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \cdots
+\sum_{n=1}^{\infty} \frac{1}{n!} = 
+\sum_{n=0}^{\infty} \frac{1}{n!} - 1 = e - 1
 \end{align}
-
-Evaluating the expression at $x = 1$:
-\begin{align}
-e^1 &= 1 + \frac{1^1}{1!} + \frac{1^2}{2!} + \frac{1^3}{3!} + \frac{1^4}{4!} + \cdots \\
-e &= 1 + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \cdots \quad \brak{\text{since } 1^n = 1}
-\end{align}
-
-Using the original equation:
-\begin{align}
-\frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \cdots = \sum_{n=1}^{\infty} \frac{1}{n!} \\ 
-\implies \sum_{n=0}^{\infty} \frac{1}{n!} - 1 &= e - 1
-\end{align}
-Hence, option (C) is correct.
-
-The following C code verifies the series sum numerically:
-
+upon substituting from \eqref{eq:EE26BTECH11213-exp_maclaurin}
+The following C code verifies the series sum numerically.
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq3/btq3.c}@*)
 \end{lstlisting}
 
 \item A circle with center at $\brak{x, y} = \brak{0.5, 0}$ and radius $r_1 = 0.5$ intersects with another circle with center at $\brak{x, y} = \brak{1, 1}$ and radius $r_2 = 1$ at two points. One of the points of intersection $\brak{x, y}$ is:
-\hfill (GATE~BT~2025)
+\hfill (BT~2025)
 \begin{enumerate}[itemsep=0pt]
-    \begin{multicols}{2}
+    \begin{multicols}{4}
         \item $\brak{0, 0}$
         \item $\brak{0.2, 0.4}$
         \item $\brak{0.5, 0.5}$
@@ -51,9 +39,11 @@ The following C code verifies the series sum numerically:
 \end{enumerate}
 
 \solution
+\iffalse
+    From \eqref{eq:EE26BTECH11202-app-conic_quad_form},
 Let $\vec{x} = \myvec{x \\ y}$. The general second-degree equation of a conic in vector form is:
 \begin{align}
-\vec{x}^\top \vec{V} \vec{x} + 2\vec{u}^\top \vec{x} + f = 0 \label{eq:conic_gen_form}
+\vec{x}^\top \vec{V} \vec{x} + 2\vec{u}^\top \vec{x} + f = 0 \label{eq:EE26BTECH11213-conic_gen_form}
 \end{align}
 For a circle with center vector $\vec{c}$ and radius $r$, the geometric locus satisfies:
 \begin{align}
@@ -64,20 +54,20 @@ Expanding the norm in vector product form:
 \brak{\vec{x} - \vec{c}}^\top \brak{\vec{x} - \vec{c}} &= r^2 \\
 \vec{x}^\top \vec{x} - 2\vec{c}^\top \vec{x} + \vec{c}^\top \vec{c} - r^2 &= 0
 \end{align}
-Comparing with \eqref{eq:conic_gen_form}, the conic matrix parameters are:
+Comparing with \eqref{eq:EE26BTECH11213-conic_gen_form}, the conic matrix parameters are:
 \begin{align}
 \vec{V} = \vec{I} = \myvec{1 & 0 \\ 0 & 1}, \quad \vec{u} = -\vec{c}, \quad f = \norm{\vec{c}}^2 - r^2 = \vec{c}^\top \vec{c} - r^2
 \end{align}
-
-For the two given circles:
+\fi
+From \eqref{eq:EE26BTECH11213-2-quad-form}, the circle parameters are
 \begin{align}
-\text{Circle 1: } \vec{c}_1 = \myvec{0.5 \\ 0}, \; r_1 = 0.5 &\implies \vec{x}^\top \vec{x} - 2\myvec{0.5 & 0}\vec{x} + \brak{0.5^2 - 0.5^2} = 0 \\
-\vec{V}_1 = \myvec{1 & 0 \\ 0 & 1}, \quad \vec{u}_1 &= -\vec{c}_1 = \myvec{-0.5 \\ 0}, \quad f_1 = \norm{\vec{c}_1}^2 - r_1^2 = 0 \\
-\text{Circle 2: } \vec{c}_2 = \myvec{1 \\ 1}, \; r_2 = 1 &\implies \vec{x}^\top \vec{x} - 2\myvec{1 & 1}\vec{x} + \brak{1^2 + 1^2 - 1^2} = 0 \\
-\vec{V}_2 = \myvec{1 & 0 \\ 0 & 1}, \quad \vec{u}_2 &= -\vec{c}_2 = \myvec{-1 \\ -1}, \quad f_2 = \norm{\vec{c}_2}^2 - r_2^2 = 1
+ \vec{c}_1 = \myvec{0.5 \\ 0},  r_1 = 0.5, 
+ \quad \vec{u}_1 = -\vec{c}_1 = \myvec{-0.5 \\ 0}, \quad f_1 = \norm{\vec{c}_1}^2 - r_1^2 = 0 \\
+ \vec{c}_2 = \myvec{1 \\ 1}, \; r_2 = 1, \; 
+ \quad \vec{u}_2 = -\vec{c}_2 = \myvec{-1 \\ -1}, \quad f_2 = \norm{\vec{c}_2}^2 - r_2^2 = 1
 \end{align}
 
-Using the pencil of conics from \eqref{eq:pencil_conics}, the condition for a degenerate conic from \eqref{eq:pencil_det_zero} gives:
+Using the pencil of conics from \eqref{eq:EE26BTECH11213-pencil_conics}, the condition for a degenerate conic from \eqref{eq:EE26BTECH11213-pencil_det_zero} gives:
 \begin{align}
 \mydet{\vec{V}_1 + \mu \vec{V}_2 & \vec{u}_1 + \mu \vec{u}_2 \\ \brak{\vec{u}_1 + \mu \vec{u}_2}^\top & f_1 + \mu f_2} = 0
 \end{align}
@@ -98,7 +88,7 @@ Since $\mu^2 + \frac{1}{4} = 0$ yields imaginary roots, the only real root is:
 \mu = -1
 \end{align}
 
-Substituting $\mu = -1$ into \eqref{eq:pencil_conics} eliminates the second-degree terms $\brak{\vec{V}_1 - \vec{V}_2 = \vec{0}}$, yielding the common chord (radical axis):
+Substituting $\mu = -1$ into \eqref{eq:EE26BTECH11213-pencil_conics} eliminates the second-degree terms $\brak{\vec{V}_1 - \vec{V}_2 = \vec{0}}$, yielding the common chord (radical axis):
 \begin{align}
 2\brak{\vec{u}_1 - \vec{u}_2}^\top \vec{x} + \brak{f_1 - f_2} &= 0 \\
 2\brak{\myvec{-0.5 \\ 0} - \myvec{-1 \\ -1}}^\top \vec{x} + \brak{0 - 1} &= 0 \\
@@ -110,7 +100,7 @@ The normal vector of this line is $\vec{n} = \myvec{1 \\ 2}$. A direction vector
 \begin{align}
 \vec{m} = \myvec{2 \\ -1}, \quad \vec{h} = \myvec{1 \\ 0}
 \end{align}
-Expressing the line in parametric form $\vec{x} = \vec{h} + \kappa \vec{m}$ and substituting into Circle 1 using \eqref{eq:conic_kappa_roots}:
+Expressing the line in parametric form $\vec{x} = \vec{h} + \kappa \vec{m}$ and substituting into Circle 1 using \eqref{eq:EE26BTECH11213-conic_kappa_roots}:
 \begin{align}
 \vec{m}^\top \vec{V}_1 \vec{m} &= \myvec{2 & -1}\myvec{1 & 0 \\ 0 & 1}\myvec{2 \\ -1} = 5 \\
 \vec{V}_1 \vec{h} + \vec{u}_1 &= \myvec{1 \\ 0} + \myvec{-0.5 \\ 0} = \myvec{0.5 \\ 0} \\
@@ -134,7 +124,7 @@ Hence, one of the points of intersection is $\brak{0.2, 0.4}$, and option (B) is
     \centering
     \includegraphics[width=0.70\linewidth]{figs/circleintersect.pdf}
     \caption{Intersection of the two circles and the radical axis}
-    \label{fig:bt25_q9}
+    \label{fig:EE26BTECH11213-bt25_q9}
 \end{figure}
 
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
@@ -150,7 +140,7 @@ Hence, one of the points of intersection is $\brak{0.2, 0.4}$, and option (B) is
 \frac{dy}{dt} = \lambda\brak{y + 2}
 \end{align}
 where $\lambda$ is the growth rate constant. If $y\brak{0} = 1$ and $y\brak{1} = 4$, then the value of $\lambda$ is:
-\hfill (GATE~BT~2025)
+\hfill (BT~2025)
 \begin{enumerate}[itemsep=0pt]
     \begin{multicols}{2}
         \item $\ln 2$
@@ -166,7 +156,7 @@ Rearranging the differential equation into standard linear form:
 \frac{dy}{dt} - \lambda y = 2\lambda
 \end{align}
 
-Taking the unilateral Laplace transform on both sides using \eqref{eq:laplace_first_deriv} and \eqref{eq:laplace_const}:
+Taking the unilateral Laplace transform on both sides using \eqref{eq:EE26BTECH11213-laplace_first_deriv} and \eqref{eq:EE26BTECH11213-laplace_const}:
 \begin{align}
 s Y(s) - y\brak{0} - \lambda Y(s) &= \frac{2\lambda}{s}
 \end{align}
@@ -190,7 +180,7 @@ Decomposing into partial fractions:
 \text{At } s = \lambda: \quad 3\lambda &= B\brak{\lambda} \implies B = 3
 \end{align}
 
-Substituting $A$ and $B$ back into $Y(s)$ and applying the inverse Laplace transform using \eqref{eq:laplace_const} and \eqref{eq:laplace_exp_inv}:
+Substituting $A$ and $B$ back into $Y(s)$ and applying the inverse Laplace transform using \eqref{eq:EE26BTECH11213-laplace_const} and \eqref{eq:EE26BTECH11213-laplace_exp_inv}:
 \begin{align}
 Y(s) &= -\frac{2}{s} + \frac{3}{s - \lambda} \\
 y\brak{t} &= 3e^{\lambda t} - 2
@@ -205,7 +195,7 @@ e^{\lambda} &= 2 \implies \lambda = \ln 2
 Hence, option (A) is correct.
 
 \noindent{Numerical Simulation (Euler's Method):} 
-Applying the recurrence relation from \eqref{eq:euler_recurrence} with step size $h = 0.01$ and $\lambda = \ln 2$:
+Applying the recurrence relation from \eqref{eq:EE26BTECH11213-euler_recurrence} with step size $h = 0.01$ and $\lambda = \ln 2$:
 \begin{align}
 y_{n+1} = y_n + 0.01\sbrak{\ln\brak{2}\brak{y_n + 2}}, \quad y_0 = 1
 \end{align}
@@ -221,7 +211,7 @@ The C code implementation is as follows:
     \centering
     \includegraphics[width=0.70\linewidth]{figs/bac.png}
     \caption{Euler's Forward Difference Simulation of Bacterial Growth}
-    \label{fig:bt25_q13}
+    \label{fig:EE26BTECH11213-bt25_q13}
 \end{figure}
 
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
@@ -238,7 +228,7 @@ The C code implementation is as follows:
 f\brak{x} = x + \frac{4}{x}
 \end{align}
 for $x > 0$ is:
-\hfill (GATE~BT~2025)
+\hfill (BT~2025)
 \begin{enumerate}[itemsep=0pt]
     \begin{multicols}{2}
         \item $1$
@@ -259,7 +249,7 @@ Since $x > 0$, the only admissible critical point is:
 x = 2
 \end{align}
 
-Checking the second derivative using \eqref{eq:convexity_check}:
+Checking the second derivative using \eqref{eq:EE26BTECH11213-convexity_check}:
 \begin{align}
 f''\brak{x} = \frac{d^2}{dx^2}\brak{x + \frac{4}{x}} = \frac{8}{x^3}
 \end{align}
@@ -272,7 +262,7 @@ f\brak{2} = 2 + \frac{4}{2} = 4
 Hence, option (D) is correct.
 
 \noindent{Numerical Simulation (Gradient Descent):} 
-Applying the first-order update relation from \eqref{eq:grad_descent_update} with learning rate $\eta = 0.3$:
+Applying the first-order update relation from \eqref{eq:EE26BTECH11213-grad_descent_update} with learning rate $\eta = 0.3$:
 \begin{align}
 x_{k+1} = x_k - 0.3\brak{1 - \frac{4}{x_k^2}}
 \end{align}
@@ -312,7 +302,7 @@ The C code implementing iterative gradient descent is:
     \centering
     \includegraphics[width=0.70\linewidth]{figs/min.png}
     \caption{Plot of $f\brak{x} = x + \frac{4}{x}$ indicating the minimum at $\brak{2, 4}$}
-    \label{fig:bt25_q14}
+    \label{fig:EE26BTECH11213-bt25_q14}
 \end{figure}
 
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
@@ -324,7 +314,7 @@ The C code implementing iterative gradient descent is:
 \end{lstlisting}
 
 \item Consider a nonlinear algebraic equation, $e^x - 2 = 0$. Using the Newton-Raphson method, with the initial guess of $x_0 = 1$, the approximated value of the root of the equation after one iteration is \underline{\hspace{1.5cm}} (round off to two decimal places).
-\hfill (GATE~BT~2025)
+\hfill (BT~2025)
 
 \solution
 The given objective function and its first derivative are:
@@ -333,7 +323,7 @@ f\brak{x} &= e^x - 2 \\
 f'\brak{x} &= e^x
 \end{align}
 
-Substituting $f\brak{x}$ and $f'\brak{x}$ into the Newton-Raphson recurrence relation from \eqref{eq:newton_raphson}:
+Substituting $f\brak{x}$ and $f'\brak{x}$ into the Newton-Raphson recurrence relation from \eqref{eq:EE26BTECH11213-newton_raphson}:
 \begin{align}
 x_{n+1} &= x_n - \frac{e^{x_n} - 2}{e^{x_n}} \\
 &= x_n - \brak{1 - \frac{2}{e^{x_n}}} \\
@@ -365,7 +355,7 @@ The C Code implementing Newton-Raphson recurrence is as follows:
     \centering
     \includegraphics[width=0.70\linewidth]{figs/raph.pdf}
     \caption{Convergence of the Newton-Raphson method to $x = \ln 2$}
-    \label{fig:bt25_q33}
+    \label{fig:EE26BTECH11213-bt25_q33}
 \end{figure}
 
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
@@ -373,7 +363,7 @@ The C Code implementing Newton-Raphson recurrence is as follows:
 \end{lstlisting}
 
 \item The value of $k$, for which the linear equations $2x + 3y = 6$ and $4x + 6y = 3k$ have at least one solution, is \underline{\hspace{1.5cm}} (answer in integer).
-\hfill (GATE~BT~2025)
+\hfill (BT~2025)
 
 \solution
 The given system of linear equations is:
@@ -400,7 +390,7 @@ The coefficient matrix $\vec{A}$ reduces to:
 \end{align}
 Since there is only one non-zero row in echelon form, $\text{rank}\brak{\vec{A}} = 1$.
 
-From the Rouch\'{e}--Capelli theorem in \eqref{eq:consistent_rank}, for the system to have at least one solution, it must be consistent:
+From the Rouch\'{e}--Capelli theorem in \eqref{eq:EE26BTECH11213-consistent_rank}, for the system to have at least one solution, it must be consistent:
 \begin{align}
 \text{rank}\brak{\augvec{2}{1}{\vec{A} & \vec{b}}} = \text{rank}\brak{\vec{A}} = 1
 \end{align}
@@ -422,15 +412,15 @@ The Python Code showing the implementation for a given value of k and comparing 
     \centering
     \includegraphics[width=0.70\linewidth]{figs/bt34_plot.pdf}
     \caption{Coincident lines representing infinitely many solutions at $k = 4$}
-    \label{fig:bt25_q34}
+    \label{fig:EE26BTECH11213-bt25_q34}
 \end{figure}
 
 \item Two fair six-sided dice, with sides numbered 1 to 6, are thrown once. The probability of getting 7 as the sum of the numbers on the top side of the dice is \underline{\hspace{1.5cm}}.
-\hfill (GATE~BT~2025)
+\hfill (BT~2025)
 
 \solution
 Let $X_1$ and $X_2$ represent the scores on the two dice, and let $X = X_1 + X_2$ denote their sum. 
-From the triangular distribution derived in \eqref{eq:triangular_pmf}, the probability mass function for $2 \le n \le 7$ is given by:
+From the triangular distribution derived in \eqref{eq:EE26BTECH11213-triangular_pmf}, the probability mass function for $2 \le n \le 7$ is given by:
 \begin{align}
 p_X\brak{n} = \frac{n - 1}{36}
 \end{align}
@@ -451,7 +441,7 @@ The Python simulation script verifying the PMF across 10,000 trials is:
     \centering
     \includegraphics[width=0.70\linewidth]{figs/pmf.pdf}
     \caption{PMF of the sum of two fair dice: Simulation vs Analysis}
-    \label{fig:bt25_q35}
+    \label{fig:EE26BTECH11213-bt25_q35}
 \end{figure}
 
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
@@ -459,7 +449,7 @@ The Python simulation script verifying the PMF across 10,000 trials is:
 \end{lstlisting}
 
 \item A thermometer measuring body temperature follows a first-order response with a time constant of $40$ seconds. The instrument will reach $95\%$ of its steady-state output at \underline{\hspace{1.5cm}} seconds (round off to the nearest integer).
-\hfill (GATE~BT~2025)
+\hfill (BT~2025)
 \begin{enumerate}[itemsep=0pt]
     \begin{multicols}{2}
         \item $60$
@@ -470,17 +460,17 @@ The Python simulation script verifying the PMF across 10,000 trials is:
 \end{enumerate}
 
 \solution
-The dynamic thermal response of the thermometer is modeled by the standard first-order differential equation given in \eqref{eq:first_order_ode_std}:
+The dynamic thermal response of the thermometer is modeled by the standard first-order differential equation given in \eqref{eq:EE26BTECH11213-first_order_ode_std}:
 \begin{align}
 \tau \frac{dy}{dt} + y\brak{t} = y_{ss}
 \end{align}
-which is analogous to the series $RC$ low-pass circuit in \eqref{eq:rc_circuit_ode}, where the measured temperature $y\brak{t}$ maps to the capacitor output voltage $V_{out}\brak{t}$, the steady-state reading $y_{ss}$ corresponds to $V_{dc}$, and the thermal time constant $\tau = 40\text{ s}$ corresponds to the circuit time constant $RC$.
+which is analogous to the series $RC$ low-pass circuit in \eqref{eq:EE26BTECH11213-rc_circuit_ode}, where the measured temperature $y\brak{t}$ maps to the capacitor output voltage $V_{out}\brak{t}$, the steady-state reading $y_{ss}$ corresponds to $V_{dc}$, and the thermal time constant $\tau = 40\text{ s}$ corresponds to the circuit time constant $RC$.
 
-Converting the system to the $s$-domain equivalent circuit from \eqref{eq:rc_s_domain_vout}:
+Converting the system to the $s$-domain equivalent circuit from \eqref{eq:EE26BTECH11213-rc_s_domain_vout}:
 \begin{align}
 Y\brak{s} = \frac{y_{ss}}{s\brak{\tau s + 1}} = y_{ss}\sbrak{\frac{1}{s} - \frac{1}{s + \frac{1}{\tau}}}
 \end{align}
-Taking the inverse Laplace transform directly yields the transient response from \eqref{eq:first_order_step_sol}:
+Taking the inverse Laplace transform directly yields the transient response from \eqref{eq:EE26BTECH11213-first_order_step_sol}:
 \begin{align}
 y\brak{t} = y_{ss}\brak{1 - e^{-\frac{t}{\tau}}}
 \end{align}
@@ -508,7 +498,7 @@ Rounding off to the nearest integer gives $120$ seconds. Hence, option (C) is co
     \centering
     \includegraphics[width=0.70\linewidth]{figs/rc-step-response.pdf}
     \caption{Step response of the first-order system with $\tau = 40\text{ s}$}
-    \label{fig:bt25_q42}
+    \label{fig:EE26BTECH11213-bt25_q42}
 \end{figure}
 
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
@@ -526,7 +516,7 @@ Rounding off to the nearest integer gives $120$ seconds. Hence, option (C) is co
 where $\tau_p$ is a non-zero time constant, $K_p$ is the gain and $f\brak{t}$ is the input with $f\brak{0} = 0$.
 
 Assume $y\brak{0} = 0$. The transfer function for this process is (consider $s$ as the independent variable in the Laplace domain)
-\hfill (GATE BT 2025)
+\hfill (BT 2025)
 \begin{enumerate}[itemsep=1ex]
     \begin{multicols}{2}
         \item $\frac{K_p}{\tau_p s + 1}$
@@ -542,7 +532,7 @@ The given first-order differential equation governing the process is:
 \tau_p \frac{dy\brak{t}}{dt} + y\brak{t} = K_p f\brak{t}
 \end{align}
 
-Taking the unilateral Laplace transform on both sides using \eqref{eq:laplace_first_deriv}:
+Taking the unilateral Laplace transform on both sides using \eqref{eq:EE26BTECH11213-laplace_first_deriv}:
 \begin{align}
 \tau_p \sbrak{s Y\brak{s} - y\brak{0}} + Y\brak{s} = K_p F\brak{s}
 \end{align}
@@ -565,7 +555,7 @@ Hence, option (A) is correct.
 \frac{d^2 y}{dt^2} + m \frac{dy}{dt} + ny = 0
 \end{align}
 for any constants $C_1$ and $C_2$, then $m + n$ is equal to
-\hfill (GATE~BT~2025)
+\hfill (BT~2025)
 \begin{enumerate}[itemsep=0pt]
     \begin{multicols}{2}
         \item -2
@@ -598,18 +588,18 @@ Grouping the terms containing $C_1$ and $C_2$:
 C_1 e^t \brak{1 + m + n} + C_2 e^{-t} \brak{1 - m + n} = 0
 \end{align}
 
-Using \eqref{eq:linear_identity} and \eqref{eq:linear_coeffs_zero}, since this equation must hold for any constants $C_1$ and $C_2$:
+Using \eqref{eq:EE26BTECH11213-linear_identity} and \eqref{eq:EE26BTECH11213-linear_coeffs_zero}, since this equation must hold for any constants $C_1$ and $C_2$:
 \begin{align}
-1 + m + n &= 0 \label{eq:q45_eq1} \\
-1 - m + n &= 0 \label{eq:q45_eq2}
+1 + m + n &= 0 \label{eq:EE26BTECH11213-q45_eq1} \\
+1 - m + n &= 0 \label{eq:EE26BTECH11213-q45_eq2}
 \end{align}
 
-Adding \eqref{eq:q45_eq1} and \eqref{eq:q45_eq2}:
+Adding \eqref{eq:EE26BTECH11213-q45_eq1} and \eqref{eq:EE26BTECH11213-q45_eq2}:
 \begin{align}
 2 + 2n = 0 \implies n = -1
 \end{align}
 
-Subtracting \eqref{eq:q45_eq2} from \eqref{eq:q45_eq1}:
+Subtracting \eqref{eq:EE26BTECH11213-q45_eq2} from \eqref{eq:EE26BTECH11213-q45_eq1}:
 \begin{align}
 2m = 0 \implies m = 0
 \end{align}
@@ -629,7 +619,7 @@ a + bx, & x \le 0
 \end{cases}
 \end{align}
 where $a$ and $b$ are real constants. If $f\brak{x}$ is differentiable at $x = 0$, then the value of $a + b$ is
-\hfill (GATE~BT~2025)
+\hfill (BT~2025)
 \begin{enumerate}[itemsep=0pt]
     \begin{multicols}{2}
         \item 0
@@ -640,7 +630,7 @@ where $a$ and $b$ are real constants. If $f\brak{x}$ is differentiable at $x = 0
 \end{enumerate}
 
 \solution
-Since $f\brak{x}$ is differentiable at $x = 0$, from \eqref{eq:diff_implies_cont} it must also be continuous at $x = 0$. Applying the continuity condition from \eqref{eq:continuity_cond}:
+Since $f\brak{x}$ is differentiable at $x = 0$, from \eqref{eq:EE26BTECH11213-diff_implies_cont} it must also be continuous at $x = 0$. Applying the continuity condition from \eqref{eq:EE26BTECH11213-continuity_cond}:
 \begin{align}
 \lim_{x \to 0^+} f\brak{x} = \lim_{x \to 0^-} f\brak{x} = f\brak{0}
 \end{align}
@@ -655,7 +645,7 @@ Equating the limits yields:
 a = 0
 \end{align}
 
-Applying the differentiability condition and matching one-sided derivatives at $x = 0$ using \eqref{eq:slope_matching}:
+Applying the differentiability condition and matching one-sided derivatives at $x = 0$ using \eqref{eq:EE26BTECH11213-slope_matching}:
 \begin{align}
 f'\brak{0^+} = f'\brak{0^-}
 \end{align}
@@ -685,7 +675,7 @@ Hence, option (C) is correct.
     \centering
     \includegraphics[width=0.70\linewidth]{figs/piecewise-tangent-plot.pdf}
     \caption{Differentiable piecewise function and its tangent line $y = 2x$ at $x = 0$}
-    \label{fig:bt25_q46}
+    \label{fig:EE26BTECH11213-bt25_q46}
 \end{figure}
 
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
@@ -701,7 +691,7 @@ Hence, option (C) is correct.
 \text{C}_6\text{H}_{12}\text{O}_6 + \text{NH}_3 + \text{O}_2 \rightarrow \text{CH}_{1.8}\text{O}_{0.5}\text{N}_{0.2} + \text{CO}_2 + \text{H}_2\text{O}
 \end{align}
 The moles of oxygen consumption per mole of glucose consumed during fermentation is \underline{\hspace{2cm}}. 
-\hfill (GATE~BT~2025)
+\hfill (BT~2025)
 
 \solution
 Let the balanced stoichiometric reaction be represented as:
@@ -793,7 +783,7 @@ The implementation in SymPy to find solutions is as follows:
 
 \item Let $a_0 = 0$ and define $a_n = \frac{1}{2}\brak{1 + a_{n-1}}$ for all positive integers $n \ge 1$.
 The least value of $n$ for which $\abs{1 - a_n} < \frac{1}{2^{10}}$ is \underline{\hspace{2cm}}. 
-\hfill (GATE~BT~2025)
+\hfill (BT~2025)
 
 \solution
 The given recurrence relation is:
@@ -801,12 +791,12 @@ The given recurrence relation is:
 a_n = \frac{1}{2}\brak{1 + a_{n-1}}, \quad n \ge 1, \quad a_0 = 0
 \end{align}
 
-Extending the difference equation across all $n \in \mathbb{Z}$ by causal multiplication with $u\sbrak{n}$ from \eqref{eq:discrete_unit_step}:
+Extending the difference equation across all $n \in \mathbb{Z}$ by causal multiplication with $u\sbrak{n}$ from \eqref{eq:EE26BTECH11213-discrete_unit_step}:
 \begin{align}
 a_n u\sbrak{n} - \frac{1}{2} a_{n-1} u\sbrak{n-1} = \frac{1}{2} u\sbrak{n-1}
 \end{align}
 
-Let $A\brak{z} = \mathcal{Z}\sbrak{a_n u\sbrak{n}}$. Applying the time-shift property \eqref{eq:z_shift_property} and the delayed step transform \eqref{eq:z_delayed_step}:
+Let $A\brak{z} = \mathcal{Z}\sbrak{a_n u\sbrak{n}}$. Applying the time-shift property \eqref{eq:EE26BTECH11213-z_shift_property} and the delayed step transform \eqref{eq:EE26BTECH11213-z_delayed_step}:
 \begin{align}
 A\brak{z} - \frac{1}{2} z^{-1} A\brak{z} &= \frac{1}{2} \mathcal{Z}\sbrak{u\sbrak{n-1}} \\
 A\brak{z}\brak{1 - \frac{1}{2} z^{-1}} &= \frac{\frac{1}{2} z^{-1}}{1 - z^{-1}}
@@ -832,7 +822,7 @@ Substituting back into $A\brak{z}$:
 A\brak{z} = \frac{1}{1 - z^{-1}} - \frac{1}{1 - \frac{1}{2} z^{-1}}
 \end{align}
 
-Applying the inverse Z-transform using \eqref{eq:z_step_transform} and \eqref{eq:z_inv_exponential}:
+Applying the inverse Z-transform using \eqref{eq:EE26BTECH11213-z_step_transform} and \eqref{eq:EE26BTECH11213-z_inv_exponential}:
 \begin{align}
 a_n = \sbrak{1 - \brak{\frac{1}{2}}^n} u\sbrak{n} = 1 - 2^{-n}, \quad n \ge 0
 \end{align}
@@ -856,7 +846,7 @@ The implementation in C to simulate the recurrence and verify the threshold is a
 \end{lstlisting}
 
 \item Let $A = \myvec{1 & 0 & 1 \\ 0 & k & 0 \\ 3 & 0 & -1}$. If the eigenvalues of $A$ are $-2$, $1$, and $2$, then the value of $k$ is \underline{\hspace{2cm}}.
-\hfill (GATE~BT~2025)
+\hfill (BT~2025)
 
 \solution
 The given matrix is:
@@ -873,7 +863,7 @@ The eigenvalues of $\vec{A}$ are given as:
 \lambda_1 = -2, \quad \lambda_2 = 1, \quad \lambda_3 = 2
 \end{align}
 
-From \eqref{eq:sum_eigenvalues_trace}, the sum of the eigenvalues of a square matrix is equal to its trace:
+From \eqref{eq:EE26BTECH11213-sum_eigenvalues_trace}, the sum of the eigenvalues of a square matrix is equal to its trace:
 \begin{align}
 \sum_{i=1}^3 \lambda_i = \operatorname{tr}\brak{\vec{A}}
 \end{align}
