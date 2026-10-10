@@ -314,166 +314,92 @@ From the triangular distribution derived in \eqref{eq:EE26BTECH11213-triangular_
 \item A thermometer measuring body temperature follows a first-order response with a time constant of $40$ seconds. The instrument will reach $95\%$ of its steady-state output at \underline{\hspace{1.5cm}} seconds (round off to the nearest integer).
 \hfill (BT~2025)
 \begin{enumerate}[itemsep=0pt]
-    \begin{multicols}{2}
+    \begin{multicols}{4}
         \item $60$
         \item $80$
         \item $120$
         \item $160$
     \end{multicols}
 \end{enumerate}
-
 \solution
-The dynamic thermal response of the thermometer is modeled by the standard first-order differential equation given in \eqref{eq:EE26BTECH11213-first_order_ode_std}:
+From \eqref{eq:EE26BTECH11213-rc_time_response},
 \begin{align}
-\tau \frac{dy}{dt} + y\brak{t} = y_{ss}
+	\frac{v_{o}\brak{t}}{V_{0}} &= \brak{1 - e^{-\frac{t}{RC}}} u\brak{t} 
+	\\
+	\implies 0.95 &= \brak{1 - e^{-\frac{t}{40}}}  
+	\\
+	\implies t &= 
+ 40 \ln\brak{20} 
+\approx 120\text{ s}
 \end{align}
-which is analogous to the series $RC$ low-pass circuit in \eqref{eq:EE26BTECH11213-rc_circuit_ode}, where the measured temperature $y\brak{t}$ maps to the capacitor output voltage $V_{out}\brak{t}$, the steady-state reading $y_{ss}$ corresponds to $V_{dc}$, and the thermal time constant $\tau = 40\text{ s}$ corresponds to the circuit time constant $RC$.
-
-Converting the system to the $s$-domain equivalent circuit from \eqref{eq:EE26BTECH11213-rc_s_domain_vout}:
-\begin{align}
-Y\brak{s} = \frac{y_{ss}}{s\brak{\tau s + 1}} = y_{ss}\sbrak{\frac{1}{s} - \frac{1}{s + \frac{1}{\tau}}}
-\end{align}
-Taking the inverse Laplace transform directly yields the transient response from \eqref{eq:EE26BTECH11213-first_order_step_sol}:
-\begin{align}
-y\brak{t} = y_{ss}\brak{1 - e^{-\frac{t}{\tau}}}
-\end{align}
-
-The instrument reaches $95\%$ of its steady-state reading when $y\brak{t_{95}} = 0.95 y_{ss}$:
-\begin{align}
-y_{ss}\brak{1 - e^{-\frac{t_{95}}{\tau}}} &= 0.95 y_{ss} \\
-1 - e^{-\frac{t_{95}}{\tau}} &= 0.95 \\
-e^{-\frac{t_{95}}{\tau}} &= 0.05 = \frac{1}{20}
-\end{align}
-
-Taking the natural logarithm on both sides:
-\begin{align}
--\frac{t_{95}}{\tau} &= \ln\brak{0.05} = -\ln\brak{20} \\
-t_{95} &= \tau \ln\brak{20}
-\end{align}
-Substituting the given time constant $\tau = 40\text{ s}$:
-\begin{align}
-t_{95} &= 40 \ln\brak{20} \\
-&\approx 40 \times 2.99573 \approx 119.83\text{ s}
-\end{align}
-Rounding off to the nearest integer gives $120$ seconds. Hence, option (C) is correct.
-
+The following code generates 
+    \figref{fig:EE26BTECH11213-bt25_q42}.
+    for verification.
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq42/plot.py}@*)
+\end{lstlisting}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.70\linewidth]{figs/rc-step-response.pdf}
     \caption{Step response of the first-order system with $\tau = 40\text{ s}$}
     \label{fig:EE26BTECH11213-bt25_q42}
 \end{figure}
-
-\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq42/plot.py}@*)
-\end{lstlisting}
-
-\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{figs/rc-step-response.pdf}@*)
-\end{lstlisting}
-
 \item The output $y\brak{t}$ of a first-order process is governed by the following differential equation
 \begin{align}
 \tau_p \frac{dy}{dt} + y = K_p f\brak{t}
+    \label{eq:EE26BTECH11213-bt25_s}
 \end{align}
 where $\tau_p$ is a non-zero time constant, $K_p$ is the gain and $f\brak{t}$ is the input with $f\brak{0} = 0$.
-
 Assume $y\brak{0} = 0$. The transfer function for this process is (consider $s$ as the independent variable in the Laplace domain)
 \hfill (BT 2025)
 \begin{enumerate}[itemsep=1ex]
-    \begin{multicols}{2}
+    \begin{multicols}{4}
         \item $\frac{K_p}{\tau_p s + 1}$
         \item $\frac{\tau_p}{K_p s + 1}$
         \item $\frac{\tau_p}{K_p\brak{s + 1}}$
         \item $\frac{K_p}{\tau_p\brak{s + 1}}$
     \end{multicols}
 \end{enumerate}
-
-\solution
-The given first-order differential equation governing the process is:
+\solution In the $s$-domain, 
+    \eqref{eq:EE26BTECH11213-bt25_s}
+    becomes
 \begin{align}
-\tau_p \frac{dy\brak{t}}{dt} + y\brak{t} = K_p f\brak{t}
+\tau_p s Y\brak{s}  + Y\brak{s} &= K_p F\brak{s}
+\\
+\implies
+\frac{Y\brak{s}}{F\brak{s}} &= \frac{K_p}{\tau_p s + 1}
 \end{align}
-
-Taking the unilateral Laplace transform on both sides using \eqref{eq:EE26BTECH11202-Laplace_1}:
-\begin{align}
-\tau_p \sbrak{s Y\brak{s} - y\brak{0}} + Y\brak{s} = K_p F\brak{s}
-\end{align}
-
-Applying the given initial condition $y\brak{0} = 0$:
-\begin{align}
-\tau_p s Y\brak{s} + Y\brak{s} &= K_p F\brak{s} \\
-Y\brak{s} \brak{\tau_p s + 1} &= K_p F\brak{s}
-\end{align}
-
-The transfer function is the ratio of the output $Y\brak{s}$ to the input $F\brak{s}$:
-\begin{align}
-\frac{Y\brak{s}}{F\brak{s}} = \frac{K_p}{\tau_p s + 1}
-\end{align}
-
-Hence, option (A) is correct.
-
 \item Let $m$ and $n$ be fixed real numbers. If the function $y\brak{t} = C_1 e^t + C_2 e^{-t}$ is a solution of
 \begin{align}
 \frac{d^2 y}{dt^2} + m \frac{dy}{dt} + ny = 0
+    \label{eq:EE26BTECH11213-bt25_int-der}
 \end{align}
 for any constants $C_1$ and $C_2$, then $m + n$ is equal to
 \hfill (BT~2025)
 \begin{enumerate}[itemsep=0pt]
-    \begin{multicols}{2}
+    \begin{multicols}{4}
         \item -2
         \item -1
         \item 0
         \item 1
     \end{multicols}
 \end{enumerate}
-
 \solution
-The given function is:
-\begin{align}
-y\brak{t} = C_1 e^t + C_2 e^{-t}
-\end{align}
-
-Computing the first and second derivatives with respect to $t$:
+Substituting
 \begin{align}
 \frac{dy}{dt} &= C_1 e^t - C_2 e^{-t} \\
 \frac{d^2 y}{dt^2} &= C_1 e^t + C_2 e^{-t}
 \end{align}
-
-Substituting $y$, $\frac{dy}{dt}$, and $\frac{d^2 y}{dt^2}$ into the differential equation:
+Substituting $y$, $\frac{dy}{dt}$, and $\frac{d^2 y}{dt^2}$ into 
+    \eqref{eq:EE26BTECH11213-bt25_int-der},
 \begin{align}
-\frac{d^2 y}{dt^2} + m \frac{dy}{dt} + ny &= 0 \\
 \brak{C_1 e^t + C_2 e^{-t}} + m\brak{C_1 e^t - C_2 e^{-t}} + n\brak{C_1 e^t + C_2 e^{-t}} &= 0
+\\
+\implies C_1 e^t \brak{1 + m + n} + C_2 e^{-t} \brak{1 - m + n} &= 0
+\\
+\text{or, }
+m + n &= -1
 \end{align}
-
-Grouping the terms containing $C_1$ and $C_2$:
-\begin{align}
-C_1 e^t \brak{1 + m + n} + C_2 e^{-t} \brak{1 - m + n} = 0
-\end{align}
-
-Using \eqref{eq:EE26BTECH11213-linear_identity} and \eqref{eq:EE26BTECH11213-linear_coeffs_zero}, since this equation must hold for any constants $C_1$ and $C_2$:
-\begin{align}
-1 + m + n &= 0 \label{eq:EE26BTECH11213-q45_eq1} \\
-1 - m + n &= 0 \label{eq:EE26BTECH11213-q45_eq2}
-\end{align}
-
-Adding \eqref{eq:EE26BTECH11213-q45_eq1} and \eqref{eq:EE26BTECH11213-q45_eq2}:
-\begin{align}
-2 + 2n = 0 \implies n = -1
-\end{align}
-
-Subtracting \eqref{eq:EE26BTECH11213-q45_eq2} from \eqref{eq:EE26BTECH11213-q45_eq1}:
-\begin{align}
-2m = 0 \implies m = 0
-\end{align}
-
-Evaluating $m + n$:
-\begin{align}
-m + n = 0 + \brak{-1} = -1
-\end{align}
-
-Hence, option (B) is correct.
-
 \item Consider the piecewise function
 \begin{align}
 f\brak{x} = \begin{cases}

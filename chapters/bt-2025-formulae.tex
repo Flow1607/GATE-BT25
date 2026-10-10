@@ -151,45 +151,25 @@ The following code verifies
     \caption{PMF of the sum of two fair dice: Simulation vs Analysis}
     \label{fig:EE26BTECH11213-bt25_q35}
 \end{figure}
-
-\item Unit Step Response of an $RC$ Circuit and $s$-Domain Analysis
-\begin{itemize}
-\item {Time-Domain Circuit Equation:}
-Consider a series $RC$ circuit excited by a step input $v_i\brak{t} = V_{dc} u\brak{t}$ where $V_{dc}$ is a constant DC voltage source, and $u\brak{t}$ is step input function defined as: 
+\item (Unit Step Response of an $RC$ Circuit)
+Consider a series $RC$ circuit excited by a step input $v_i\brak{t} = V_{0} u\brak{t}$ where $V_{0}$ is a constant. 
+Applying KVL around the loop,
 \begin{align}
-u\brak{t} = \begin{cases}
-1, & t \ge 0 \\
-0, & t < 0
-\end{cases} 
+RC \frac{dv_{o}}{dt} + v_{o}\brak{t} = V_{0} u(t)
+\label{eq:EE26BTECH11213-rc_circuit_ode}
 \end{align}
-Starting at $t = 0$, the current through the capacitor is:
+yielding
 \begin{align}
-i\brak{t} = \frac{dq}{dt} = C \frac{dV_{out}}{dt}
+	\frac{V_{0}}{s} &=sCR V_{o}(s) + V_{o}\brak{s} 
+	\\
+\label{eq:EE26BTECH11213-rc_circuit_s}
+	\implies 
+V_{o}\brak{s} &=  \frac{V_{0}}{s\brak{RCs + 1}} \\
+ &= V_{0} \sbrak{\frac{1}{s} - \frac{1}{s + \frac{1}{RC}}} \label{eq:EE26BTECH11213-rc_s_domain_vout}
+ \\
+\implies v_{o}\brak{t} &= V_{0}\brak{1 - e^{-\frac{t}{RC}}} u\brak{t} 
+\label{eq:EE26BTECH11213-rc_time_response}
 \end{align}
-Applying Kirchhoff's Voltage Law (KVL) around the loop:
-\begin{align}
-R i\brak{t} + V_{out}\brak{t} = V_{dc} \implies RC \frac{dV_{out}}{dt} + V_{out}\brak{t} = V_{dc} \label{eq:EE26BTECH11213-rc_circuit_ode}
-\end{align}
-
-\item {$s$-Domain Representation:}
-Transforming the circuit to the Laplace domain, the step source becomes $V_{in}\brak{s} = \frac{V_{dc}}{s}$, the resistor impedance is $R$, and the capacitor impedance is $\frac{1}{sC}$. The equivalent impedance is:
-\begin{align}
-R_{eq}\brak{s} = R + \frac{1}{sC} = \frac{RsC + 1}{sC}
-\end{align}
-The loop current in the $s$-domain is:
-\begin{align}
-I\brak{s} = \frac{V_{in}\brak{s}}{R_{eq}\brak{s}} = \frac{\frac{V_{dc}}{s}}{\frac{RsC + 1}{sC}} = \frac{V_{dc} C}{RsC + 1}
-\end{align}
-The output voltage across the capacitor is obtained as:
-\begin{align}
-V_{out}\brak{s} &= I\brak{s} \brak{\frac{1}{sC}} = \frac{V_{dc}}{s\brak{RCs + 1}} \\
-&= \frac{V_{dc}}{RC} \sbrak{\frac{1}{s\brak{s + \frac{1}{RC}}}} = V_{dc} \sbrak{\frac{1}{s} - \frac{1}{s + \frac{1}{RC}}} \label{eq:EE26BTECH11213-rc_s_domain_vout}
-\end{align}
-Taking the inverse Laplace transform yields:
-\begin{align}
-V_{out}\brak{t} = V_{dc}\brak{1 - e^{-\frac{t}{RC}}} u\brak{t} \label{eq:EE26BTECH11213-rc_time_response}
-\end{align}
-\end{itemize}
 
 \item Standard First-Order Differential Equation Comparison
 \begin{itemize}
