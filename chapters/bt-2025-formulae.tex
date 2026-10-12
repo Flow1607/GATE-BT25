@@ -170,91 +170,23 @@ V_{o}\brak{s} &=  \frac{V_{0}}{s\brak{RCs + 1}} \\
 \implies v_{o}\brak{t} &= V_{0}\brak{1 - e^{-\frac{t}{RC}}} u\brak{t} 
 \label{eq:EE26BTECH11213-rc_time_response}
 \end{align}
-
-\item Standard First-Order Differential Equation Comparison
-\begin{itemize}
-\item A general first-order dynamic system with time constant $\tau$ subjected to a unit step input is described by:
-\begin{align}
-\tau \frac{dy}{dt} + y\brak{t} = y_{ss} \label{eq:EE26BTECH11213-first_order_ode_std}
-\end{align}
-where $\tau$ is the time constant and $y_{ss}$ is the steady-state response.
-
-\item Comparing \eqref{eq:EE26BTECH11213-first_order_ode_std} with the $RC$ circuit in \eqref{eq:EE26BTECH11213-rc_circuit_ode}:
-\begin{align}
-y\brak{t} \longleftrightarrow V_{out}\brak{t}, \quad \tau \longleftrightarrow RC, \quad y_{ss} \longleftrightarrow V_{dc}
-\end{align}
-Transforming \eqref{eq:EE26BTECH11213-first_order_ode_std} into the $s$-domain with zero initial conditions $y\brak{0} = 0$:
-\begin{align}
-\tau s Y\brak{s} + Y\brak{s} = \frac{y_{ss}}{s} \implies Y\brak{s} = \frac{y_{ss}}{s\brak{\tau s + 1}} = y_{ss} \sbrak{\frac{1}{s} - \frac{1}{s + \frac{1}{\tau}}}
-\end{align}
-Taking the inverse Laplace transform directly gives:
-\begin{align}
-y\brak{t} = y_{ss}\brak{1 - e^{-\frac{t}{\tau}}} u\brak{t} \label{eq:EE26BTECH11213-first_order_step_sol}
-\end{align}
-\end{itemize}
-
-\item Transfer Function of a First-Order Process
-\begin{itemize}
-\item In continuous-time signals and linear time-invariant (LTI) systems, the transfer function $H\brak{s}$ is defined as the ratio of the Laplace transform of the output signal $Y\brak{s}$ to the Laplace transform of the input signal $X\brak{s}$, under the condition that all initial conditions are zero:
-\begin{align}
-H\brak{s} = \frac{Y\brak{s}}{X\brak{s}}
-\end{align}
-
-\item For a process driven by an input forcing function $g\brak{t}$ with Laplace transform $G\brak{s}$, the transfer function is written as:
-\begin{align}
-H\brak{s} = \frac{Y\brak{s}}{G\brak{s}}
-\end{align}
-where $G\brak{s}$ denotes the input function and $Y\brak{s}$ is the process output response evaluated under relaxed (zero) initial conditions.
-
-\item In the time domain, this corresponds to the convolution of the input signal with the system impulse response $h\brak{t} = \mathcal{L}^{-1}\cbrak{H\brak{s}}$:
-\begin{align}
-y\brak{t} = h\brak{t} * g\brak{t}
-\end{align}
-\end{itemize}
-
-\item Identity Condition for Linear Combinations
-\begin{itemize}
-\item For any independent variables or functions $x$ and $y$, if the relation
-\begin{align}
-ax + by = 0 \label{eq:EE26BTECH11213-linear_identity}
-\end{align}
-holds identically for all $x$ and $y$, then the coefficients must vanish simultaneously:
-\begin{align}
-a = 0 \quad \text{and} \quad b = 0 \label{eq:EE26BTECH11213-linear_coeffs_zero}
-\end{align}
-\item Similarly, if an expression $C_1 f_1\brak{t} + C_2 f_2\brak{t} = 0$ holds for arbitrary constants $C_1$ and $C_2$, each coefficient must vanish independently:
-\begin{align}
-f_1\brak{t} = 0 \quad \text{and} \quad f_2\brak{t} = 0 \label{eq:EE26BTECH11213-arbitrary_coeffs_zero}
-\end{align}
-For distinct exponential functions $e^{r_1 t}$ and $e^{r_2 t}$ ($r_1 \ne r_2$), this implies linear independence across all $t$.
-\end{itemize}
-
-\item Continuity and Differentiability in Functions
-\begin{itemize}
-\item Continuity at a Point:
-A real-valued function $f\brak{x}$ is continuous at $x = x_0$ if and only if the left-hand limit, the right-hand limit, and the value of the function coincide:
+\item (Continuity) 
+A real-valued function $f\brak{x}$ is continuous at $x = x_0$ iff
 \begin{align}
 \lim_{x \to x_0^-} f\brak{x} = \lim_{x \to x_0^+} f\brak{x} = f\brak{x_0} \label{eq:EE26BTECH11213-continuity_cond}
 \end{align}
-
-\item Differentiability and Slope Matching:
-A function $f\brak{x}$ is differentiable at $x = x_0$ if the left-hand derivative equals the right-hand derivative:
+\item (Differentiability) 
+A function $f\brak{x}$ is differentiable at $x = x_0$ if
 \begin{align}
-f'\brak{x_0^-} = \lim_{h \to 0^-} \frac{f\brak{x_0 + h} - f\brak{x_0}}{h} = \lim_{h \to 0^+} \frac{f\brak{x_0 + h} - f\brak{x_0}}{h} = f'\brak{x_0^+} \label{eq:EE26BTECH11213-deriv_equality}
+f'\brak{x_0^-} = \lim_{h \to 0^-} \frac{f\brak{x_0 + h} - f\brak{x_0}}{h} = \lim_{h \to 0^+} \frac{f\brak{x_0 + h} - f\brak{x_0}}{h} = f'\brak{x_0^+} 
+\label{eq:EE26BTECH11213-deriv_equality}
 \end{align}
-For piecewise functions defined by differentiable curves on each side of the boundary $x_0$, this requires matching boundary slopes:
-\begin{align}
-f'\brak{x_0^-} = f'\brak{x_0^+} \label{eq:EE26BTECH11213-slope_matching}
-\end{align}
-
-\item Differentiability Implies Continuity:
-If $f\brak{x}$ is differentiable at $x = x_0$, it must necessarily be continuous at $x = x_0$:
+\item 
+If $f\brak{x}$ is differentiable at $x = x_0$, it must necessarily be continuous at $x = x_0$
 \begin{align}
 \lim_{x \to x_0} \sbrak{f\brak{x} - f\brak{x_0}} = \lim_{x \to x_0} \sbrak{\frac{f\brak{x} - f\brak{x_0}}{x - x_0} \brak{x - x_0}} = f'\brak{x_0} \cdot 0 = 0 \label{eq:EE26BTECH11213-diff_implies_cont}
 \end{align}
-Hence, continuity at $x = x_0$ is a necessary prerequisite for differentiability.
-\end{itemize}
-
+%
 \item Piecewise Boundary Conditions at $x = a$
 \begin{itemize}
 \item Consider a function $f\brak{x}$ defined by differentiable branches $f_1\brak{x}$ and $f_2\brak{x}$ across a boundary point $x = a$:
