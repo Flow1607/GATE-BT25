@@ -205,7 +205,7 @@ For $f\brak{x}$ to be differentiable at $x = a$, the one-sided derivatives at th
 f_1'\brak{a} = f_2'\brak{a} \label{eq:EE26BTECH11213-piecewise_diff_cond}
 \end{align}
 \end{itemize}
-
+\iffalse
 \item Representation of Linear Balance Systems as Matrix Equations
 \begin{itemize}
 \item A general system of $m$ linear equations in $n$ variables $x_1, x_2, \dots, x_n$:
@@ -238,45 +238,45 @@ Combining both sides into a single stoichiometric matrix yields the homogeneous 
 \end{align}
 When boundary parameters or specific yields fix certain degrees of freedom (such as basis mole values and yield coefficients), the homogeneous system reduces to a deterministic non-homogeneous matrix equation $\vec{A}\vec{x} = \vec{b}$ that can be solved directly via row operations or symbolic matrix inversion.
 \end{itemize}
-\item Solution of First-Order Recurrence Relations via Z-Transform
-\begin{itemize}
-\item The bilateral Z-transform of a discrete-time sequence $x\sbrak{n}$ is defined as:
+\fi
+\item The Z-Transform
+%\item The bilateral Z-transform of a discrete-time sequence $x\sbrak{n}$ is defined as:
 \begin{align}
-X\brak{z} = \mathcal{Z}\sbrak{x\sbrak{n}} = \sum_{n=-\infty}^{\infty} x\sbrak{n} z^{-n} \label{eq:EE26BTECH11213-z_transform_def}
+X\brak{z} =  \sum_{n=-\infty}^{\infty} x\sbrak{n} z^{-n} \label{eq:EE26BTECH11213-z_transform_def}
 \end{align}
 over the Region of Convergence (ROC) where the series converges absolutely.
-
-\item Discrete Unit Step Sequence:
-The discrete unit step function $u\sbrak{n}$ is defined as:
+%
+\item 
+The discrete unit step function  is defined as
 \begin{align}
-u\sbrak{n} = \begin{cases}
+u\brak{n} = \begin{cases}
 1, & n \ge 0 \\
 0, & n < 0
 \end{cases} \label{eq:EE26BTECH11213-discrete_unit_step}
 \end{align}
-Its forward Z-transform is given by:
+and 
 \begin{align}
-\mathcal{Z}\sbrak{u\sbrak{n}} = \sum_{n=0}^{\infty} z^{-n} = \frac{1}{1 - z^{-1}}, \quad \abs{z} > 1 \label{eq:EE26BTECH11213-z_step_transform}
+	u\sbrak{n} \system{Z}= \sum_{n=0}^{\infty} z^{-n} = \frac{1}{1 - z^{-1}}, \quad \abs{z} > 1 \label{eq:EE26BTECH11213-z_step_transform}
 \end{align}
-
-\item Time-Shift Property:
-Shifting a sequence by an integer delay $k$ corresponds to multiplication by $z^{-k}$ in the Z-domain:
+%
+\item Time-Shift Property
+%Shifting a sequence by an integer delay $k$ corresponds to multiplication by $z^{-k}$ in the Z-domain:
 \begin{align}
-\mathcal{Z}\sbrak{x\sbrak{n - k}} = z^{-k} X\brak{z} \label{eq:EE26BTECH11213-z_shift_property}
+	x\sbrak{n - k} \system{Z} z^{-k} X\brak{z} 
+	\label{eq:EE26BTECH11213-z_shift_property}
 \end{align}
-Consequently, delaying the discrete unit step by one sample yields:
-\begin{align}
-\mathcal{Z}\sbrak{u\sbrak{n - 1}} = \frac{z^{-1}}{1 - z^{-1}}, \quad \abs{z} > 1 \label{eq:EE26BTECH11213-z_delayed_step}
-\end{align}
+%Consequently, delaying the discrete unit step by one sample yields:
+%\begin{align}
+%\mathcal{Z}\sbrak{u\sbrak{n - 1}} = \frac{z^{-1}}{1 - z^{-1}}, \quad \abs{z} > 1 \label{eq:EE26BTECH11213-z_delayed_step}
+%\end{align}
 
 \item Standard Inverse Transform Pair:
 For any scalar constant $\alpha$:
 \begin{align}
-\mathcal{Z}^{-1}\sbrak{\frac{1}{1 - \alpha z^{-1}}} = \alpha^n u\sbrak{n}, \quad \abs{z} > \abs{\alpha} \label{eq:EE26BTECH11213-z_inv_exponential}
+\alpha^n u\sbrak{n}\system{Z}\sbrak{\frac{1}{1 - \alpha z^{-1}}}, \quad \abs{z} > \abs{\alpha} \label{eq:EE26BTECH11213-z_inv_exponential}
 \end{align}
-\end{itemize}
-
-\item Relation Between Eigenvalues and Trace of a Matrix
+%
+\item (Relation Between Eigenvalues and Trace of a Matrix)
 \begin{itemize}
 \item Let $\vec{A} \in \mathbb{R}^{n \times n}$ be a square matrix with eigenvalues $\lambda_1, \lambda_2, \dots, \lambda_n$. The characteristic polynomial of $\vec{A}$ is defined by:
 \begin{align}
