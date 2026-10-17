@@ -598,30 +598,16 @@ The following code verifies the result.
 %
 \item Let $A = \myvec{1 & 0 & 1 \\ 0 & k & 0 \\ 3 & 0 & -1}$. If the eigenvalues of $A$ are $-2$, $1$, and $2$, then the value of $k$ is \underline{\hspace{2cm}}.
 \hfill (BT~2025)
+\\
 %
 \solution
 From \eqref{eq:EE26BTECH11213-sum_eigenvalues_trace}, 
 \begin{align}
-\sum_{i=1}^3 \lambda_i = \operatorname{tr}\brak{\vec{A}}
+	1 + k + \brak{-1} &=\brak{-2} + 1 + 2 
+\implies k =  1
 \end{align}
-
-Computing the trace of $\vec{A}$:
-\begin{align}
-\operatorname{tr}\brak{\vec{A}} = 1 + k + \brak{-1} = k
-\end{align}
-
-Computing the sum of the eigenvalues:
-\begin{align}
-\sum_{i=1}^3 \lambda_i = \brak{-2} + 1 + 2 = 1
-\end{align}
-
-Equating the two expressions:
-\begin{align}
-k = 1
-\end{align}
-
-The solution can be verified from the following Python script:
-
+The following code verifies the above result.
+%
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq63/eigen.py}@*)
 \end{lstlisting}

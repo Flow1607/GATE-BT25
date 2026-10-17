@@ -1,11 +1,11 @@
 # Fdb version 4
-["makeindex main.idx"] 1790185747.79501 "main.idx" "main.ind" "main" 1791970948.13382 0
-  "main.idx" 1791970946.42971 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main.idx"] 1790185747.79501 "main.idx" "main.ind" "main" 1792213412.21438 0
+  "main.idx" 1792213410.56359 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1791970943.08018 "main.tex" "main.pdf" "main" 1791970948.13467 0
+["pdflatex"] 1792213407.89333 "main.tex" "main.pdf" "main" 1792213412.21512 0
   "/data/data/com.termux/files/usr/share/texlive/2026.0/texmf-dist/web2c/texmf.cnf" 1789653563 43838 788b409ca7f6d70214933fbc221adf76 ""
   "/data/data/com.termux/files/usr/share/texlive/2026/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/data/data/com.termux/files/usr/share/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -320,8 +320,8 @@
   "EE26BTECH11202/figs/Fourier.png" 1787130938.47618 38391 42589a3f9a7d302d95620b0c9308606e ""
   "EE26BTECH11202/figs/Spring.tex" 1789620820.52837 525 382212c24dd1e6d9eeecd85d7d0fd5f0 ""
   "EE26BTECH11202/figs/spring_deriv.tex" 1789620820.53637 533 1dadcc5192d3f0debe32cc14bd1ce0d0 ""
-  "chapters/bt-2025-formulae.tex" 1791970939.23771 14170 b27cfa76cd28ddcc17ea48eb1a4ab2a7 ""
-  "chapters/bt-2025-problems.tex" 1791970869.84971 22308 c2236e03b18ab59688910398cac87eaf ""
+  "chapters/bt-2025-formulae.tex" 1792213263.28359 13956 4410a5feb810e18fc2bba11494aa4bc0 ""
+  "chapters/bt-2025-problems.tex" 1792213400.34759 22001 a6d5e5066e0ce30b9f9a8b313f836777 ""
   "figs/bac.png" 1789963435.70756 12918 cc909778de5a96e69ceba0581cc195cf ""
   "figs/bt34_plot.pdf" 1789963435.71556 16140 ea3ab4c81b79f502f1f910b0cd3056c9 ""
   "figs/circleintersect.pdf" 1789963435.71956 15944 bfeff7cb2f58393c71ea5ba35292fd74 ""
@@ -332,11 +332,11 @@
   "figs/rc-step-response.pdf" 1790136995.21573 21774 886896fa233a5e51592d5451cade7e51 ""
   "gvv-book.sty" 1791362530.90641 2390 7e3aba23f6a80eaa09e6b6d2efe20895 ""
   "gvv.sty" 1790762033.38777 4434 bde4aa22cab0cf1e9425c3111a94b6d2 ""
-  "main.aux" 1791970947.85771 12994 fdc203323cffca44128095960f863465 "pdflatex"
+  "main.aux" 1792213411.95159 12994 d2e01ca591ec66fa9e87626a3de5ab38 "pdflatex"
   "main.ind" 1789963435.79956 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.out" 1791970947.86171 453 f3c41a56498a758d81cb9f5f600a6281 "pdflatex"
+  "main.out" 1792213411.95159 453 f3c41a56498a758d81cb9f5f600a6281 "pdflatex"
   "main.tex" 1791548517.64848 7583 ad3e4a712bcb005d00d29c87c7bddcf2 ""
-  "main.toc" 1791970947.86171 351 ccaff24824aefce8cdb6ccd83bac0aa5 "pdflatex"
+  "main.toc" 1792213411.95559 351 ccaff24824aefce8cdb6ccd83bac0aa5 "pdflatex"
   (generated)
   "main.aux"
   "main.idx"
