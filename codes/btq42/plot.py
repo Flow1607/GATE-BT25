@@ -3,6 +3,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import subprocess
+from plotting.funcs import label_pts
 
 # Given
 tau = 40
@@ -24,6 +25,10 @@ plt.plot(t, Vc, label=r"$V_C(t)=V_0(1-e^{-t/\tau})$")
 plt.scatter(t_95, Vc_95, s=60,
             label=f"95% point: t = {t_95:.2f} s")
 
+# Labeling 95% response point using funcs.py
+pts = np.array([[t_95], [Vc_95]])
+label_pts(pts, [f"({t_95:.1f}, {Vc_95:.2f})"])
+
 plt.axhline(Vc_95, linestyle="--")
 plt.axvline(t_95, linestyle="--")
 
@@ -38,7 +43,9 @@ filename = "rc-step-response.pdf"
 plt.savefig(filename, format="pdf", bbox_inches="tight")
 
 # Automatically open the PDF in Android
-subprocess.run(["termux-open", filename])
+#subprocess.run(["termux-open", filename])
+plt.show()
+plt.close()
 
 # Print answer
 print(f"95% response time = {t_95:.2f} s")

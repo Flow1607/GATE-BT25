@@ -10,6 +10,7 @@ import subprocess
 import matplotlib.pyplot as plt
 import numpy as np
 import sympy as sp
+from plotting.funcs import label_pts
 
 
 # raphson and function solution
@@ -40,21 +41,9 @@ for i in range(5):
     y = func(x)
     plt.plot(x, y, "o")
     if i == 0: #labelling initial guess
-        plt.annotate(
-            f"({x:.4f}, {y:.4f})",
-            (x, y),
-            textcoords="offset points",
-            xytext=(-10, 10),
-            ha="right",
-        )
+        label_pts(np.array([[x], [y]]), [f"({x:.4f}, {y:.4f})"])
     elif i == 4: #labelling final guess
-        plt.annotate(
-            f"({x:.4f}, {y:.4f})",
-            (x, y),
-            textcoords="offset points",
-            xytext=(-10, 10),
-            ha="right",
-        )
+        label_pts(np.array([[x], [y]]), [f"({x:.4f}, {y:.4f})"])
     x = raph(x)
 
 print("RAPHSON gave", x)

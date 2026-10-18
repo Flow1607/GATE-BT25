@@ -7,6 +7,7 @@
 import os
 import matplotlib.pyplot as plt
 import numpy as np
+from plotting.funcs import label_pts
 
 # Coefficient matrix analysis
 A = np.array([[2.0, 3.0], [4.0, 6.0]]) #defining coeff matrix
@@ -55,18 +56,6 @@ else:
     print("Row 2 is entirely zeros (Infinitely Many Solutions).")
 
 
-# Labeling points implementation from funcs.py
-def label_pts(G_v, vert_labels):
-    for i, txt in enumerate(vert_labels):
-        plt.annotate(
-            txt,
-            (G_v[0, i], G_v[1, i]),
-            textcoords="offset points",
-            xytext=(0, 10),
-            ha="center",
-        )
-
-
 # Plot both lines and annotate key coordinate points
 x = np.linspace(-5, 5, 400)
 y1 = (6.0 - 2.0 * x) / 3.0
@@ -111,4 +100,3 @@ save_path = "bt34_plot.pdf"
 plt.savefig(save_path, bbox_inches="tight")
 plt.close()
 print(f"\nPlot saved to: {save_path}")
-

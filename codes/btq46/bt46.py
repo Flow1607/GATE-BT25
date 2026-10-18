@@ -3,6 +3,7 @@
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+from plotting.funcs import label_pts
 
 # Solved constants: a = 0, b = 2  =>  a + b = 2 (Option C)
 a = 0.0
@@ -31,8 +32,9 @@ plt.plot(x_right, y_right, color="tab:blue", lw=2.2, label=r"$f(x) = \sin(2x) \q
 plt.plot(x_tangent, y_tangent, color="crimson", linestyle="--", lw=1.5, label="Tangent: $y = 2x$")
 
 # Mark origin
-plt.scatter([0], [0], color="black", zorder=5)
-plt.annotate("(0, 0)", (0, 0), textcoords="offset points", xytext=(8, -14), fontsize=10)
+pts = np.array([[0], [0]])
+plt.scatter(pts[0, :], pts[1, :], color="black", zorder=5)
+label_pts(pts, ["(0, 0)"])
 
 plt.axhline(0, color="gray", lw=0.8, alpha=0.5)
 plt.axvline(0, color="gray", lw=0.8, alpha=0.5)
@@ -47,8 +49,8 @@ plt.legend(loc="upper left")
 
 pdf_path = "piecewise_tangent_plot.pdf"
 plt.savefig(pdf_path, bbox_inches="tight")
+plt.show()
 plt.close()
 
 # Open in Termux
 #os.system(f"termux-open {pdf_path}")
-

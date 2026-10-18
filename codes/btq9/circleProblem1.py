@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 
 from line.funcs import * #takes import form line/funcs.py
 from conics.funcs import circ_gen #takes imports from conics/funcs.py
+from plotting.funcs import label_pts
 
 import subprocess
 import shlex #for running and opening in termux
@@ -43,14 +44,8 @@ plt.plot(x_centers[0,:], x_centers[1,:], color='black', linestyle='-.', label='$
 coords = np.block([[O1, O2, X1, X2]])
 plt.scatter(coords[0,:], coords[1,:], color='red', zorder=5)
 
-vert_labels = ['o_1(0.5, 0)', 'o_2(1, 1)', 'x_1(0.2, 0.4)', 'x_2(1, 0)']
-for i, txt in enumerate(vert_labels):
-    plt.annotate(f'${txt}$',      #annotates req coordinates
-                 (coords[0,i], coords[1,i]), 
-                 textcoords="offset points", 
-                 xytext=(0,10), 
-                 ha='center',
-                 fontsize=12)
+vert_labels = [f'${txt}$' for txt in ['o_1(0.5, 0)', 'o_2(1, 1)', 'x_1(0.2, 0.4)', 'x_2(1, 0)']]
+label_pts(coords, vert_labels)      #annotates req coordinates
 
 plt.xlabel('$x$')
 plt.ylabel('$y$')
@@ -60,5 +55,4 @@ plt.axis('equal')
 
 plt.savefig('figs/conics/circleintersect.pdf')
 #for opening in termux automatically: 
-#subprocess.run(shlex.split("termux-open figs/conics/circle_intersect.pdf")) 
-
+#subprocess.run(shlex.split("termux-open figs/conics/circle_intersect.pdf"))

@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import subprocess
 import shlex
 #end if
+from plotting.funcs import label_pts
 
 #Sample size
 simlen = 10000
@@ -28,8 +29,15 @@ panal2 = (13*np.ones((1,5))-n2)
 panal = np.concatenate((panal1,panal2),axis=None)/36
 
 #Plotting
-plt.stem(n,psim, markerfmt='o', use_line_collection=True, label='Simulation')
-plt.stem(n,panal, markerfmt='o',use_line_collection=True, label='Analysis')
+plt.ylim(0, 0.22)
+plt.stem(n,psim, markerfmt='o',  label='Simulation')
+plt.stem(n,panal, markerfmt='o', label='Analysis')
+
+# Labeling mode using funcs.py
+max_idx = np.argmax(panal)
+pts = np.array([[list(n)[max_idx]], [panal[max_idx]]])
+label_pts(pts, [f"Mode ({list(n)[max_idx]}, {panal[max_idx]:.2f})"])
+
 plt.xlabel('$n$')
 plt.ylabel('$p_{X}(n)$')
 plt.legend()
@@ -37,7 +45,7 @@ plt.grid()# minor
 
 #If using termux
 plt.savefig('figs/pmf.pdf')
-plt.savefig('figs/pmf.png')
-subprocess.run(shlex.split("termux-open figs/pmf.pdf"))
+#subprocess.run(shlex.split("termux-open figs/pmf.pdf"))
 #else
-#plt.show()
+plt.show()
+plt.close()
