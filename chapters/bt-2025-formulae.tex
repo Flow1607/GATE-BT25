@@ -153,7 +153,53 @@ The following code verifies
 \end{figure}
 \item (Unit Step Response of an $RC$ Circuit)
 Consider a series $RC$ circuit excited by a step input $v_i\brak{t} = V_{0} u\brak{t}$ where $V_{0}$ is a constant. 
-Applying KVL around the loop,
+%
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[american, scale=1.0]
+        \draw (0,0)
+            to[V, v<={$v_i\brak{t} = V_0 u\brak{t}$}] (0,2.5)
+            to[R, l=$R$, i=$i\brak{t}$] (3.2,2.5)
+            to[C, l_=$C$] (3.2,0)
+            -- (0,0);
+        \draw (3.2,2.5) to[short, -o] (4.4,2.5);
+        \draw (3.2,0) to[short, -o] (4.4,0);
+        \draw (4.4,2.5) to[open, v^=$v_o\brak{t}$] (4.4,0);
+    \end{circuitikz}
+    \caption{Time-domain series $RC$ circuit excited by step input $v_i\brak{t}$.}
+    \label{fig:rc_time_circuit}
+\end{figure}
+Applying Kirchhoff's Voltage Law (KVL) around the loop:
+\begin{align}
+RC \frac{dv_o}{dt} + v_o\brak{t} = V_0 u\brak{t} \label{eq:rc_time_ode}
+\end{align}
+Transforming the network into the Laplace domain under zero initial conditions ($v_o\brak{0} = 0$), the step voltage source becomes $V_i\brak{s} = \frac{V_0}{s}$, the resistor impedance is $R$, and the capacitor impedance is $\frac{1}{sC}$.
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[american, scale=1.0]
+        \draw (0,0)
+            to[V, v<={$V_i\brak{s} = \frac{V_0}{s}$}] (0,2.5)
+            to[R, l=$R$, i=$I\brak{s}$] (3.2,2.5)
+            to[C, l_={$\frac{1}{sC}$}] (3.2,0)
+            -- (0,0);
+        \draw (3.2,2.5) to[short, -o] (4.4,2.5);
+        \draw (3.2,0) to[short, -o] (4.4,0);
+        \draw (4.4,2.5) to[open, v^=$V_o\brak{s}$] (4.4,0);
+    \end{circuitikz}
+    \caption{$s$-domain equivalent circuit with capacitor impedance $\frac{1}{sC}$.}
+    \label{fig:rc_s_circuit}
+\end{figure}
+From the $s$-domain circuit in Fig.~\ref{fig:rc_s_circuit}, applying KVL yields:
+\begin{align}
+\frac{V_0}{s} &= s C R V_o\brak{s} + V_o\brak{s} \label{eq:rc_s_kvl} \\
+\implies V_o\brak{s} &= \frac{V_0}{s\brak{RCs + 1}} \label{eq:rc_s_transfer} \\
+&= V_0 \sbrak{\frac{1}{s} - \frac{1}{s + \frac{1}{RC}}} \label{eq:rc_partial_frac}
+\end{align}
+Taking the inverse Laplace transform gives the output response:
+\begin{align}
+v_o\brak{t} = V_0 \brak{1 - e^{-\frac{t}{RC}}} u\brak{t} \label{eq:rc_step_resp}
+\end{align}
+%
 \begin{align}
 RC \frac{dv_{o}}{dt} + v_{o}\brak{t} = V_{0} u(t)
 \label{eq:EE26BTECH11213-rc_circuit_ode}
@@ -239,42 +285,43 @@ Combining both sides into a single stoichiometric matrix yields the homogeneous 
 When boundary parameters or specific yields fix certain degrees of freedom (such as basis mole values and yield coefficients), the homogeneous system reduces to a deterministic non-homogeneous matrix equation $\vec{A}\vec{x} = \vec{b}$ that can be solved directly via row operations or symbolic matrix inversion.
 \end{itemize}
 \fi
-\item The Z-Transform
-%\item The bilateral Z-transform of a discrete-time sequence $x\sbrak{n}$ is defined as:
+\item Solution of First-Order Recurrence Relations via Z-Transform
+\begin{itemize}
+\item The bilateral Z-transform of a discrete-time sequence $x\brak{n}$ is defined as:
 \begin{align}
-X\brak{z} =  \sum_{n=-\infty}^{\infty} x\sbrak{n} z^{-n} \label{eq:EE26BTECH11213-z_transform_def}
+X\brak{z} = \mathcal{Z}\brak{x\brak{n}} = \sum_{n=-\infty}^{\infty} x\brak{n} z^{-n} \label{eq:z_transform_def}
 \end{align}
 over the Region of Convergence (ROC) where the series converges absolutely.
-%
-\item 
-The discrete unit step function  is defined as
+
+\item Discrete Unit Step Sequence:
+The discrete unit step function $u\brak{n}$ is defined as:
 \begin{align}
 u\brak{n} = \begin{cases}
 1, & n \ge 0 \\
 0, & n < 0
-\end{cases} \label{eq:EE26BTECH11213-discrete_unit_step}
+\end{cases} \label{eq:discrete_unit_step}
 \end{align}
-and 
+Its forward Z-transform is given by:
 \begin{align}
-	u\sbrak{n} \system{Z}= \sum_{n=0}^{\infty} z^{-n} = \frac{1}{1 - z^{-1}}, \quad \abs{z} > 1 \label{eq:EE26BTECH11213-z_step_transform}
+\mathcal{Z}\brak{u\brak{n}} = \sum_{n=0}^{\infty} z^{-n} = \frac{1}{1 - z^{-1}}, \quad \abs{z} > 1 \label{eq:z_step_transform}
 \end{align}
-%
-\item Time-Shift Property
-%Shifting a sequence by an integer delay $k$ corresponds to multiplication by $z^{-k}$ in the Z-domain:
+
+\item Time-Shift Property:
+Shifting a sequence by an integer delay $k$ corresponds to multiplication by $z^{-k}$ in the Z-domain:
 \begin{align}
-	x\sbrak{n - k} \system{Z} z^{-k} X\brak{z} 
-	\label{eq:EE26BTECH11213-z_shift_property}
+\mathcal{Z}\brak{x\brak{n - k}} = z^{-k} X\brak{z} \label{eq:z_shift_property}
 \end{align}
-%Consequently, delaying the discrete unit step by one sample yields:
-%\begin{align}
-%\mathcal{Z}\sbrak{u\sbrak{n - 1}} = \frac{z^{-1}}{1 - z^{-1}}, \quad \abs{z} > 1 \label{eq:EE26BTECH11213-z_delayed_step}
-%\end{align}
+Consequently, delaying the discrete unit step by one sample yields:
+\begin{align}
+\mathcal{Z}\brak{u\brak{n - 1}} = \frac{z^{-1}}{1 - z^{-1}}, \quad \abs{z} > 1 \label{eq:z_delayed_step}
+\end{align}
 
 \item Standard Inverse Transform Pair:
 For any scalar constant $\alpha$:
 \begin{align}
-\alpha^n u\sbrak{n}\system{Z}\sbrak{\frac{1}{1 - \alpha z^{-1}}}, \quad \abs{z} > \abs{\alpha} \label{eq:EE26BTECH11213-z_inv_exponential}
+\mathcal{Z}^{-1}\brak{\frac{1}{1 - \alpha z^{-1}}} = \alpha^n u\brak{n}, \quad \abs{z} > \abs{\alpha} \label{eq:z_inv_exponential}
 \end{align}
+\end{itemize}
 %
 \item (Trace of a Matrix)
 Let $\vec{A} \in \mathbb{R}^{n \times n}$ be a square matrix with eigenvalues $\lambda_1, \lambda_2, \dots, \lambda_n$.  Then,

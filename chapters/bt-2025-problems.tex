@@ -165,7 +165,7 @@ The following  codes are used to generate
 \end{lstlisting}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.70\linewidth]{figs/bac.png}
+    \includegraphics[width=0.70\linewidth]{figs/bac.pdf}
     \caption{Euler's Forward Difference Simulation of Bacterial Growth}
     \label{fig:EE26BTECH11213-bt25_q13}
 \end{figure}
@@ -502,12 +502,48 @@ Formulating the equivalent matrix equation,
 =
 \myvec{0 \\ 0 \\ 0 \\ 0}
 \end{align}
-The biomass yield coefficient is $0.4\text{ C-mol/C-mol} = \frac{2}{5}\text{ C-mol/C-mol}$, which provides the relation:
+The biomass yield coefficient is $0.4\text{ C-mol/C-mol} = \frac{2}{5}\text{ C-mol/C-mol}$, which provides the fifth relation:
 \begin{align}
-x_4 - \frac{2}{5}\brak{6x_1} = 0 \implies x_4 = \frac{12}{5}x_1
+x_4 - \frac{2}{5}\brak{6x_1} = 0 \implies \frac{12}{5}x_1 = x_4
 \end{align}
-%
-Solving the system symbolically in terms of $x_4$:
+
+Expressing the system for the unknowns $\vec{y} = \myvec{x_1 & x_2 & x_3 & x_5 & x_6}^\top$ normalized with respect to $x_4$, we construct the augmented matrix:
+\begin{align}
+\augvec{5}{1}{\vec{A} & \vec{b}} = 
+\augvec{5}{1}{
+6 & 0 & 0 & -1 & 0 & 1 \\
+0 & 1 & 0 & 0 & 0 & \frac{1}{5} \\
+12 & 3 & 0 & 0 & -2 & \frac{9}{5} \\
+6 & 0 & 2 & -2 & -1 & \frac{1}{2} \\
+\frac{12}{5} & 0 & 0 & 0 & 0 & 1
+}
+\end{align}
+
+Applying the sequence of elementary row operations:
+\begin{itemize}
+    \item $R_1 \to \frac{1}{6}R_1, \quad R_5 \to \frac{5}{12}R_5$
+    \item $R_3 \to R_3 - 12R_1, \quad R_4 \to R_4 - 6R_1, \quad R_5 \to R_5 - R_1$
+    \item $R_3 \to R_3 - 3R_2$
+    \item $R_3 \leftrightarrow R_4$
+    \item $R_3 \to \frac{1}{2}R_3, \quad R_4 \to \frac{1}{2}R_4, \quad R_5 \to 6\brak{R_5 - \frac{1}{6}R_4}$
+    \item $R_4 \to R_4 + R_5$
+    \item $R_3 \to R_3 + \frac{1}{2}R_4 + \frac{1}{2}R_5$
+    \item $R_1 \to R_1 + \frac{1}{6}R_4$
+\end{itemize}
+
+This reduces the system to the Reduced Row Echelon Form (RREF):
+\begin{align}
+\augvec{5}{1}{\vec{I} & \vec{y}^*} =
+\augvec{5}{1}{
+1 & 0 & 0 & 0 & 0 & \frac{5}{12} \\
+0 & 1 & 0 & 0 & 0 & \frac{1}{5} \\
+0 & 0 & 1 & 0 & 0 & \frac{29}{20} \\
+0 & 0 & 0 & 1 & 0 & \frac{3}{2} \\
+0 & 0 & 0 & 0 & 1 & \frac{19}{10}
+}
+\end{align}
+
+Multiplying back by the parameter $x_4$ gives the symbolic solution:
 \begin{align}
 x_1 &= \frac{5}{12}x_4 \\
 x_2 &= \frac{1}{5}x_4 \\
@@ -545,56 +581,102 @@ The implementation in SymPy to find solutions is as follows:
 %
 \item Let $a_0 = 0$ and define $a_n = \frac{1}{2}\brak{1 + a_{n-1}}$ for all positive integers $n \ge 1$.
 The least value of $n$ for which $\abs{1 - a_n} < \frac{1}{2^{10}}$ is \underline{\hspace{2cm}}. 
-\hfill (BT~2025)
-%
+\hfill (GATE~BT~2025)
 \solution
-The given recurrence relation is
+The given recurrence relation is:
 \begin{align}
 a_n = \frac{1}{2}\brak{1 + a_{n-1}}, \quad n \ge 1, \quad a_0 = 0
 \end{align}
-%
-which can be expressed as
-difference equation 
-%across all $n \in \mathbb{Z}$ by causal multiplication with $u\sbrak{n}$ from \eqref{eq:EE26BTECH11213-discrete_unit_step}:
+
+Let $x\brak{n} = a_n u\brak{n}$, where $u\brak{n}$ is the discrete unit step function:
 \begin{align}
-a_n  - \frac{1}{2} a_{n-1}  = \frac{1}{2} u\sbrak{n-1}
+u\brak{n} = \begin{cases}
+1, & n \ge 0 \\
+0, & n < 0
+\end{cases}
 \end{align}
-%
-From \eqref{eq:EE26BTECH11213-z_shift_property} and 
-	\eqref{eq:EE26BTECH11213-z_shift_property},
-%\eqref{eq:EE26BTECH11213-z_delayed_step},
+Incrementing the recurrence index to $n \ge 0$:
 \begin{align}
-A\brak{z} - \frac{1}{2} z^{-1} A\brak{z} &= \frac{\frac{1}{2} z^{-1}}{1 - z^{-1}}
-%&= \frac{1}{2} \mathcal{Z}\sbrak{u\sbrak{n-1}} \\
-%A\brak{z}\brak{1 - \frac{1}{2} z^{-1}} 
-\\
-\implies A\brak{z} = \frac{\frac{1}{2} z^{-1}}{\brak{1 - z^{-1}}\brak{1 - \frac{1}{2} z^{-1}}}, \quad \abs{z} > 1
-\\
- & = \frac{1}{1 - z^{-1}} - \frac{1}{1 - \frac{1}{2} z^{-1}}
+a_{n+1} - \frac{1}{2} a_n = \frac{1}{2}, \quad n \ge 0
 \end{align}
-%
-From \eqref{eq:EE26BTECH11213-z_step_transform} and \eqref{eq:EE26BTECH11213-z_inv_exponential},
+Multiplying by $u\brak{n}$ yields the causal difference equation:
 \begin{align}
-a_n = \sbrak{1 - \brak{\frac{1}{2}}^n} u\sbrak{n} = 1 - 2^{-n}, \quad n \ge 0
+x\brak{n+1} - \frac{1}{2} x\brak{n} = \frac{1}{2} u\brak{n}, \quad n \ge 0 \label{eq:diff_eq_causal}
 \end{align}
-Applying the stopping threshold condition $\abs{1 - a_n} < \frac{1}{2^{10}}$,
+(Equivalently, shifting the index by one sample gives $x\brak{n} - \frac{1}{2} x\brak{n-1} = \frac{1}{2} u\brak{n-1}$ for $n \ge 1$).
+
+The unilateral (one-sided) Z-transform of $x\brak{n}$ is defined as:
+\begin{align}
+X^+\brak{z} = \mathcal{Z}^+\brak{x\brak{n}} = \sum_{n=0}^{\infty} x\brak{n} z^{-n} \label{eq:unilateral_z_def}
+\end{align}
+Applying the unilateral Z-transform to the advanced sequence $x\brak{n+1}$:
+\begin{align}
+\mathcal{Z}^+\brak{x\brak{n+1}} &= \sum_{n=0}^{\infty} x\brak{n+1} z^{-n} \\
+&= z \sum_{n=0}^{\infty} x\brak{n+1} z^{-\brak{n+1}} \\
+&= z \brak{\sum_{k=0}^{\infty} x\brak{k} z^{-k} - x\brak{0}} \\
+&= z X^+\brak{z} - z x\brak{0} \label{eq:z_advance_prop}
+\end{align}
+
+Taking the unilateral Z-transform on both sides of \eqref{eq:diff_eq_causal}:
+\begin{align}
+\brak{z X^+\brak{z} - z x\brak{0}} - \frac{1}{2} X^+\brak{z} &= \frac{1}{2} \mathcal{Z}^+\brak{u\brak{n}} \\
+\brak{z - \frac{1}{2}} X^+\brak{z} - z x\brak{0} &= \frac{\frac{1}{2}}{1 - z^{-1}}
+\end{align}
+Since $a_0 = 0$, the initial condition is $x\brak{0} = a_0 u\brak{0} = 0$:
+\begin{align}
+\brak{z - \frac{1}{2}} X^+\brak{z} = \frac{\frac{1}{2}}{1 - z^{-1}}
+\end{align}
+Multiplying both sides by $z^{-1}$:
+\begin{align}
+\brak{1 - \frac{1}{2} z^{-1}} X^+\brak{z} = \frac{\frac{1}{2} z^{-1}}{1 - z^{-1}}
+\end{align}
+Solving algebraically for $X^+\brak{z}$:
+\begin{align}
+X^+\brak{z} = \frac{\frac{1}{2} z^{-1}}{\brak{1 - z^{-1}}\brak{1 - \frac{1}{2} z^{-1}}}, \quad \abs{z} > 1
+\end{align}
+
+Performing partial fraction decomposition with $w = z^{-1}$:
+\begin{align}
+\frac{\frac{1}{2} w}{\brak{1 - w}\brak{1 - \frac{1}{2} w}} = \frac{C_1}{1 - w} + \frac{C_2}{1 - \frac{1}{2} w}
+\end{align}
+where the residues are evaluated as:
+\begin{align}
+C_1 &= \sbrak{\frac{\frac{1}{2} w}{1 - \frac{1}{2} w}}_{w = 1} = \frac{1/2}{1/2} = 1 \\
+C_2 &= \sbrak{\frac{\frac{1}{2} w}{1 - w}}_{w = 2} = \frac{1}{1 - 2} = -1
+\end{align}
+
+Substituting $C_1$ and $C_2$ back into $X^+\brak{z}$:
+\begin{align}
+X^+\brak{z} = \frac{1}{1 - z^{-1}} - \frac{1}{1 - \frac{1}{2} z^{-1}}
+\end{align}
+
+Applying the inverse Z-transform using \eqref{eq:z_step_transform} and \eqref{eq:z_inv_exponential}:
+\begin{align}
+x\brak{n} = \sbrak{1 - \brak{\frac{1}{2}}^n} u\brak{n} = 1 - 2^{-n}, \quad n \ge 0
+\end{align}
+Thus, for all $n \ge 0$:
+\begin{align}
+a_n = 1 - 2^{-n}
+\end{align}
+
+Applying the stopping threshold condition $\abs{1 - a_n} < \frac{1}{2^{10}}$:
 \begin{align}
 \abs{1 - \brak{1 - 2^{-n}}} &< \frac{1}{2^{10}} \\
-\implies
 2^{-n} &< 2^{-10} \\
-\text{or, }n > 10.
+2^n &> 2^{10} \implies n > 10
 \end{align}
-%
-Since $n$ must be an integer, the minimal integer satisfying the strict inequality is
+
+Since $n$ must be an integer, the minimal integer satisfying the strict inequality is:
 \begin{align}
 n = 11
 \end{align}
-%
-The following code verifies the result.
-%
+
+The implementation in C to simulate the recurrence and verify the threshold is as follows:
+
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/btq59/ztransform.c}@*)
 \end{lstlisting}
+
 %
 \item Let $A = \myvec{1 & 0 & 1 \\ 0 & k & 0 \\ 3 & 0 & -1}$. If the eigenvalues of $A$ are $-2$, $1$, and $2$, then the value of $k$ is \underline{\hspace{2cm}}.
 \hfill (BT~2025)
