@@ -47,7 +47,7 @@ plt.ylim(-2.5, 2.5)
 plt.grid(True, linestyle=":", alpha=0.6)
 plt.legend(loc="upper left")
 
-pdf_path = "piecewise_tangent_plot.pdf"
+pdf_path = "piecewise-tangent-plot.pdf"
 plt.savefig(pdf_path, bbox_inches="tight")
 plt.show()
 plt.close()
