@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.8.27)  18 OCT 2026 23:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.8.27)  19 OCT 2026 00:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1119,35 +1119,57 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package hyperref Info: Link coloring ON on input line 26.
- (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
 \c@lstlisting=\count410
- (./main.toc
-LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 2.
- (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
-File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-))
+
+No file main.toc.
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
- [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 
-] (./EE26BTECH11202/chapters/ae-2026_formulae.tex [2
+] (./EE26BTECH11202/chapters/ae-2026_formulae.tex
+LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 3.
+ (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-Prob_1' on page 2 undefined on input line 22.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-Prob_3' on page 2 undefined on input line 31.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-Laplace_1' on page 2 undefined on input line 64.
+
+[2
 
 ]
 
-LaTeX Warning: Command \j invalid in math mode on input line 128.
+LaTeX Warning: Reference `eq:EE26BTECH11202-Laplace_3' on page 3 undefined on input line 80.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-Laplace_4.1-step' on page 3 undefined on input line 107.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-Laplace_4' on page 3 undefined on input line 109.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-Laplace_3' on page 3 undefined on input line 121.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-Laplace_4.1' on page 3 undefined on input line 121.
 
 
 LaTeX Warning: Command \j invalid in math mode on input line 128.
@@ -1188,7 +1210,26 @@ LaTeX Warning: Command \j invalid in math mode on input line 128.
 
 LaTeX Warning: Command \j invalid in math mode on input line 128.
 
-[3] [4]
+
+LaTeX Warning: Command \j invalid in math mode on input line 128.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-Laplace_5' on page 3 undefined on input line 129.
+
+[3]
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-Laplace_2' on page 4 undefined on input line 136.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-Laplace_5-diff-1' on page 4 undefined on input line 145.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-Laplace_5' on page 4 undefined on input line 155.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-ED_1' on page 4 undefined on input line 173.
+
+[4]
 
 LaTeX Warning: Command \j invalid in math mode on input line 197.
 
@@ -1208,7 +1249,7 @@ LaTeX Warning: Command \j invalid in math mode on input line 223.
 LaTeX Warning: Command \j invalid in math mode on input line 223.
 
 
-LaTeX Warning: Command \j invalid in math mode on input line 233.
+LaTeX Warning: Reference `eq:EE26BTECH11202-fourier-comp' on page 5 undefined on input line 225.
 
 
 LaTeX Warning: Command \j invalid in math mode on input line 233.
@@ -1236,15 +1277,41 @@ LaTeX Warning: Command \j invalid in math mode on input line 233.
 
 
 LaTeX Warning: Command \j invalid in math mode on input line 233.
+
+
+LaTeX Warning: Command \j invalid in math mode on input line 233.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-fourier-fund' on page 5 undefined on input line 235.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-kronecker-exp-int' on page 5 undefined on input line 237.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-Fourier_1' on page 5 undefined on input line 238.
 
 [5]
-<EE26BTECH11202/figs/Fourier.png, id=180, 650.43pt x 289.08pt>
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-Fourier_1' on page 6 undefined on input line 262.
+
+
+LaTeX Warning: Reference `fig:EE26BTECH11202-7' on page 6 undefined on input line 269.
+
+
+LaTeX Warning: Reference `fig:EE26BTECH11202-7' on page 6 undefined on input line 270.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-square' on page 6 undefined on input line 271.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-square-c' on page 6 undefined on input line 272.
+
+<EE26BTECH11202/figs/Fourier.png, id=134, 650.43pt x 289.08pt>
 File: EE26BTECH11202/figs/Fourier.png Graphic file (type png)
 <use EE26BTECH11202/figs/Fourier.png>
 Package pdftex.def Info: EE26BTECH11202/figs/Fourier.png  used on input line 278.
 (pdftex.def)             Requested size: 273.14647pt x 121.39954pt.
 
-
 LaTeX Warning: Command \j invalid in math mode on input line 290.
 
 
@@ -1274,7 +1341,90 @@ LaTeX Warning: Command \j invalid in math mode on input line 301.
 
 LaTeX Warning: Command \j invalid in math mode on input line 301.
 
-[6 <./EE26BTECH11202/figs/Fourier.png>] [7] [8] [9] [10] [11] (./EE26BTECH11202/figs/Spring.tex) [12] (./EE26BTECH11202/figs/spring_deriv.tex) [13]) (./chapters/bt-2025-formulae.tex
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-Fourier-shift-time-1' on page 6 undefined on input line 303.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-Fourier-shift-time' on page 6 undefined on input line 304.
+
+[6 <./EE26BTECH11202/figs/Fourier.png>]
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-rank-one' on page 7 undefined on input line 352.
+
+[7]
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-Matrices_1-AB' on page 8 undefined on input line 382.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-Matrices_inverse' on page 8 undefined on input line 411.
+
+[8]
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-app-conic_quad_form' on page 9 undefined on input line 448.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-app-conic_quad_form' on page 9 undefined on input line 461.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-app-conic_quad_form_v' on page 9 undefined on input line 466.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-app-conic_quad_form_f' on page 9 undefined on input line 466.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-conic_matrix' on page 9 undefined on input line 476.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-polar_quad' on page 9 undefined on input line 489.
+
+[9]
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-polar_conic' on page 10 undefined on input line 501.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-grav-intermediate' on page 10 undefined on input line 530.
+
+[10]
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-v_cross_h' on page 11 undefined on input line 556.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-polar_conic' on page 11 undefined on input line 568.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-v_cross_h' on page 11 undefined on input line 580.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-eccentricity_vector' on page 11 undefined on input line 580.
+
+[11]
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-ecc_expanded' on page 12 undefined on input line 602.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-energy' on page 12 undefined on input line 610.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-ecc_energy_sub' on page 12 undefined on input line 610.
+
+
+LaTeX Warning: Reference `fig:EE26BTECH11202-11' on page 12 undefined on input line 617.
+
+(./EE26BTECH11202/figs/Spring.tex) [12]
+
+LaTeX Warning: Reference `fig:EE26BTECH11202-11' on page 13 undefined on input line 634.
+
+
+LaTeX Warning: Reference `fig:EE26BTECH11202-2_' on page 13 undefined on input line 649.
+
+(./EE26BTECH11202/figs/spring_deriv.tex)
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-vertical_shm' on page 13 undefined on input line 674.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-spring_eqn-rest' on page 13 undefined on input line 675.
+
+) (./chapters/bt-2025-formulae.tex
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1284,12 +1434,16 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1})
 <to be read again> 
                    \relax 
 l.12 \end{align}
-                
+                 [13]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.3.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.17 \end{align}
                 
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-app-conic_quad_form' on page 14 undefined on input line 24.
+
+
 pdfTeX warning (ext4): destination with the same identifier (name{equation.4.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1310,11 +1464,18 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.4.4})
                    \relax 
 l.36 \end{align}
                 
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-2-quad-form' on page 14 undefined on input line 37.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-app-conic_quad_form' on page 14 undefined on input line 39.
+
+
 pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.43 \end{align}
-                 [14]
+                
 pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1339,7 +1500,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.8.2})
 <to be read again> 
                    \relax 
 l.83 \end{align}
-                
+                 [14]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.9.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1369,25 +1530,43 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.11.3}
 <to be read again> 
                    \relax 
 l.129 \end{align}
-                  [15]
+                 
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-dice_uniform_pmf' on page 15 undefined on input line 131.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-dice_convolution' on page 15 undefined on input line 131.
+
+
 pdfTeX warning (ext4): destination with the same identifier (name{equation.11.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.140 \end{align}
                  
-<figs/pmf.pdf, id=387, 462.52798pt x 346.89601pt>
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-triangular_pmf' on page 15 undefined on input line 143.
+
+
+LaTeX Warning: Reference `fig:EE26BTECH11213-bt25_q35' on page 15 undefined on input line 144.
+
+<figs/pmf.pdf, id=303, 462.52798pt x 346.89601pt>
 File: figs/pmf.pdf Graphic file (type pdf)
 <use figs/pmf.pdf>
 Package pdftex.def Info: figs/pmf.pdf  used on input line 150.
 (pdftex.def)             Requested size: 254.9356pt x 191.20625pt.
+[15]
 \absvshift=\dimen393
- [16 <./figs/pmf.pdf>]
+
 pdfTeX warning (ext4): destination with the same identifier (name{equation.12.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.175 \end{align}
                  
 \absvshift=\dimen394
+ [16 <./figs/pmf.pdf>]
+
+LaTeX Warning: Reference `fig:rc_s_circuit' on page 17 undefined on input line 192.
+
 
 pdfTeX warning (ext4): destination with the same identifier (name{equation.12.2}) has been already used, duplicate ignored
 <to be read again> 
@@ -1413,7 +1592,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.12.6}
 <to be read again> 
                    \relax 
 l.206 \end{align}
-                  [17]
+                 
 pdfTeX warning (ext4): destination with the same identifier (name{equation.13.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1428,7 +1607,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.15.1}
 <to be read again> 
                    \relax 
 l.234 \end{align}
-                 
+                  [17]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.16.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1468,12 +1647,29 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.18.4}
 <to be read again> 
                    \relax 
 l.341 \end{align}
-                 ) [19] (./chapters/bt-2025-problems.tex
+                 
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-char_poly_factored' on page 19 undefined on input line 343.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-diagonal_expansion' on page 19 undefined on input line 343.
+
+) [19] (./chapters/bt-2025-problems.tex
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.7 \end{align}
                
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-1' on page 20 undefined on input line 18.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-exp_maclaurin' on page 20 undefined on input line 24.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-2-quad-form' on page 20 undefined on input line 42.
+
+
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1483,13 +1679,48 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.2.2})
 <to be read again> 
                    \relax 
 l.49 \end{align}
-                 [20]
-<figs/circleintersect.pdf, id=504, 578.16pt x 578.16pt>
-File: figs/circleintersect.pdf Graphic file (type pdf)
-<use figs/circleintersect.pdf>
-Package pdftex.def Info: figs/circleintersect.pdf  used on input line 110.
-(pdftex.def)             Requested size: 254.9356pt x 254.92932pt.
- [21]
+                
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-pencil_det_zero' on page 20 undefined on input line 52.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-pencil_conics' on page 20 undefined on input line 64.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-line-normal' on page 20 undefined on input line 70.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-line-param' on page 20 undefined on input line 72.
+
+[20]
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-circ-1' on page 21 undefined on input line 80.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-conic_kappa_roots' on page 21 undefined on input line 82.
+
+
+LaTeX Warning: Reference `fig:EE26BTECH11213-bt25_q9' on page 21 undefined on input line 104.
+
+
+LaTeX Warning: File `figs/circleintersect.pdf' not found on input line 110.
+
+
+./chapters/bt-2025-problems.tex:110: Package pdftex.def Error: File `figs/circleintersect.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110 ...0.70\linewidth]{figs/circleintersect.pdf}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 110.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+) [21]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.3.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1499,8 +1730,27 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.3.2})
 <to be read again> 
                    \relax 
 l.134 \end{align}
-                  [22 <./figs/circleintersect.pdf>]
-<figs/bac.pdf, id=575, 462.52798pt x 346.89601pt>
+                 
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-Laplace_1' on page 22 undefined on input line 136.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-Laplace_4.1' on page 22 undefined on input line 136.
+
+[22]
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-Laplace_4.1' on page 23 undefined on input line 147.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-Laplace_3' on page 23 undefined on input line 147.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11202-ED_1' on page 23 undefined on input line 154.
+
+
+LaTeX Warning: Reference `fig:EE26BTECH11213-bt25_q13' on page 23 undefined on input line 159.
+
+<figs/bac.pdf, id=447, 462.52798pt x 346.89601pt>
 File: figs/bac.pdf Graphic file (type pdf)
 <use figs/bac.pdf>
 Package pdftex.def Info: figs/bac.pdf  used on input line 168.
@@ -1526,17 +1776,27 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.4.4})
                    \relax 
 l.195 \end{align}
                  
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-convexity_check' on page 24 undefined on input line 196.
+
+
 pdfTeX warning (ext4): destination with the same identifier (name{equation.4.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.199 \end{align}
                  
-<figs/min.png, id=631, 462.528pt x 346.896pt>
+
+LaTeX Warning: Reference `fig:EE26BTECH11213-bt25_q14' on page 24 undefined on input line 202.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-grad_descent_update' on page 24 undefined on input line 208.
+
+<figs/min.png, id=500, 462.528pt x 346.896pt>
 File: figs/min.png Graphic file (type png)
 <use figs/min.png>
 Package pdftex.def Info: figs/min.png  used on input line 219.
 (pdftex.def)             Requested size: 254.9356pt x 191.20625pt.
- [24]
+[24]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1546,8 +1806,15 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.5.2})
 <to be read again> 
                    \relax 
 l.231 \end{align}
-                  [25 <./figs/min.png>]
-<figs/raph.pdf, id=665, 462.52798pt x 346.89601pt>
+                 
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-newton_raphson' on page 25 undefined on input line 232.
+
+[25 <./figs/min.png>]
+
+LaTeX Warning: Reference `fig:EE26BTECH11213-bt25_q33' on page 26 undefined on input line 253.
+
+<figs/raph.pdf, id=532, 462.52798pt x 346.89601pt>
 File: figs/raph.pdf Graphic file (type pdf)
 <use figs/raph.pdf>
 Package pdftex.def Info: figs/raph.pdf  used on input line 259.
@@ -1568,22 +1835,38 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.6.3})
                    \relax 
 l.279 \end{align}
                  
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-system' on page 26 undefined on input line 281.
+
+
 pdfTeX warning (ext4): destination with the same identifier (name{equation.6.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.289 \end{align}
-                  [26 <./figs/raph.pdf>]
-<figs/bt34_plot.pdf, id=701, 442.05777pt x 338.70917pt>
+                 
+
+LaTeX Warning: Reference `fig:EE26BTECH11213-bt25_q34' on page 26 undefined on input line 292.
+
+[26 <./figs/raph.pdf>]
+<figs/bt34_plot.pdf, id=565, 442.05777pt x 338.70917pt>
 File: figs/bt34_plot.pdf Graphic file (type pdf)
 <use figs/bt34_plot.pdf>
 Package pdftex.def Info: figs/bt34_plot.pdf  used on input line 298.
 (pdftex.def)             Requested size: 254.9356pt x 195.3351pt.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-triangular_pmf' on page 27 undefined on input line 308.
+
 
 pdfTeX warning (ext4): destination with the same identifier (name{equation.7.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.313 \end{align}
                  
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-rc_time_response' on page 27 undefined on input line 325.
+
+
 pdfTeX warning (ext4): destination with the same identifier (name{equation.8.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1598,18 +1881,26 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.8.3})
 <to be read again> 
                    \relax 
 l.334 \end{align}
-                  [27 <./figs/bt34_plot.pdf>]
-<figs/rc-step-response.pdf, id=766, 410.9459pt x 327.86188pt>
+                 
+
+LaTeX Warning: Reference `fig:EE26BTECH11213-bt25_q42' on page 27 undefined on input line 336.
+
+[27 <./figs/bt34_plot.pdf>]
+<figs/rc-step-response.pdf, id=628, 410.9616pt x 327.20317pt>
 File: figs/rc-step-response.pdf Graphic file (type pdf)
 <use figs/rc-step-response.pdf>
 Package pdftex.def Info: figs/rc-step-response.pdf  used on input line 343.
-(pdftex.def)             Requested size: 254.9356pt x 203.39232pt.
+(pdftex.def)             Requested size: 254.9356pt x 202.9787pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{equation.9.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.351 \end{align}
                  
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-bt25_s' on page 28 undefined on input line 364.
+
+
 pdfTeX warning (ext4): destination with the same identifier (name{equation.10.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1620,6 +1911,10 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.10.2}
                    \relax 
 l.392 \end{align}
                  
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-bt25_int-der' on page 29 undefined on input line 394.
+
+
 pdfTeX warning (ext4): destination with the same identifier (name{equation.11.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1640,16 +1935,39 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.11.4}
                    \relax 
 l.428 \end{align}
                  
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-diff_implies_cont' on page 29 undefined on input line 429.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-continuity_cond' on page 29 undefined on input line 429.
+
+
 pdfTeX warning (ext4): destination with the same identifier (name{equation.11.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.436 \end{align}
                  
-<figs/piecewise-tangent-plot.pdf, id=852, 445.98259pt x 312.0458pt>
-File: figs/piecewise-tangent-plot.pdf Graphic file (type pdf)
-<use figs/piecewise-tangent-plot.pdf>
-Package pdftex.def Info: figs/piecewise-tangent-plot.pdf  used on input line 449.
-(pdftex.def)             Requested size: 254.9356pt x 178.37741pt.
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-deriv_equality' on page 29 undefined on input line 437.
+
+
+LaTeX Warning: Reference `fig:EE26BTECH11213-bt25_q46' on page 29 undefined on input line 442.
+
+
+LaTeX Warning: File `figs/piecewise-tangent-plot.pdf' not found on input line 449.
+
+
+./chapters/bt-2025-problems.tex:449: Package pdftex.def Error: File `figs/piecewise-tangent-plot.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.449 ...newidth]{figs/piecewise-tangent-plot.pdf}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 
 pdfTeX warning (ext4): destination with the same identifier (name{figure.11.1}) has been already used, duplicate ignored
 <to be read again> 
@@ -1700,7 +2018,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.12.8}
 <to be read again> 
                    \relax 
 l.504 \end{align}
-                  [30 <./figs/piecewise-tangent-plot.pdf>]
+                  [30]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.12.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1740,7 +2058,21 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.13.6}
 <to be read again> 
                    \relax 
 l.622 \end{align}
-                  [33] [34]
+                 
+
+LaTeX Warning: Reference `eq:diff_eq_causal' on page 33 undefined on input line 624.
+
+[33]
+
+LaTeX Warning: Reference `eq:z_step_transform' on page 34 undefined on input line 657.
+
+
+LaTeX Warning: Reference `eq:z_inv_exponential' on page 34 undefined on input line 657.
+
+
+LaTeX Warning: Reference `eq:EE26BTECH11213-sum_eigenvalues_trace' on page 34 undefined on input line 690.
+
+[34]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.14.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1750,22 +2082,35 @@ l.694 \end{align}
 LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
  ***********
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F3C41A56498A758D81CB9F5F600A6281;453.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  F3C41A56498A758D81CB9F5F600A6281;453.
  ) 
 Here is how much of TeX's memory you used:
- 54342 strings out of 467533
- 1310757 string characters out of 5422138
- 1946005 words of memory out of 5000000
- 82066 multiletter control sequences out of 15000+600000
- 665650 words of font info for 127 fonts, out of 8000000 for 9000
+ 54412 strings out of 467533
+ 1312869 string characters out of 5422138
+ 1936817 words of memory out of 5000000
+ 82137 multiletter control sequences out of 15000+600000
+ 666165 words of font info for 129 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 109i,18n,118p,1225b,1424s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (35 pages, 459122 bytes).
+ 109i,18n,118p,1225b,1425s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (35 pages, 438636 bytes).
 PDF statistics:
- 1172 PDF objects out of 1200 (max. 8388607)
- 832 compressed objects within 9 object streams
+ 963 PDF objects out of 1000 (max. 8388607)
+ 690 compressed objects within 7 object streams
  407 named destinations out of 1000 (max. 500000)
- 198 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 148 words of extra memory for PDF output out of 10000 (max. 10000000)
 
