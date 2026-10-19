@@ -508,16 +508,6 @@ x_4 - \frac{2}{5}\brak{6x_1} = 0 \implies \frac{12}{5}x_1 = x_4
 \end{align}
 
 Expressing the system for the unknowns $\vec{y} = \myvec{x_1 & x_2 & x_3 & x_5 & x_6}^\top$ normalized with respect to $x_4$, we formulate the augmented matrix $\augvec{5}{1}{\vec{A} & \vec{b}}$.
-\begin{align}
-\augvec{5}{1}{\vec{A} & \vec{b}} &=
-\augvec{5}{1}{
-6 & 0 & 0 & -1 & 0 & 1 \\
-0 & 1 & 0 & 0 & 0 & \frac{1}{5} \\
-12 & 3 & 0 & 0 & -2 & \frac{9}{5} \\
-6 & 0 & 2 & -2 & -1 & \frac{1}{2} \\
-\frac{12}{5} & 0 & 0 & 0 & 0 & 1
-} 
-\end{align}
 
 Following row reduction on the augmented matrix:
 \begin{align}
@@ -528,40 +518,44 @@ Following row reduction on the augmented matrix:
 12 & 3 & 0 & 0 & -2 & \frac{9}{5} \\
 6 & 0 & 2 & -2 & -1 & \frac{1}{2} \\
 \frac{12}{5} & 0 & 0 & 0 & 0 & 1
-} \nonumber \\[1ex]
-&\xrightarrow{\substack{R_1 \to \frac{1}{6}R_1 \\ R_5 \to \frac{5}{12}R_5}}
+} \nonumber \\[1.5ex]
+&\xrightarrow[R_5 \to \frac{5}{12}R_5]{R_1 \to \frac{1}{6}R_1}
 \augvec{5}{1}{
 1 & 0 & 0 & -\frac{1}{6} & 0 & \frac{1}{6} \\
 0 & 1 & 0 & 0 & 0 & \frac{1}{5} \\
 12 & 3 & 0 & 0 & -2 & \frac{9}{5} \\
 6 & 0 & 2 & -2 & -1 & \frac{1}{2} \\
 1 & 0 & 0 & 0 & 0 & \frac{5}{12}
-} \nonumber \\[1ex]
-&\xrightarrow{\substack{R_3 \to R_3 - 12R_1 \\ R_4 \to R_4 - 6R_1 \\ R_5 \to R_5 - R_1}}
+} \nonumber \\[1.5ex]
+&\xrightarrow[R_5 \to R_5 - R_1]{R_3 \to R_3 - 12R_1, \; R_4 \to R_4 - 6R_1}
 \augvec{5}{1}{
 1 & 0 & 0 & -\frac{1}{6} & 0 & \frac{1}{6} \\
 0 & 1 & 0 & 0 & 0 & \frac{1}{5} \\
 0 & 3 & 0 & 2 & -2 & -\frac{1}{5} \\
 0 & 0 & 2 & -1 & -1 & -\frac{1}{2} \\
 0 & 0 & 0 & \frac{1}{6} & 0 & \frac{1}{4}
-} \nonumber \\[1ex]
-&\xrightarrow{\substack{R_3 \to R_3 - 3R_2 \\ R_3 \leftrightarrow R_4}}
+}\label{eq:EE26BTECH11213-row_step1}
+\end{align}
+
+Continuing the row reduction:
+\begin{align}
+&\xrightarrow[R_3 \leftrightarrow R_4]{R_3 \to R_3 - 3R_2}
 \augvec{5}{1}{
 1 & 0 & 0 & -\frac{1}{6} & 0 & \frac{1}{6} \\
 0 & 1 & 0 & 0 & 0 & \frac{1}{5} \\
 0 & 0 & 2 & -1 & -1 & -\frac{1}{2} \\
 0 & 0 & 0 & 2 & -2 & -\frac{4}{5} \\
 0 & 0 & 0 & \frac{1}{6} & 0 & \frac{1}{4}
-} \nonumber \\[1ex]
-&\xrightarrow{\substack{R_3 \to \frac{1}{2}R_3 \\ R_4 \to \frac{1}{2}R_4 \\ R_5 \to 6R_5 - R_4}}
+} \nonumber \\[1.5ex]
+&\xrightarrow[R_5 \to 6R_5 - R_4]{R_3 \to \frac{1}{2}R_3, \; R_4 \to \frac{1}{2}R_4}
 \augvec{5}{1}{
 1 & 0 & 0 & -\frac{1}{6} & 0 & \frac{1}{6} \\
 0 & 1 & 0 & 0 & 0 & \frac{1}{5} \\
 0 & 0 & 1 & -\frac{1}{2} & -\frac{1}{2} & -\frac{1}{4} \\
 0 & 0 & 0 & 1 & -1 & -\frac{2}{5} \\
 0 & 0 & 0 & 0 & 1 & \frac{19}{10}
-} \nonumber \\[1ex]
-&\xrightarrow{\substack{R_4 \to R_4 + R_5 \\ R_3 \to R_3 + \frac{1}{2}R_5 + \frac{1}{2}R_4 \\ R_1 \to R_1 + \frac{1}{6}R_4}}
+} \nonumber \\[1.5ex]
+&\xrightarrow[R_1 \to R_1 + \frac{1}{6}R_4]{R_4 \to R_4 + R_5, \; R_3 \to R_3 + \frac{1}{2}R_5 + \frac{1}{2}R_4}
 \augvec{5}{1}{
 1 & 0 & 0 & 0 & 0 & \frac{5}{12} \\
 0 & 1 & 0 & 0 & 0 & \frac{1}{5} \\

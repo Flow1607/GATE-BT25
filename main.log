@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.8.27)  19 OCT 2026 01:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.8.27)  19 OCT 2026 17:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1709,42 +1709,42 @@ l.508 \end{align}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.12.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.520 \end{align}
+l.538 \end{align}
                   [31] [32]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.13.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.606 \end{align}
+l.600 \end{align}
                  
 pdfTeX warning (ext4): destination with the same identifier (name{equation.13.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.614 \end{align}
+l.608 \end{align}
                  
 pdfTeX warning (ext4): destination with the same identifier (name{equation.13.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.618 \end{align}
+l.612 \end{align}
                  
 pdfTeX warning (ext4): destination with the same identifier (name{equation.13.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.622 \end{align}
+l.616 \end{align}
                  
 pdfTeX warning (ext4): destination with the same identifier (name{equation.13.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.628 \end{align}
+l.622 \end{align}
                  
 pdfTeX warning (ext4): destination with the same identifier (name{equation.13.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.635 \end{align}
+l.629 \end{align}
                   [33] [34]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.14.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.707 \end{align}
+l.701 \end{align}
                  ) [35] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
@@ -1754,15 +1754,15 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: F3C41A56498A758D81CB9F5F600A6281;453.
  ) 
 Here is how much of TeX's memory you used:
- 54336 strings out of 467533
- 1310945 string characters out of 5422138
- 1953053 words of memory out of 5000000
- 82067 multiletter control sequences out of 15000+600000
+ 54337 strings out of 467533
+ 1310974 string characters out of 5422138
+ 1952099 words of memory out of 5000000
+ 82068 multiletter control sequences out of 15000+600000
  665650 words of font info for 127 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 109i,19n,118p,1225b,1424s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,18n,118p,1225b,1424s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (35 pages, 457793 bytes).
+Output written on main.pdf (35 pages, 457732 bytes).
 PDF statistics:
  1148 PDF objects out of 1200 (max. 8388607)
  811 compressed objects within 9 object streams
