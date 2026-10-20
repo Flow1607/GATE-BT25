@@ -502,50 +502,71 @@ Formulating the equivalent matrix equation,
 =
 \myvec{0 \\ 0 \\ 0 \\ 0}
 \end{align}
-The biomass yield coefficient is $0.4\text{ C-mol/C-mol} = \frac{2}{5}\text{ C-mol/C-mol}$, which provides the fifth relation:
+The biomass yield coefficient is $0.4\text{ C-mol/C-mol} = \frac{2}{5}\text{ C-mol/C-mol}$, which provides the relation:
 \begin{align}
 x_4 - \frac{2}{5}\brak{6x_1} = 0 \implies \frac{12}{5}x_1 = x_4
 \end{align}
 
-Expressing the system for the unknowns $\vec{y} = \myvec{x_1 & x_2 & x_3 & x_5 & x_6}^\top$ normalized with respect to $x_4$, we construct the augmented matrix:
+Expressing the system for the unknowns $\vec{y} = \myvec{x_1 & x_2 & x_3 & x_5 & x_6}^\top$ normalized with respect to $x_4$, we formulate the augmented matrix $\augvec{5}{1}{\vec{A} & \vec{b}}$.
+
+Following row reduction on the augmented matrix:
 \begin{align}
-\augvec{5}{1}{\vec{A} & \vec{b}} = 
+\augvec{5}{1}{\vec{A} & \vec{b}} &=
 \augvec{5}{1}{
 6 & 0 & 0 & -1 & 0 & 1 \\
 0 & 1 & 0 & 0 & 0 & \frac{1}{5} \\
 12 & 3 & 0 & 0 & -2 & \frac{9}{5} \\
 6 & 0 & 2 & -2 & -1 & \frac{1}{2} \\
 \frac{12}{5} & 0 & 0 & 0 & 0 & 1
-}
+} \nonumber \\[1.5ex]
+&\xrightarrow[R_5 \to \frac{5}{12}R_5]{R_1 \to \frac{1}{6}R_1}
+\augvec{5}{1}{
+1 & 0 & 0 & -\frac{1}{6} & 0 & \frac{1}{6} \\
+0 & 1 & 0 & 0 & 0 & \frac{1}{5} \\
+12 & 3 & 0 & 0 & -2 & \frac{9}{5} \\
+6 & 0 & 2 & -2 & -1 & \frac{1}{2} \\
+1 & 0 & 0 & 0 & 0 & \frac{5}{12}
+} \nonumber \\[1.5ex]
+&\xrightarrow[R_5 \to R_5 - R_1]{R_3 \to R_3 - 12R_1, \; R_4 \to R_4 - 6R_1}
+\augvec{5}{1}{
+1 & 0 & 0 & -\frac{1}{6} & 0 & \frac{1}{6} \\
+0 & 1 & 0 & 0 & 0 & \frac{1}{5} \\
+0 & 3 & 0 & 2 & -2 & -\frac{1}{5} \\
+0 & 0 & 2 & -1 & -1 & -\frac{1}{2} \\
+0 & 0 & 0 & \frac{1}{6} & 0 & \frac{1}{4}
+}\label{eq:EE26BTECH11213-row_step1}
 \end{align}
 
-Applying the sequence of elementary row operations:
-\begin{itemize}
-    \item $R_1 \to \frac{1}{6}R_1, \quad R_5 \to \frac{5}{12}R_5$
-    \item $R_3 \to R_3 - 12R_1, \quad R_4 \to R_4 - 6R_1, \quad R_5 \to R_5 - R_1$
-    \item $R_3 \to R_3 - 3R_2$
-    \item $R_3 \leftrightarrow R_4$
-    \item $R_3 \to \frac{1}{2}R_3, \quad R_4 \to \frac{1}{2}R_4, \quad R_5 \to 6\brak{R_5 - \frac{1}{6}R_4}$
-    \item $R_4 \to R_4 + R_5$
-    \item $R_3 \to R_3 + \frac{1}{2}R_4 + \frac{1}{2}R_5$
-    \item $R_1 \to R_1 + \frac{1}{6}R_4$
-\end{itemize}
-
-This reduces the system to the Reduced Row Echelon Form (RREF):
+Continuing the row reduction:
 \begin{align}
-\augvec{5}{1}{\vec{I} & \vec{y}^*} =
+&\xrightarrow[R_3 \leftrightarrow R_4]{R_3 \to R_3 - 3R_2}
+\augvec{5}{1}{
+1 & 0 & 0 & -\frac{1}{6} & 0 & \frac{1}{6} \\
+0 & 1 & 0 & 0 & 0 & \frac{1}{5} \\
+0 & 0 & 2 & -1 & -1 & -\frac{1}{2} \\
+0 & 0 & 0 & 2 & -2 & -\frac{4}{5} \\
+0 & 0 & 0 & \frac{1}{6} & 0 & \frac{1}{4}
+} \nonumber \\[1.5ex]
+&\xrightarrow[R_5 \to 6R_5 - R_4]{R_3 \to \frac{1}{2}R_3, \; R_4 \to \frac{1}{2}R_4}
+\augvec{5}{1}{
+1 & 0 & 0 & -\frac{1}{6} & 0 & \frac{1}{6} \\
+0 & 1 & 0 & 0 & 0 & \frac{1}{5} \\
+0 & 0 & 1 & -\frac{1}{2} & -\frac{1}{2} & -\frac{1}{4} \\
+0 & 0 & 0 & 1 & -1 & -\frac{2}{5} \\
+0 & 0 & 0 & 0 & 1 & \frac{19}{10}
+} \nonumber \\[1.5ex]
+&\xrightarrow[R_1 \to R_1 + \frac{1}{6}R_4]{R_4 \to R_4 + R_5, \; R_3 \to R_3 + \frac{1}{2}R_5 + \frac{1}{2}R_4}
 \augvec{5}{1}{
 1 & 0 & 0 & 0 & 0 & \frac{5}{12} \\
 0 & 1 & 0 & 0 & 0 & \frac{1}{5} \\
 0 & 0 & 1 & 0 & 0 & \frac{29}{20} \\
 0 & 0 & 0 & 1 & 0 & \frac{3}{2} \\
 0 & 0 & 0 & 0 & 1 & \frac{19}{10}
-}
+} \label{eq:EE26BTECH11213-stoich_rref}
 \end{align}
-
-Multiplying back by the parameter $x_4$, the complete stoichiometric coefficient vector is given by:
+Multiplying back by the parameter $x_4$, the complete stoichiometric coefficient vector is obtained as:
 \begin{align}
-\myvec{x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \\ x_6} = x_4 \myvec{\frac{5}{12} \\ \frac{1}{5} \\ \frac{29}{20} \\ 1 \\ \frac{3}{2} \\ \frac{19}{10}} \label{eq:stoich_vector_sol}
+\myvec{x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \\ x_6} = x_4 \myvec{\frac{5}{12} \\ \frac{1}{5} \\ \frac{29}{20} \\ 1 \\ \frac{3}{2} \\ \frac{19}{10}} \label{eq:EE26BTECH11213-stoich_vector_sol}
 \end{align}
 which corresponds to the scalar relations:
 \begin{align}
@@ -555,24 +576,10 @@ x_3 &= \frac{29}{20}x_4 \\
 x_5 &= \frac{3}{2}x_4 \\
 x_6 &= \frac{19}{10}x_4
 \end{align}
-%
-Evaluating with the sample numerical basis $x_4 = 5.0$:
-\begin{align}
-x_1 &= \frac{25}{12} \approx 2.0833 \\
-x_2 &= 1.0000 \\
-x_3 &= 7.2500 \\
-x_4 &= 5.0000 \\
-x_5 &= 7.5000 \\
-x_6 &= 9.5000
-\end{align}
-%
-The moles of oxygen consumed per mole of glucose consumed during fermentation is given by:
+
+The moles of oxygen consumed per mole of glucose consumed during fermentation is given by the ratio:
 \begin{align}
 \frac{x_3}{x_1} = \frac{\frac{29}{20}x_4}{\frac{5}{12}x_4} = \frac{29}{20} \times \frac{12}{5} = \frac{87}{25} = 3.48
-\end{align}
-or using the numerical evaluation:
-\begin{align}
-\frac{x_3}{x_1} = \frac{7.2500}{2.0833} = 3.48
 \end{align}
 %
 Rounding off to two decimal places, the answer is 3.48.
@@ -605,23 +612,23 @@ a_{n+1} - \frac{1}{2} a_n = \frac{1}{2}, \quad n \ge 0
 \end{align}
 Multiplying by $u\brak{n}$ yields the causal difference equation:
 \begin{align}
-x\brak{n+1} - \frac{1}{2} x\brak{n} = \frac{1}{2} u\brak{n}, \quad n \ge 0 \label{eq:diff_eq_causal}
+x\brak{n+1} - \frac{1}{2} x\brak{n} = \frac{1}{2} u\brak{n}, \quad n \ge 0 \label{eq:EE26BTECH11213-diff_eq_causal}
 \end{align}
 (Equivalently, shifting the index by one sample gives $x\brak{n} - \frac{1}{2} x\brak{n-1} = \frac{1}{2} u\brak{n-1}$ for $n \ge 1$).
 
 The unilateral (one-sided) Z-transform of $x\brak{n}$ is defined as:
 \begin{align}
-X^+\brak{z} = \mathcal{Z}^+\brak{x\brak{n}} = \sum_{n=0}^{\infty} x\brak{n} z^{-n} \label{eq:unilateral_z_def}
+X^+\brak{z} = \mathcal{Z}^+\brak{x\brak{n}} = \sum_{n=0}^{\infty} x\brak{n} z^{-n} \label{eq:EE26BTECH11213-unilateral_z_def}
 \end{align}
 Applying the unilateral Z-transform to the advanced sequence $x\brak{n+1}$:
 \begin{align}
 \mathcal{Z}^+\brak{x\brak{n+1}} &= \sum_{n=0}^{\infty} x\brak{n+1} z^{-n} \\
 &= z \sum_{n=0}^{\infty} x\brak{n+1} z^{-\brak{n+1}} \\
 &= z \brak{\sum_{k=0}^{\infty} x\brak{k} z^{-k} - x\brak{0}} \\
-&= z X^+\brak{z} - z x\brak{0} \label{eq:z_advance_prop}
+&= z X^+\brak{z} - z x\brak{0} \label{eq:EE26BTECH11213-z_advance_prop}
 \end{align}
 
-Taking the unilateral Z-transform on both sides of \eqref{eq:diff_eq_causal}:
+Taking the unilateral Z-transform on both sides of \eqref{eq:EE26BTECH11213-diff_eq_causal}:
 \begin{align}
 \brak{z X^+\brak{z} - z x\brak{0}} - \frac{1}{2} X^+\brak{z} &= \frac{1}{2} \mathcal{Z}^+\brak{u\brak{n}} \\
 \brak{z - \frac{1}{2}} X^+\brak{z} - z x\brak{0} &= \frac{\frac{1}{2}}{1 - z^{-1}}
@@ -654,7 +661,7 @@ Substituting $C_1$ and $C_2$ back into $X^+\brak{z}$:
 X^+\brak{z} = \frac{1}{1 - z^{-1}} - \frac{1}{1 - \frac{1}{2} z^{-1}}
 \end{align}
 
-Applying the inverse Z-transform using \eqref{eq:z_step_transform} and \eqref{eq:z_inv_exponential}:
+Applying the inverse Z-transform using \eqref{eq:EE26BTECH11213-z_step_transform} and \eqref{eq:EE26BTECH11213-z_inv_exponential}:
 \begin{align}
 x\brak{n} = \sbrak{1 - \brak{\frac{1}{2}}^n} u\brak{n} = 1 - 2^{-n}, \quad n \ge 0
 \end{align}
